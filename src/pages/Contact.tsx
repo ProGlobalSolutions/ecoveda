@@ -1,6 +1,49 @@
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { useState } from "react";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { db } from "../firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 export default function Contact() {
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+
+  const handleChange = (e: any) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    if (!form.name || !form.email || !form.message) {
+      alert("Fill all fields");
+      return;
+    }
+
+    try {
+      await addDoc(collection(db, "leads"), {
+        type: "contact",
+        ...form,
+        createdAt: serverTimestamp()
+      });
+
+      alert("Message sent!");
+
+      setForm({
+        name: "",
+        email: "",
+        message: ""
+      });
+
+    } catch (error) {
+      console.error(error);
+      alert("Error saving data");
+    }
+  };
+
   return (
     <div className="pt-16">
 
@@ -53,11 +96,17 @@ export default function Contact() {
           </div>
 
           {/* FORM */}
-          <form className="bg-white/80 backdrop-blur-xl p-8 rounded-3xl shadow-xl border border-gray-100 space-y-6">
+          <form
+            onSubmit={handleSubmit}
+            className="bg-white/80 backdrop-blur-xl p-8 rounded-3xl shadow-xl border border-gray-100 space-y-6"
+          >
 
             {/* NAME */}
             <div className="relative">
               <input
+                name="name"
+                value={form.name}
+                onChange={handleChange}
                 type="text"
                 required
                 placeholder=" "
@@ -74,6 +123,9 @@ export default function Contact() {
             {/* EMAIL */}
             <div className="relative">
               <input
+                name="email"
+                value={form.email}
+                onChange={handleChange}
                 type="email"
                 required
                 placeholder=" "
@@ -90,6 +142,9 @@ export default function Contact() {
             {/* MESSAGE */}
             <div className="relative">
               <textarea
+                name="message"
+                value={form.message}
+                onChange={handleChange}
                 rows={4}
                 required
                 placeholder=" "
