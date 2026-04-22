@@ -45,7 +45,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-[32px] font-bold text-white leading-tight">Quick Links</h4>
+            <h4 className="text-[22px] font-bold text-white leading-tight">Quick Links</h4>
             <ul className="flex flex-col gap-3 text-[18px]">
               {NAV_LINKS.slice(0, 5).map((link) => (
                 <li key={link.name}>
@@ -62,7 +62,7 @@ export default function Footer() {
 
           {/* Why Choose Us */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-[32px] font-bold text-white leading-tight">Why Choose Us</h4>
+            <h4 className="text-[22px] font-bold text-white leading-tight">Why Choose Us</h4>
             <div className="flex flex-col gap-2 text-[18px] opacity-90">
               <div>✓ Global Expertise</div>
               <div>✓ Rigorous Standards</div>
@@ -73,11 +73,11 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-[32px] font-bold text-white leading-tight">Connect</h4>
+            <h4 className="text-[22px] font-bold text-white leading-tight">Connect</h4>
             <ul className="flex flex-col gap-3 text-[18px]">
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-accent mt-1" />
-                Gurugram, India
+                Madurai, India
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-accent" />
@@ -94,9 +94,9 @@ export default function Footer() {
       </div>
 
       {/* BOTTOM */}
-      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 mt-12 pt-8 border-t border-gray-800 text-center">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 mt-6 md:mt-12 pt-6 md:pt-8 border-t border-gray-800 text-center">
         <p className="text-xs tracking-widest uppercase font-medium">
-          © {currentYear} EcoVeda Climate Solutions. All rights reserved.
+       © {currentYear} EcoVeda Climate Solutions. All rights reserved. Developed and published by PGS.
         </p>
       </div>
 

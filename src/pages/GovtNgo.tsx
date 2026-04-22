@@ -1,6 +1,11 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import govthero from "../assets/govthero.webp";
+import govt1 from "../assets/govt1.webp";
+import govt2 from "../assets/govt2.webp";
+import govt3 from "../assets/govt3.webp";
+import govt4 from "../assets/govt4.webp";
 
 export default function GovtNgo() {
   return (
@@ -11,8 +16,7 @@ export default function GovtNgo() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage:
-              "url(https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&q=80)"
+          backgroundImage: `url(${govthero})`
           }}
         />
         <div className="absolute inset-0 bg-black/70" />
@@ -69,7 +73,7 @@ export default function GovtNgo() {
 
           <div className="h-[350px] rounded-xl overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1551836022-d5d88e9218df"
+              src={govt1}
               className="w-full h-full object-cover"
             />
           </div>
@@ -82,7 +86,7 @@ export default function GovtNgo() {
 
           <div className="h-[350px] rounded-xl overflow-hidden order-2 md:order-1">
             <img
-              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0"
+              src={govt2}
               className="w-full h-full object-cover"
             />
           </div>
@@ -130,7 +134,7 @@ export default function GovtNgo() {
 
           <div className="h-[350px] rounded-xl overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da"
+              src={govt3}
               className="w-full h-full object-cover"
             />
           </div>
@@ -144,7 +148,7 @@ export default function GovtNgo() {
 
           <div className="h-[350px] rounded-xl overflow-hidden order-2 md:order-1">
             <img
-              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
+              src={govt4}
               className="w-full h-full object-cover"
             />
           </div>

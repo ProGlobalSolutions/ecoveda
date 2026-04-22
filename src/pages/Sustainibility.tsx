@@ -9,7 +9,7 @@ import {
   CheckCircle2,
   ArrowRight
 } from "lucide-react";
-
+import sustainibility from "../assets/sustainibility.webp";
 const SERVICES = [
   {
     icon: Flame,
@@ -78,7 +78,7 @@ export default function Sustainibility() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url(https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&q=80)"
+              `url(${sustainibility})`
           }}
         />
         <div className="absolute inset-0 bg-primary-dark/85" />

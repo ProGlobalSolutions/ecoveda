@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Globe, BarChart3, FileCheck, Shield } from "lucide-react";
+import carbon from "../assets/carbon.webp";
 
 export default function CarbonConsulting() {
   return (
@@ -26,7 +27,7 @@ export default function CarbonConsulting() {
 
           <div className="h-[420px] rounded-xl overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1509395176047-4a66953fd231"
+              src={carbon}
               className="w-full h-full object-cover"
             />
           </div>

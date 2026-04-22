@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import training1 from "../assets/customized.webp"
 
 export default function Training() {
   return (
@@ -45,7 +46,7 @@ export default function Training() {
 
           <div className="h-[400px] rounded-xl overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+              src={training1}
               className="w-full h-full object-cover"
             />
           </div>

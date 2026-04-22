@@ -1,6 +1,8 @@
 import { motion } from 'motion/react';
 import { ShieldCheck, Award, Eye, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import about1 from '../assets/about1.webp'
+import ecovedacli from '../assets/ecovedacli.webp' // ✅ ADDED
 
 const VALUES = [
   {
@@ -96,8 +98,7 @@ export default function About() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage:
-              'url(https://images.unsplash.com/photo-1441974231531-c6227db76b6e)',
+            backgroundImage: `url(${about1})`,
           }}
         />
         <div className="absolute inset-0 bg-black/50" />
@@ -147,12 +148,13 @@ export default function About() {
             <p className="font-semibold text-slate-800">
               Our mission is to impact over 100 million people and generate 1 billion+ carbon credits by 2030.
             </p>
-
           </div>
 
+          {/* ✅ FIXED RIGHT IMAGE */}
           <img
-            src="https://images.unsplash.com/photo-1542601906990-b4d3fb778eff"
-            className="rounded-xl shadow-lg"
+            src={ecovedacli}
+            alt="Ecoveda Climate"
+            className="rounded-xl shadow-lg w-full h-auto object-cover"
           />
 
         </div>

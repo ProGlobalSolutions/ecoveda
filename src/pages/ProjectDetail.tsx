@@ -99,49 +99,7 @@ export default function ProjectDetail() {
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-purple-900/10 to-transparent pointer-events-none" />
         )}
         
-        <div className="max-w-7xl mx-auto relative z-10">
-          <Link 
-            to="/verticals/project-development" 
-            className="inline-flex items-center gap-2 text-white/60 hover:text-white mb-12 uppercase text-[10px] font-bold tracking-[2px] transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" /> Back to Portfolio
-          </Link>
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div className="max-w-3xl">
-              <div className="flex items-center gap-4 mb-6">
-                <span className={`px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-white ${
-                  isCDR ? 'bg-gradient-to-r from-blue-500 to-purple-500' : 'bg-accent'
-                }`}>
-                  {project.type} Project
-                </span>
-                <span className="text-white/40 text-[10px] font-bold uppercase tracking-widest">
-                  Active Development
-                </span>
-              </div>
-              <h1 className="text-4xl md:text-6xl font-sans font-extrabold text-white leading-tight mb-8">
-                {project.name}
-              </h1>
-            </div>
-          </div>
-
-          {/* Stats Bar */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 px-1 bg-white/10 rounded-xl mt-12 backdrop-blur-sm border border-white/5">
-            {[
-              { label: 'Registry', value: project.registry, icon: Database },
-              { label: 'Location', value: project.location, icon: MapPin },
-              { label: 'Crediting Period', value: project.creditingPeriod, icon: Calendar },
-            ].map((stat, i) => (
-              <div key={i} className="bg-white/5 sm:bg-transparent p-8 flex flex-col items-center sm:items-start first:rounded-l-xl last:rounded-r-xl border-b sm:border-b-0 sm:border-r border-white/10 last:border-0">
-                <div className="flex items-center gap-2 mb-2">
-                  <stat.icon className={`w-4 h-4 ${isCDR ? 'text-blue-400' : 'text-accent'}`} />
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/40">{stat.label}</span>
-                </div>
-                <span className="text-white font-bold text-lg">{stat.value}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+        
       
 
       {/* Main Content Area */}
@@ -180,25 +138,33 @@ export default function ProjectDetail() {
     ))}
   </div>
 </div>
-            {project.secondaryActivities && (
-              <div>
-                 <h2 className={`text-sm font-bold uppercase tracking-[2px] mb-8 pb-4 border-b ${isCDR ? 'text-blue-400 border-white/10' : 'text-primary border-slate-100'}`}>
-                  Ancillary Initiatives
-                </h2>
-                <div className="grid sm:grid-cols-2 gap-6">
-                  {project.secondaryActivities.map((act, i) => (
-                    <div key={i} className={`flex items-start gap-4 p-6 rounded-xl border transition-all ${
-                      isCDR 
-                        ? 'bg-slate-800/50 border-white/5 hover:border-blue-500/30' 
-                        : 'bg-slate-50 border-slate-100 hover:border-accent'
-                    }`}>
-                      <CheckCircle2 className={`w-5 h-5 mt-0.5 shrink-0 ${isCDR ? 'text-blue-400' : 'text-accent'}`} />
-                      <span className="font-semibold text-sm leading-tight">{act}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+         {project.secondaryActivities && project.secondaryActivities.length > 0 && (
+  <div>
+    <h2 className={`text-sm font-bold uppercase tracking-[2px] mb-8 pb-4 border-b ${
+      isCDR ? 'text-blue-400 border-white/10' : 'text-primary border-slate-100'
+    }`}>
+      Ancillary Initiatives
+    </h2>
+
+    <div className="grid sm:grid-cols-2 gap-6">
+      {project.secondaryActivities.map((act, i) => (
+        <div
+          key={i}
+          className={`flex items-start gap-4 p-6 rounded-xl border transition-all ${
+            isCDR
+              ? 'bg-slate-800/50 border-white/5 hover:border-blue-500/30'
+              : 'bg-slate-50 border-slate-100 hover:border-accent'
+          }`}
+        >
+          <CheckCircle2 className={`w-5 h-5 mt-0.5 shrink-0 ${
+            isCDR ? 'text-blue-400' : 'text-accent'
+          }`} />
+          <span className="font-semibold text-sm leading-tight">{act}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
             
             {/* Map Section */}
             <div>

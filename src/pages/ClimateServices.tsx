@@ -1,6 +1,11 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import climatservice1 from "../assets/climateservices1.webp";
+import climatservice2 from "../assets/climateservices2.webp";
+import climatservice3 from "../assets/climateservices3.webp";
+import climatservice4 from "../assets/climateservices4.webp";
+
 
 export default function ClimateServices() {
   return (
@@ -47,7 +52,7 @@ export default function ClimateServices() {
 
           <div className="h-[350px] rounded-xl overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1551281044-8b1b52c7c8a1"
+              src={climatservice1}
               className="w-full h-full object-cover"
             />
           </div>
@@ -61,7 +66,7 @@ export default function ClimateServices() {
 
           <div className="h-[350px] rounded-xl overflow-hidden order-2 md:order-1">
             <img
-              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
+              src={climatservice2}
               className="w-full h-full object-cover"
             />
           </div>
@@ -109,7 +114,7 @@ export default function ClimateServices() {
 
           <div className="h-[350px] rounded-xl overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1581093588401-22d9b5c9c1d4"
+              src={climatservice3}
               className="w-full h-full object-cover"
             />
           </div>
@@ -123,7 +128,7 @@ export default function ClimateServices() {
 
           <div className="h-[350px] rounded-xl overflow-hidden order-2 md:order-1">
             <img
-              src="https://images.unsplash.com/photo-1521791136064-7986c2920216"
+              src={climatservice4}
               className="w-full h-full object-cover"
             />
           </div>

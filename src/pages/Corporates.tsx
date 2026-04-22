@@ -1,6 +1,10 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import  corporates1 from "../assets/corporate1.webp";
+import corporates2 from "../assets/corporate2.webp";
+import corporates3 from "../assets/corporate3.webp";
+
 
 export default function Corporates() {
   return (
@@ -47,7 +51,7 @@ export default function Corporates() {
 
           <div className="h-[350px] rounded-xl overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1556761175-4b46a572b786"
+              src={corporates1}
               className="w-full h-full object-cover"
             />
           </div>
@@ -61,7 +65,7 @@ export default function Corporates() {
 
           <div className="h-[350px] rounded-xl overflow-hidden order-2 md:order-1">
             <img
-              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
+              src={corporates2}
               className="w-full h-full object-cover"
             />
           </div>
@@ -109,7 +113,7 @@ export default function Corporates() {
 
           <div className="h-[350px] rounded-xl overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a"
+              src={corporates3}
               className="w-full h-full object-cover"
             />
           </div>
