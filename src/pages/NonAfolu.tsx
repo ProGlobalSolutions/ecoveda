@@ -1,6 +1,8 @@
 import { motion } from 'motion/react';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import biogas from "../assets/biogas.webp"
+import renew from "../assets/renew.webp"
 
 const EXPERTISE = [
   {
@@ -11,12 +13,12 @@ const EXPERTISE = [
   {
     title: 'Biogas',
     description: 'Organic waste conversion into renewable energy sources.',
-    image: 'https://images.unsplash.com/photo-1541625602330-2277a1cd43a7?auto=format&fit=crop&q=80',
+    image: biogas,
   },
   {
     title: 'Renewable Energy Projects',
     description: 'Solar, wind, and hybrid solutions for sustainable power.',
-    image: 'https://images.unsplash.com/photo-1509391366360-fe5bb58583bb?auto=format&fit=crop&q=80',
+    image: renew,
   },
   {
     title: 'Energy Efficiency Solutions',

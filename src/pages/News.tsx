@@ -1,33 +1,36 @@
 import { Link } from "react-router-dom";
-
+import maharashtra from "../assets/maharashtra.webp";
+import global from "../assets/global.webp"
+import southeast from "../assets/southeast.webp"
+import dmr from "../assets/dmrv.webp"
 const NEWS = [
   {
     id: "1",
     title: "Ecoveda Launches New ARR Project in Maharashtra",
     date: "April 2026",
     tag: "Project Launch",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+    image: maharashtra,
   },
   {
     id: "2",
     title: "Partnership Announced with Global Climate Fund",
     date: "March 2026",
     tag: "Partnership",
-    image: "https://images.unsplash.com/photo-1492724441997-5dc865305da7",
+    image: global,
   },
   {
     id: "3",
     title: "Expansion into Southeast Asia Markets",
     date: "March 2026",
     tag: "Expansion",
-    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e",
+    image: southeast,
   },
   {
     id: "4",
     title: "New DMRV Platform Successfully Deployed",
     date: "February 2026",
     tag: "Technology",
-    image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f",
+    image: dmr,
   },
 ];
 

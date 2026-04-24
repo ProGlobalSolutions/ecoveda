@@ -1,17 +1,20 @@
 import { motion } from 'motion/react';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import afforestation from "../assets/afforestation1.webp"
+import sustainable from "../assets/sustainable.webp"
+import impact from "../assets/impact.webp";
 
 const EXPERTISE = [
   {
     title: 'Afforestation, Reforestation & Revegetation',
     description: 'Planting and restoring forests to capture atmospheric carbon.',
-    image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778eff?auto=format&fit=crop&q=80',
+    image: afforestation,
   },
   {
     title: 'Sustainable Agricultural Land Management',
     description: 'Optimizing farming practices to improve soil and sequester carbon.',
-    image: 'https://images.unsplash.com/photo-1500382017468-9049fee74a62?auto=format&fit=crop&q=80',
+    image: sustainable,
   },
   {
     title: 'Wetland Restoration & Conservation',
@@ -159,7 +162,7 @@ export default function Afolu() {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1542601906990-b4d3fb778eff?auto=format&fit=crop&q=80"
+                src={impact}
                 alt="Impact"
                 className="rounded-xl shadow-2xl"
                 referrerPolicy="no-referrer"

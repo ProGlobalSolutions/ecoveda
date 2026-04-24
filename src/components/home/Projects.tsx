@@ -1,6 +1,8 @@
 import { motion } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import nonafolu from "../../assets/nonafolu.webp"
+import afolu from "../../assets/afolu.webp"
 
 const PROJECTS = [
   {
@@ -9,7 +11,7 @@ const PROJECTS = [
     description:
       'Afforestation, reforestation and sustainable land-use initiatives that restore ecosystems and generate verified carbon credits.',
     image:
-      'https://images.unsplash.com/photo-1441974231531-c6227db76b6e',
+      afolu,
     link: '/projects/afolu',
   },
   {
@@ -18,7 +20,7 @@ const PROJECTS = [
     description:
       'Renewable energy, waste-to-energy and industrial decarbonisation projects driving large-scale emission reductions.',
     image:
-      'https://images.unsplash.com/photo-1466611653911-954ffec136ce',
+      nonafolu,
     link: '/projects/non-afolu',
   },
 ];
