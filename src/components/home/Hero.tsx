@@ -7,7 +7,7 @@ import hero1 from "../../assets/hero.mp4";
 
 export default function Hero() {
   return (
-    <section className="relative h-screen min-h-[700px] w-full overflow-hidden">
+   <section className="relative h-[93vh] sm:h-screen min-h-[650px] sm:min-h-[700px] w-full overflow-hidden">
 
       {/* SINGLE IMAGE */}
       <motion.div
