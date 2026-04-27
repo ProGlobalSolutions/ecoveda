@@ -68,37 +68,27 @@ export default function Projects() {
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="group relative overflow-hidden rounded-2xl h-[400px] cursor-pointer"
+              className="group relative overflow-hidden rounded-2xl h-[400px] bg-primary-dark hover:bg-[#053d2e] border border-white/5 hover:border-emerald-500/30 flex flex-col justify-end p-8 cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-900/20"
             >
 
-              {/* IMAGE */}
-              <img
-                src={project.image}
-                alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-
-              {/* CLEAN OVERLAY */}
-              <div className="absolute inset-0 bg-black/50" />
-
               {/* CONTENT */}
-              <div className="absolute bottom-0 left-0 p-8 text-white">
+              <div className="relative z-10 text-white transform transition-transform duration-500 group-hover:translate-y-[-8px]">
 
-                <span className="text-xs uppercase tracking-wider text-emerald-300">
+                <span className="text-xs uppercase tracking-wider text-emerald-400 font-medium">
                   {project.subtitle}
                 </span>
 
-                <h3 className="text-2xl font-bold mt-2 mb-3">
+                <h3 className="text-3xl font-heading font-bold mt-3 mb-4">
                   {project.title}
                 </h3>
 
-                <p className="text-sm text-white/80 mb-6 max-w-sm">
+                <p className="text-base text-white/70 mb-8 max-w-sm leading-relaxed">
                   {project.description}
                 </p>
 
                 <Link
                   to={project.link}
-                  className="inline-flex items-center gap-2 bg-emerald-500 px-5 py-2 rounded-md text-sm font-semibold hover:bg-emerald-600 transition"
+                  className="inline-flex items-center gap-2 bg-emerald-500 px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-emerald-400 hover:text-primary-dark transition-colors duration-300"
                 >
                   Explore Projects
                 </Link>

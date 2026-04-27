@@ -34,6 +34,11 @@ import News from "./pages/News";
 import NewsDetail from "./pages/NewsDetail";
 import StakeholderConsultation from "./pages/StakeholderConsultation";
 import GetStarted from './pages/GetStarted';
+import VisionAndMission from './pages/VisionMission';
+import WhyEcoveda from './pages/WhyEcoveda';
+import Team from './pages/Team';
+
+
 
 
 // Temporary stub pages
@@ -109,7 +114,9 @@ export default function App() {
             <Route path="/news" element={<News />} />
             <Route path="/news/:id" element={<NewsDetail />} />
             <Route path="/stakeholder-consultation" element={<StakeholderConsultation />} />
-            
+            <Route path="/vision-mission" element={<VisionAndMission />} />
+            <Route path="/why-ecoveda" element={<WhyEcoveda />} />
+            <Route path="/team" element={<Team />} />
             {/* FALLBACK */}
             <Route
               path="*"

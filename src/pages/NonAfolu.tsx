@@ -3,12 +3,17 @@ import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import biogas from "../assets/biogas.webp"
 import renew from "../assets/renew.webp"
+import energyeff from "../assets/eneryeff.webp"
+import waste from "../assets/waste.webp"
+import transportation from "../assets/transportation.webp"
+import clean from "../assets/clean.webp"
+import nonafoluimpact from "../assets/nonafoluimpact.webp"
 
 const EXPERTISE = [
   {
     title: 'Clean Cooking',
     description: 'Efficient cooking solutions reducing emissions and improving health.',
-    image: 'https://images.unsplash.com/photo-1591189863430-ab87e120f312?auto=format&fit=crop&q=80',
+    image: clean,
   },
   {
     title: 'Biogas',
@@ -23,17 +28,17 @@ const EXPERTISE = [
   {
     title: 'Energy Efficiency Solutions',
     description: 'Reducing energy consumption through optimized systems.',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80',
+    image: energyeff,
   },
   {
     title: 'Waste to Energy',
     description: 'Transforming waste into usable energy resources.',
-    image: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80',
+    image: waste,
   },
   {
     title: 'Sustainable Transportation',
     description: 'Low-emission transport systems and mobility solutions.',
-    image: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&q=80',
+    image: transportation,
   },
 ];
 
@@ -171,7 +176,7 @@ export default function NonAfolu() {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1466611653911-954ffec136ce?auto=format&fit=crop&q=80"
+                src={nonafoluimpact}
                 alt="Impact"
                 className="rounded-xl shadow-2xl"
                 referrerPolicy="no-referrer"

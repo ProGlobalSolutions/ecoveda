@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import logo from "../../assets/logo.webp";
 
 export default function Navbar() {
@@ -18,7 +18,7 @@ export default function Navbar() {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // ✅ run once on mount
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -28,26 +28,23 @@ export default function Navbar() {
 
   const NAV_ITEMS = [
     { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-
+    {
+      name: "About",
+      dropdown: [
+        { name: "About us", path: "/about" },
+        { name: "Vision & Mission", path: "/vision-mission" },
+        { name: "Why Ecoveda", path: "/why-ecoveda" },
+        { name: "Team", path: "/team" },
+      ],
+    },
     {
       name: "Our Services",
       dropdown: [
         { name: "Sustainability Services", path: "/services/sustainability" },
-        { name: "Government & NGO", path: "/services/govt-ngo" },
-        { name: "Corporations", path: "/services/corporates" },
-        { name: "Climate Technology (Ecotech)", path: "/services/ecotech" },
         { name: "Climate Services", path: "/services/climate" },
-        { name: "Carbon Consulting", path: "/services/carbon-consulting" },
-        { name: "Carbon Project Development", path: "/services/project-development" },
-        { name: "DMRV / Ecotech", path: "/services/dmrv" },
-        { name: "Customized Training", path: "/services/training" },
-        { name: "Solar EPC", path: "/services/solar-epc" },
       ],
     },
-
     { name: "Our Portfolio", path: "/portfolio" },
-
     {
       name: "Insights & Resources",
       dropdown: [
@@ -56,31 +53,30 @@ export default function Navbar() {
         { name: "Stakeholder Consultation", path: "/stakeholder-consultation" },
       ],
     },
-
     { name: "Contact", path: "/contact" },
   ];
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 h-16 flex items-center transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 h-[72px] md:h-[88px] flex items-center transition-all duration-300 ${
         isScrolled || !isHome
           ? 'bg-white shadow-sm border-b'
           : 'bg-transparent border-b border-white/10'
       }`}
     >
-      <div className="w-full max-w-7xl mx-auto px-10 flex justify-between items-center">
+      <div className="w-full max-w-7xl mx-auto px-5 md:px-10 flex justify-between items-center">
 
         {/* LOGO */}
-        <Link to="/">
+        <Link to="/" className="lg:-ml-6 xl:-ml-8">
           <img
             src={logo}
-            className={`h-10 ${
+            className={`h-[62px] md:h-[82px] w-auto object-contain ${
               !(isScrolled || !isHome) ? 'brightness-0 invert' : ''
             }`}
           />
         </Link>
 
-        {/* DESKTOP */}
+        {/* DESKTOP NAV */}
         <div className="hidden lg:flex items-center gap-10">
 
           {NAV_ITEMS.map((link) => (
@@ -91,13 +87,10 @@ export default function Navbar() {
               onMouseLeave={() => setActiveDropdown(null)}
             >
 
-              {/* LINK / DROPDOWN */}
               {link.dropdown ? (
-                <div
-                  className={`flex items-center gap-1 text-sm font-medium uppercase cursor-pointer ${
-                    isScrolled || !isHome ? 'text-slate-900' : 'text-white'
-                  }`}
-                >
+                <div className={`flex items-center gap-1 text-sm font-medium uppercase cursor-pointer ${
+                  isScrolled || !isHome ? 'text-slate-900' : 'text-white'
+                }`}>
                   {link.name}
                   <ChevronDown size={16} />
                 </div>
@@ -112,15 +105,12 @@ export default function Navbar() {
                 </Link>
               )}
 
-              {/* DROPDOWN */}
               {link.dropdown && (
-                <div
-                  className={`absolute top-full left-0 pt-2 w-64 ${
-                    activeDropdown === link.name
-                      ? 'opacity-100 scale-y-100'
-                      : 'opacity-0 scale-y-0 pointer-events-none'
-                  } transition-all duration-200 origin-top`}
-                >
+                <div className={`absolute top-full left-0 pt-2 w-64 ${
+                  activeDropdown === link.name
+                    ? 'opacity-100 scale-y-100'
+                    : 'opacity-0 scale-y-0 pointer-events-none'
+                } transition-all duration-200 origin-top`}>
                   <div className="bg-white rounded-xl shadow-xl overflow-hidden">
                     {link.dropdown.map((item) => (
                       <Link
@@ -138,7 +128,6 @@ export default function Navbar() {
             </div>
           ))}
 
-          {/* CTA */}
           <Link
             to="/get-started"
             className={`px-6 py-2 rounded-md text-sm font-semibold ${
@@ -177,7 +166,8 @@ export default function Navbar() {
             >
 
               <div className="flex justify-between mb-6">
-                <img src={logo} className="h-8" />
+                {/* ✅ FIXED HERE */}
+                <img src={logo} className="h-[35px]" />
                 <X onClick={() => setMobileMenuOpen(false)} />
               </div>
 
