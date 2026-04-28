@@ -143,7 +143,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-6 mt-12 pt-6 border-t border-white/10 flex items-center justify-center relative z-10">
         <p className="text-sm text-white/60 text-center">
-          © {currentYear} EcoVeda Climate Solutions. All rights reserved.
+          © {currentYear} EcoVeda Climate Solutions. All rights reserved by Stand Astounded.
         </p>
       </div>
 
