@@ -5,22 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import logo from "../../assets/logo.webp";
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
 
   const location = useLocation();
-  const isHome = location.pathname === "/";
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -57,22 +46,14 @@ export default function Navbar() {
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 h-[72px] md:h-[88px] flex items-center transition-all duration-300 ${
-        isScrolled || !isHome
-          ? 'bg-white shadow-sm border-b'
-          : 'bg-transparent border-b border-white/10'
-      }`}
-    >
+    <nav className="fixed top-0 left-0 w-full z-50 h-[72px] md:h-[76px] flex items-center bg-white shadow-sm border-b transition-all duration-300">
       <div className="w-full max-w-7xl mx-auto px-5 md:px-10 flex justify-between items-center">
 
         {/* LOGO */}
         <Link to="/" className="lg:-ml-6 xl:-ml-8">
           <img
             src={logo}
-            className={`h-[42px] md:h-[54px] w-auto object-contain ${
-              !(isScrolled || !isHome) ? 'brightness-0 invert' : ''
-            }`}
+            className="h-[42px] md:h-[48px] w-auto object-contain"
           />
         </Link>
 
@@ -88,18 +69,14 @@ export default function Navbar() {
             >
 
               {link.dropdown ? (
-                <div className={`flex items-center gap-1 text-sm font-medium uppercase cursor-pointer ${
-                  isScrolled || !isHome ? 'text-slate-900' : 'text-white'
-                }`}>
+                <div className="flex items-center gap-1 text-sm font-medium uppercase cursor-pointer text-slate-900">
                   {link.name}
                   <ChevronDown size={16} />
                 </div>
               ) : (
                 <Link
                   to={link.path}
-                  className={`text-sm font-medium uppercase ${
-                    isScrolled || !isHome ? 'text-slate-900' : 'text-white'
-                  }`}
+                  className="text-sm font-medium uppercase text-slate-900"
                 >
                   {link.name}
                 </Link>
@@ -130,11 +107,7 @@ export default function Navbar() {
 
           <Link
             to="/get-started"
-            className={`px-6 py-2 rounded-md text-sm font-semibold ${
-              isScrolled || !isHome
-                ? 'bg-emerald-500 text-white'
-                : 'bg-white text-black'
-            }`}
+            className="px-6 py-2 rounded-md text-sm font-semibold bg-emerald-500 text-white"
           >
             Get Started
           </Link>
@@ -145,7 +118,7 @@ export default function Navbar() {
       {/* MOBILE BUTTON */}
       <button
         onClick={() => setMobileMenuOpen(true)}
-        className="lg:hidden absolute right-0 h-16 w-16 flex items-center justify-center"
+        className="lg:hidden absolute right-0 h-16 w-16 flex items-center justify-center text-slate-900"
       >
         <Menu size={28} />
       </button>
