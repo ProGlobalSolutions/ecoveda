@@ -1,13 +1,13 @@
-/* 🔥 GOOGLE FONTS (MODERN SANS-SERIF) */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* 🔥 GOOGLE FONTS (SERIF - PREMIUM) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap');
 
 /* 🔥 TAILWIND */
 @import "tailwindcss";
 
 /* 🔥 ROOT VARIABLES */
 @theme {
-  --font-body: "Poppins", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Playfair Display", serif;
+  --font-heading: "Playfair Display", serif;
 
   --color-primary: #064e3b;
   --color-primary-dark: #022c22;
