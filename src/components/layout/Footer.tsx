@@ -3,6 +3,7 @@ import {
   Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, 
   ArrowRight, ShieldCheck, Leaf, Target, Lightbulb
 } from 'lucide-react';
+import footerlogo from "../../assets/logo.webp";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -26,7 +27,11 @@ export default function Footer() {
         {/* 1. BRAND & ABOUT */}
         <div className="flex flex-col space-y-5 col-span-2 md:col-span-1">
           <div>
-            <h3 className="text-3xl font-heading font-bold text-white mb-2 tracking-tight">EcoVeda <span className="text-accent">Climate</span></h3>
+          <img 
+  src={footerlogo} 
+  alt="Ecoveda Climate" 
+  className="h-[40px] w-auto mb-3"
+/>
             <p className="text-base text-white/70 leading-relaxed max-w-xs">
               Pioneering comprehensive climate solutions through innovation, sustainability, and actionable insights.
             </p>

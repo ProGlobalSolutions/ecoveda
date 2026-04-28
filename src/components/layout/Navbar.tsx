@@ -70,7 +70,7 @@ export default function Navbar() {
         <Link to="/" className="lg:-ml-6 xl:-ml-8">
           <img
             src={logo}
-            className={`h-[45px] md:h-[58px] w-auto object-contain ${
+            className={`h-[42px] md:h-[54px] w-auto object-contain ${
               !(isScrolled || !isHome) ? 'brightness-0 invert' : ''
             }`}
           />
@@ -167,7 +167,7 @@ export default function Navbar() {
 
               <div className="flex justify-between mb-6">
                 {/* ✅ FIXED HERE */}
-               <img src={logo} className="h-[25px]" />
+              <img src={logo} className="h-[23px]" />
                 <X onClick={() => setMobileMenuOpen(false)} />
               </div>
 
