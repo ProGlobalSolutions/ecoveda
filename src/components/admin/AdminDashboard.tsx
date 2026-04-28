@@ -3,7 +3,8 @@ import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { db } from "../../firebase";
 import { Download, Eye, RefreshCw, LogOut, Users } from "lucide-react";
 import LeadDetailModal from "./LeadDetailModal";
-import { exportAllToCSV } from "../../utils/exportUtils";
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable";
 
 interface AdminDashboardProps {
   onLogout: () => void;
@@ -19,10 +20,9 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
   const fetchLeads = async () => {
     setLoading(true);
     try {
-      // Create a query against the collection, ordering by createdAt descending
       const leadsRef = collection(db, "leads");
       const q = query(leadsRef, orderBy("createdAt", "desc"));
-      
+
       const querySnapshot = await getDocs(q);
       const leadsData: any[] = [];
       querySnapshot.forEach((doc) => {
@@ -32,19 +32,19 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
       setErrorMsg(null);
     } catch (error: any) {
       console.error("Error fetching leads: ", error);
-      // Fallback if index is missing or ordering fails
       try {
         const querySnapshot = await getDocs(collection(db, "leads"));
         const leadsData: any[] = [];
         querySnapshot.forEach((doc) => {
           leadsData.push({ id: doc.id, ...doc.data() });
         });
-        // Sort manually client-side if query order fails
+
         leadsData.sort((a, b) => {
           if (!a.createdAt) return 1;
           if (!b.createdAt) return -1;
           return b.createdAt.seconds - a.createdAt.seconds;
         });
+
         setLeads(leadsData);
         setErrorMsg(null);
       } catch (e: any) {
@@ -65,10 +65,34 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
     setIsModalOpen(true);
   };
 
+  // ✅ NEW PDF FUNCTION
+  const exportAllToPDF = () => {
+    const doc = new jsPDF();
+
+    doc.setFontSize(16);
+    doc.text("Leads Report", 14, 15);
+
+    autoTable(doc, {
+      startY: 25,
+      head: [["Date", "Name", "Email", "Company", "Enquiry Type"]],
+      body: leads.map((lead) => [
+        lead.createdAt
+          ? new Date(lead.createdAt.seconds * 1000).toLocaleDateString()
+          : "N/A",
+        `${lead.firstName || ""} ${lead.lastName || ""}`,
+        lead.email || "",
+        lead.organisation || "-",
+        lead.enquiryType || "General",
+      ]),
+    });
+
+    doc.save("leads.pdf");
+  };
+
   return (
-    <div className="min-h-screen bg-slate-50 py-10 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-slate-50 pt-28 pb-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div>
@@ -78,7 +102,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
             </h1>
             <p className="text-slate-500 mt-1">Manage and export all your enquiries here.</p>
           </div>
-          
+
           <div className="flex items-center gap-3">
             <button
               onClick={fetchLeads}
@@ -88,14 +112,17 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
               <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
               Refresh
             </button>
+
+            {/* ✅ UPDATED BUTTON */}
             <button
-              onClick={() => exportAllToCSV(leads)}
+              onClick={exportAllToPDF}
               disabled={leads.length === 0 || loading}
               className="flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg shadow-sm hover:bg-emerald-700 transition-colors disabled:opacity-50 disabled:bg-emerald-400"
             >
               <Download className="w-4 h-4" />
-              Download All (CSV)
+              Download All (PDF)
             </button>
+
             <button
               onClick={onLogout}
               className="flex items-center gap-2 px-4 py-2 bg-slate-800 text-white rounded-lg shadow-sm hover:bg-slate-900 transition-colors"
@@ -106,7 +133,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
           </div>
         </div>
 
-        {/* Table Container */}
+        {/* Table */}
         <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
@@ -124,58 +151,28 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                 {loading ? (
                   <tr>
                     <td colSpan={6} className="px-6 py-12 text-center text-slate-500">
-                      <div className="flex flex-col items-center justify-center gap-3">
-                        <RefreshCw className="w-6 h-6 animate-spin text-emerald-600" />
-                        <p>Loading leads...</p>
-                      </div>
+                      <RefreshCw className="w-6 h-6 animate-spin text-emerald-600" />
+                      <p>Loading leads...</p>
                     </td>
                   </tr>
-                ) : errorMsg ? (
-                  <tr>
-                    <td colSpan={6} className="px-6 py-12 text-center text-red-500">
-                      <div className="flex flex-col items-center justify-center gap-2">
-                        <p className="font-bold">Error fetching leads:</p>
-                        <p className="text-sm">{errorMsg}</p>
-                      </div>
+                ) : leads.map((lead) => (
+                  <tr key={lead.id}>
+                    <td className="px-6 py-4">
+                      {lead.createdAt
+                        ? new Date(lead.createdAt.seconds * 1000).toLocaleDateString()
+                        : "N/A"}
+                    </td>
+                    <td className="px-6 py-4">{lead.firstName} {lead.lastName}</td>
+                    <td className="px-6 py-4">{lead.email}</td>
+                    <td className="px-6 py-4">{lead.organisation || "-"}</td>
+                    <td className="px-6 py-4">{lead.enquiryType || "General"}</td>
+                    <td className="px-6 py-4 text-right">
+                      <button onClick={() => handleViewDetails(lead)}>
+                        <Eye className="w-4 h-4" /> View
+                      </button>
                     </td>
                   </tr>
-                ) : leads.length === 0 ? (
-                  <tr>
-                    <td colSpan={6} className="px-6 py-12 text-center text-slate-500">
-                      No leads found.
-                    </td>
-                  </tr>
-                ) : (
-                  leads.map((lead) => (
-                    <tr key={lead.id} className="hover:bg-slate-50/80 transition-colors group">
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500">
-                        {lead.createdAt ? new Date(lead.createdAt.seconds * 1000).toLocaleDateString() : 'N/A'}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="font-medium text-slate-900">{lead.firstName} {lead.lastName}</div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
-                        {lead.email}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-600">
-                        {lead.organisation || '-'}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
-                          {lead.enquiryType || 'General'}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <button
-                          onClick={() => handleViewDetails(lead)}
-                          className="inline-flex items-center gap-1.5 text-emerald-600 hover:text-emerald-900 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-lg transition-colors"
-                        >
-                          <Eye className="w-4 h-4" /> View
-                        </button>
-                      </td>
-                    </tr>
-                  ))
-                )}
+                ))}
               </tbody>
             </table>
           </div>
@@ -183,7 +180,6 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
 
       </div>
 
-      {/* Detail Modal */}
       <LeadDetailModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
