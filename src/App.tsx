@@ -37,6 +37,7 @@ import GetStarted from './pages/GetStarted';
 import VisionAndMission from './pages/VisionMission';
 import WhyEcoveda from './pages/WhyEcoveda';
 import Team from './pages/Team';
+import Admin from './pages/Admin';
 
 
 
@@ -117,6 +118,7 @@ export default function App() {
             <Route path="/vision-mission" element={<VisionAndMission />} />
             <Route path="/why-ecoveda" element={<WhyEcoveda />} />
             <Route path="/team" element={<Team />} />
+            <Route path="/admin" element={<Admin />} />
             {/* FALLBACK */}
             <Route
               path="*"

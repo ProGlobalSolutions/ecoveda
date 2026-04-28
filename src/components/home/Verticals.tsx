@@ -8,24 +8,28 @@ const SERVICES = [
     title: 'Sustainability Services',
     description: 'End-to-end climate solutions including carbon project development and sustainability strategy.',
     link: '/services/sustainability',
+    bg: 'https://images.unsplash.com/photo-1508780709619-79562169bc64', // nature/forest
   },
   {
     icon: Building2,
     title: 'Government & NGOs',
     description: 'Supporting public sector and development organisations with scalable climate initiatives.',
     link: '/services/govt-ngo',
+    bg: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df',// community/government
   },
   {
     icon: Globe,
     title: 'Corporates',
     description: 'Helping businesses achieve net-zero through ESG, decarbonisation and carbon markets.',
     link: '/services/corporates',
+    bg: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72', // corporate/building
   },
   {
     icon: Cpu,
     title: 'Climate Technology',
     description: 'Advanced DMRV systems, AI, IoT and data-driven climate monitoring solutions.',
     link: '/services/ecotech',
+    bg: 'https://images.unsplash.com/photo-1518770660439-4636190af475', // tech
   },
 ];
 
@@ -59,32 +63,46 @@ export default function Verticals() {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition"
+              className="group relative rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition"
             >
 
-              {/* ICON */}
-              <div className="w-12 h-12 flex items-center justify-center bg-emerald-50 text-emerald-600 rounded-lg mb-6 group-hover:bg-emerald-500 group-hover:text-white transition">
-                <service.icon className="w-6 h-6" />
+              {/* BACKGROUND IMAGE */}
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                style={{ backgroundImage: `url(${service.bg})` }}
+              />
+
+              {/* OVERLAY */}
+              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition" />
+
+              {/* CONTENT */}
+              <div className="relative z-10 p-8 text-white">
+
+                {/* ICON */}
+                <div className="w-12 h-12 flex items-center justify-center bg-white/20 backdrop-blur text-white rounded-lg mb-6 group-hover:bg-emerald-500 transition">
+                  <service.icon className="w-6 h-6" />
+                </div>
+
+                {/* TITLE */}
+                <h3 className="text-lg font-bold mb-3">
+                  {service.title}
+                </h3>
+
+                {/* DESC */}
+                <p className="text-sm text-white/90 leading-relaxed mb-6">
+                  {service.description}
+                </p>
+
+                {/* LINK */}
+                <Link
+                  to={service.link}
+                  className="inline-flex items-center gap-2 text-emerald-300 font-semibold text-sm"
+                >
+                  Explore
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
+                </Link>
+
               </div>
-
-              {/* TITLE */}
-              <h3 className="text-lg font-bold text-slate-800 mb-3">
-                {service.title}
-              </h3>
-
-              {/* DESC */}
-              <p className="text-sm text-slate-600 leading-relaxed mb-6">
-                {service.description}
-              </p>
-
-              {/* LINK */}
-              <Link
-                to={service.link}
-                className="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm"
-              >
-                Explore
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
-              </Link>
 
             </motion.div>
           ))}

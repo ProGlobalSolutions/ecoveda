@@ -7,16 +7,19 @@ export default function Intro() {
       icon: Leaf,
       title: 'Nature-Based Solutions',
       description: 'Afforestation, restoration and sustainable land-use programs driving measurable carbon impact.',
+      bg: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e', // forest / nature
     },
     {
       icon: ShieldCheck,
       title: 'High Integrity Projects',
       description: 'Transparent methodologies aligned with global carbon standards and verification systems.',
+      bg: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85', // documents / compliance
     },
     {
       icon: Globe,
       title: 'Global Climate Impact',
       description: 'Scaling projects that empower communities and accelerate transition to a low-carbon economy.',
+      bg: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e', // global / earth / landscape
     },
   ];
 
@@ -24,7 +27,7 @@ export default function Intro() {
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* LEFT CONTENT */}
           <motion.div
@@ -59,19 +62,36 @@ export default function Intro() {
             {/* FEATURES */}
             <div className="grid sm:grid-cols-3 gap-6">
               {features.map((f, i) => (
-                <div key={i} className="p-5 border border-gray-200 rounded-xl hover:shadow-md transition">
+                <div
+                  key={i}
+                  className="group relative rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition"
+                >
 
-                  <div className="w-10 h-10 flex items-center justify-center bg-emerald-50 text-emerald-600 rounded-md mb-3">
-                    <f.icon className="w-5 h-5" />
+                  {/* BG IMAGE */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                    style={{ backgroundImage: `url(${f.bg})` }}
+                  />
+
+                  {/* OVERLAY */}
+                  <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition" />
+
+                  {/* CONTENT */}
+                  <div className="relative z-10 p-5 text-white">
+
+                    <div className="w-10 h-10 flex items-center justify-center bg-white/20 backdrop-blur text-white rounded-md mb-3 group-hover:bg-emerald-500 transition">
+                      <f.icon className="w-5 h-5" />
+                    </div>
+
+                    <h4 className="font-semibold mb-1">
+                      {f.title}
+                    </h4>
+
+                    <p className="text-sm text-white/90 leading-relaxed">
+                      {f.description}
+                    </p>
+
                   </div>
-
-                  <h4 className="font-semibold text-slate-800 mb-1">
-                    {f.title}
-                  </h4>
-
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {f.description}
-                  </p>
 
                 </div>
               ))}
@@ -80,12 +100,13 @@ export default function Intro() {
           </motion.div>
 
           {/* RIGHT IMAGE */}
-          <motion.div
-            initial={{ x: 40, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
+         <motion.div
+  className="hidden lg:block"
+  initial={{ x: 40, opacity: 0 }}
+  whileInView={{ x: 0, opacity: 1 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8 }}
+>
 
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <img
