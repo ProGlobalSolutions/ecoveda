@@ -4,24 +4,37 @@ import { Link } from 'react-router-dom';
 import about1 from '../assets/about1.webp'
 import ecovedacli from '../assets/ecovedacli.webp' // ✅ ADDED
 
+import impactImg from '../assets/impact.webp';
+import collabImg from '../assets/collab.webp';
+import visionImg from '../assets/vision.webp';
+import natureImg from '../assets/naturebased.webp';
+import carbonImg from '../assets/carbon.webp';
+import renewImg from '../assets/renew.webp';
+import wasteImg from '../assets/waste_to_energy.png';
+import hardToAbateImg from '../assets/hard_to_abate.png';
+import dmrvImg from '../assets/dmrv.webp';
+
 const VALUES = [
   {
     icon: ShieldCheck,
     title: 'Integrity',
     description:
       'We ensure adherence to ethical principles and rigorous standards, safeguarding the credibility and effectiveness of every emission reduction effort we undertake.',
+    bgImage: impactImg,
   },
   {
     icon: Award,
     title: 'Accountability',
     description:
       'We hold ourselves responsible for every aspect of our initiatives, fostering trust and credibility within communities, partners and markets.',
+    bgImage: collabImg,
   },
   {
     icon: Eye,
     title: 'Transparency',
     description:
       'We share information openly, empowering stakeholders to understand, verify, and engage with our sustainability work.',
+    bgImage: visionImg,
   },
 ];
 
@@ -34,6 +47,7 @@ const EXPERTISE_CARDS = [
       'Sustainable Agricultural Land Management',
       'REDD+',
     ],
+    bgImage: natureImg,
   },
   {
     title: 'Carbon Dioxide Removal',
@@ -43,6 +57,7 @@ const EXPERTISE_CARDS = [
       'Direct Air Capture',
       'Open Ex-situ Mineralisation',
     ],
+    bgImage: carbonImg,
   },
   {
     title: 'Energy and Renewables',
@@ -54,6 +69,7 @@ const EXPERTISE_CARDS = [
       'Efficient Lighting',
       'Fuel Switching',
     ],
+    bgImage: renewImg,
   },
   {
     title: 'Waste-to-Energy and Industry',
@@ -65,6 +81,7 @@ const EXPERTISE_CARDS = [
       'Biodiesel Production',
       'Industrial Efficiency',
     ],
+    bgImage: wasteImg,
   },
   {
     title: 'Hard-to-Abate Sectors',
@@ -75,6 +92,7 @@ const EXPERTISE_CARDS = [
       'Industrial Decarbonisation',
       'Supply Chain Abatement',
     ],
+    bgImage: hardToAbateImg,
   },
   {
     title: 'Climate Technology and DMRV',
@@ -86,6 +104,7 @@ const EXPERTISE_CARDS = [
       'Drone-Based Monitoring',
       'Blockchain and AI',
     ],
+    bgImage: dmrvImg,
   },
 ];
 
@@ -170,10 +189,20 @@ export default function About() {
 
         <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto px-6">
           {VALUES.map((val, i) => (
-            <div key={i} className="bg-white p-8 rounded-xl border">
-              <val.icon className="mb-4 text-emerald-600" />
-              <h3 className="font-bold text-lg mb-2">{val.title}</h3>
-              <p className="text-slate-600 text-sm">{val.description}</p>
+            <div key={i} className="relative p-8 rounded-xl border border-transparent overflow-hidden group min-h-[300px] flex flex-col justify-start bg-black transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                style={{ backgroundImage: `url(${val.bgImage})` }}
+              />
+              <div className="absolute inset-0 bg-black/60 transition-colors duration-500 group-hover:bg-black/50" />
+              
+              <div className="relative z-10 flex flex-col text-left h-full">
+                <div className="mb-4">
+                  <val.icon className="text-emerald-400 w-8 h-8 transition-transform duration-500 group-hover:scale-110" />
+                </div>
+                <h3 className="font-bold text-xl mb-4 text-white">{val.title}</h3>
+                <p className="text-white/90 text-sm leading-relaxed">{val.description}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -189,16 +218,24 @@ export default function About() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-6">
           {EXPERTISE_CARDS.map((card, i) => (
-            <div key={i} className="p-6 border rounded-xl">
-              <h3 className="font-bold mb-4">{card.title}</h3>
-              <ul className="space-y-2">
-                {card.items.map((item, idx) => (
-                  <li key={idx} className="flex gap-2 text-sm text-slate-600">
-                    <CheckCircle2 className="w-4 text-emerald-500" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            <div key={i} className="relative p-8 rounded-xl border border-transparent overflow-hidden group min-h-[350px] bg-black transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                style={{ backgroundImage: `url(${card.bgImage})` }}
+              />
+              <div className="absolute inset-0 bg-black/70 transition-colors duration-500 group-hover:bg-black/60" />
+              
+              <div className="relative z-10 flex flex-col h-full text-left">
+                <h3 className="font-bold text-xl mb-6 text-white">{card.title}</h3>
+                <ul className="space-y-4 mt-2">
+                  {card.items.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-sm text-white/90">
+                      <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 transition-transform duration-500 group-hover:scale-110" />
+                      <span className="leading-snug">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>

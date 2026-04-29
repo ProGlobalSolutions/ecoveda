@@ -29,7 +29,14 @@ export default function Navbar() {
     {
       name: "Our Services",
       dropdown: [
-        { name: "Sustainability Services", path: "/services/sustainability" },
+        { 
+          name: "Sustainability Services", 
+          subDropdown: [
+            { name: "Government, Multilateral agencies & NGO", path: "/services/govt-ngo" },
+            { name: "Corporations", path: "/services/corporates" },
+            { name: "Climate Technology - Ecotech", path: "/services/ecotech" },
+          ]
+        },
         { name: "Climate Services", path: "/services/climate" },
       ],
     },
@@ -69,7 +76,7 @@ export default function Navbar() {
             >
 
               {link.dropdown ? (
-                <div className="flex items-center gap-1 text-sm font-medium uppercase cursor-pointer text-slate-900">
+                <div className="flex items-center gap-1 text-sm font-medium uppercase cursor-pointer text-slate-900 h-full py-6">
                   {link.name}
                   <ChevronDown size={16} />
                 </div>
@@ -83,20 +90,44 @@ export default function Navbar() {
               )}
 
               {link.dropdown && (
-                <div className={`absolute top-full left-0 pt-2 w-64 ${
+                <div className={`absolute top-[90%] left-0 pt-2 w-64 ${
                   activeDropdown === link.name
-                    ? 'opacity-100 scale-y-100'
-                    : 'opacity-0 scale-y-0 pointer-events-none'
+                    ? 'opacity-100 visible'
+                    : 'opacity-0 invisible pointer-events-none'
                 } transition-all duration-200 origin-top`}>
-                  <div className="bg-white rounded-xl shadow-xl overflow-hidden">
+                  <div className="bg-white rounded-xl shadow-xl py-2">
                     {link.dropdown.map((item) => (
-                      <Link
-                        key={item.name}
-                        to={item.path}
-                        className="block px-5 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-600"
-                      >
-                        {item.name}
-                      </Link>
+                      item.subDropdown ? (
+                        <div key={item.name} className="group relative">
+                          <div className="flex items-center justify-between px-5 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-600 cursor-pointer">
+                            {item.name}
+                            <ChevronDown size={14} className="-rotate-90" />
+                          </div>
+                          
+                          {/* SUB-DROPDOWN */}
+                          <div className="absolute top-0 left-full w-[280px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <div className="bg-white rounded-xl shadow-xl overflow-hidden py-2 ml-1">
+                              {item.subDropdown.map((subItem) => (
+                                <Link
+                                  key={subItem.name}
+                                  to={subItem.path}
+                                  className="block px-5 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-600"
+                                >
+                                  {subItem.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <Link
+                          key={item.name}
+                          to={item.path as string}
+                          className="block px-5 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-600"
+                        >
+                          {item.name}
+                        </Link>
+                      )
                     ))}
                   </div>
                 </div>
@@ -131,7 +162,7 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(false)}
           >
             <motion.div
-              className="absolute right-0 top-0 w-[80%] max-w-sm h-full bg-white p-6"
+              className="absolute right-0 top-0 w-[80%] max-w-sm h-full bg-white p-6 overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
@@ -139,8 +170,7 @@ export default function Navbar() {
             >
 
               <div className="flex justify-between mb-6">
-                {/* ✅ FIXED HERE */}
-              <img src={logo} className="h-[23px]" />
+                <img src={logo} className="h-[23px]" />
                 <X onClick={() => setMobileMenuOpen(false)} />
               </div>
 
@@ -170,15 +200,28 @@ export default function Navbar() {
                             transition={{ duration: 0.3 }}
                             className="overflow-hidden"
                           >
-                            <div className="pl-4 mt-3 flex flex-col gap-3 border-l border-gray-200">
+                            <div className="pl-4 mt-3 flex flex-col gap-4 border-l border-gray-200">
                               {link.dropdown.map((item) => (
-                                <Link
-                                  key={item.name}
-                                  to={item.path}
-                                  className="text-gray-700"
-                                >
-                                  {item.name}
-                                </Link>
+                                item.subDropdown ? (
+                                  <div key={item.name} className="flex flex-col gap-2">
+                                    <div className="text-gray-800 font-semibold">{item.name}</div>
+                                    <div className="pl-4 flex flex-col gap-3 border-l border-gray-100">
+                                      {item.subDropdown.map(subItem => (
+                                        <Link key={subItem.name} to={subItem.path} className="text-gray-500 text-sm">
+                                          {subItem.name}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ) : (
+                                  <Link
+                                    key={item.name}
+                                    to={item.path as string}
+                                    className="text-gray-700"
+                                  >
+                                    {item.name}
+                                  </Link>
+                                )
                               ))}
                             </div>
                           </motion.div>

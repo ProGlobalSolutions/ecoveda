@@ -18,7 +18,6 @@ import ProjectDetail from './pages/ProjectDetail';
 import Advisory from './pages/Advisory';
 
 // Services Pages
-import Sustainibility from './pages/Sustainibility';
 import GovtNgo from './pages/GovtNgo';
 import Corporates from './pages/Corporates';
 import Ecotech from './pages/Ecotech';
@@ -99,7 +98,6 @@ export default function App() {
             <Route path="/get-started" element={<GetStarted />} />
 
             {/* SERVICES */}
-            <Route path="/services/sustainability" element={<Sustainibility />} />
             <Route path="/services/govt-ngo" element={<GovtNgo />} />
             <Route path="/services/corporates" element={<Corporates />} />
             <Route path="/services/ecotech" element={<Ecotech />} />

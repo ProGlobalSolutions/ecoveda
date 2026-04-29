@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import govthero from "../assets/govthero.webp";
 import govt1 from "../assets/govt1.webp";
 import govt2 from "../assets/govt2.webp";
@@ -168,6 +168,59 @@ export default function GovtNgo() {
               <li>• Infrastructure development</li>
               <li>• Sustainable investment frameworks</li>
             </ul>
+          </div>
+
+        </div>
+      </section>
+
+      {/* WORKING WITH US FROM SUSTAINABILITY */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+
+          <h2 className="text-4xl font-extrabold mb-6 text-slate-800">
+            A Partnership Engineered for Lasting Impact
+          </h2>
+
+          <p className="text-slate-600 leading-relaxed mb-8">
+            Climate and sustainability advisory is not a transaction, it is a
+            multi-year commitment requiring technical depth and regulatory foresight.
+            We operate at the intersection of science, policy and market design.
+          </p>
+
+          <p className="text-slate-600 leading-relaxed mb-12">
+            We do not deliver reports that sit on shelves. Every engagement is
+            designed around measurable milestones, embedded governance structures
+            and knowledge transfer that leaves your organisation stronger.
+          </p>
+
+          {/* VALUES GRID */}
+          <div className="grid md:grid-cols-2 gap-6 text-left">
+            {[
+              {
+                title: "Technical Rigour",
+                desc: "Every recommendation is rooted in science and data."
+              },
+              {
+                title: "Long-Term Lens",
+                desc: "We build for decade-long resilience, not short-term optics."
+              },
+              {
+                title: "Knowledge Transfer",
+                desc: "We embed capability so impact outlasts our engagement."
+              },
+              {
+                title: "Integrity First",
+                desc: "High-integrity frameworks guide every project."
+              }
+            ].map((item, i) => (
+              <div key={i} className="bg-white p-5 rounded-lg border flex gap-3 shadow-sm hover:shadow-md transition">
+                <CheckCircle2 className="text-emerald-600 mt-1" />
+                <div>
+                  <h4 className="font-semibold text-slate-800">{item.title}</h4>
+                  <p className="text-sm text-slate-600">{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
 
         </div>

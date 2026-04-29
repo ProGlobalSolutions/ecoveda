@@ -1,215 +1,334 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
-import climatservice1 from "../assets/climateservices1.webp";
-import heroimg from "../assets/climateserhero.webp"
+import { CheckCircle2, ShieldCheck, Globe, Zap, BarChart3, Users, Scale, FileText } from "lucide-react";
 
 export default function ClimateServices() {
   return (
-    <div className="pt-16 bg-[#0a0f1a] text-white">
+    <div className="pt-16 bg-black text-white overflow-hidden">
 
-      {/* HERO - STORM */}
-      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
-
-        {/* BACKGROUND */}
-        <div
-          className="absolute inset-0 bg-cover bg-center scale-110"
-          style={{ backgroundImage: `url(${heroimg})` }}
-        />
-
-        {/* OVERLAYS */}
-        {/* OVERLAYS - FIXED */}
-<div className="absolute inset-0 bg-black/40" />
-<div className="absolute inset-0 bg-gradient-to-b from-black/60 via-[#0a0f1a]/40 to-black/70" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.15),transparent_60%)]" />
-
-        {/* CONTENT */}
-        <div className="relative z-10 text-center px-6 max-w-4xl">
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
-            Climate Services
-          </h1>
-
-          <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl mx-auto">
-            Engineering climate intelligence, carbon market strategy and
-            decarbonisation pathways to deliver measurable impact at scale.
+      {/* HERO */}
+      <section className="relative py-32 text-center">
+        <div className="absolute inset-0 bg-gradient-to-br from-green-900/40 via-black to-black" />
+        <div className="relative z-10 max-w-5xl mx-auto px-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-5xl md:text-7xl font-extrabold mb-6"
+          >
+            Climate Projects
+          </motion.h1>
+          <p className="text-xl md:text-2xl font-semibold text-emerald-400 mb-6">
+            Where science meets action. Where ambition meets accountability.
           </p>
-        </div>
-      </section>
-
-      {/* INTRO */}
-      <section className="py-24 border-t border-white/10 text-center">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-4xl font-extrabold mb-6">
-            Climate Strategy Meets Execution
-          </h2>
-
-          <p className="text-white/70 text-lg leading-relaxed">
-            Climate services are no longer optional. They are a strategic
-            necessity. We design integrated climate frameworks that move from
-            ambition to measurable, verifiable outcomes across carbon markets
-            and sustainability ecosystems.
+          <p className="text-lg text-white/70 mb-10 leading-relaxed max-w-4xl mx-auto">
+            The climate emergency demands more than pledges: it demands projects. Real, verified, measurable reductions in emissions. At Ecoveda Climate, we design, develop and deliver high-integrity climate projects that generate durable environmental outcomes and credible carbon assets. From the first idea to the last credit, we are with you at every step of the journey.
+            <br/><br/>
+            Our work spans continents, ecosystems and methodologies. We bring together ecological science, financial structuring, regulatory expertise and carbon market intelligence to turn climate ambition into certified, tradeable results.
           </p>
-        </div>
-      </section>
-
-      {/* PHASES */}
-      <section className="py-24 border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-          {[
-            {
-              title: "Assess",
-              subtitle: "Understand Emissions",
-              desc: "Baseline emissions mapping, carbon footprinting and risk identification."
-            },
-            {
-              title: "Design",
-              subtitle: "Build Strategy",
-              desc: "Decarbonisation roadmap, carbon market entry and project structuring."
-            },
-            {
-              title: "Execute",
-              subtitle: "Implement Projects",
-              desc: "On-ground implementation, MRV systems and emissions tracking."
-            },
-            {
-              title: "Monetise",
-              subtitle: "Unlock Value",
-              desc: "Carbon credit issuance, trading strategy and revenue optimisation."
-            }
-          ].map((phase, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="bg-white/5 backdrop-blur-md p-6 rounded-xl border border-white/10 hover:border-accent hover:shadow-lg transition"
-            >
-              <p className="text-sm text-accent font-bold mb-2">
-                PHASE {`0${i + 1}`}
-              </p>
-              <h3 className="text-xl font-bold mb-1">{phase.title}</h3>
-              <p className="text-sm text-white/60 mb-3">{phase.subtitle}</p>
-              <p className="text-sm text-white/70">{phase.desc}</p>
-            </motion.div>
-          ))}
-
-        </div>
-      </section>
-
-      {/* EXPERTISE */}
-      <section className="py-24 border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6">
-
-          <h2 className="text-4xl font-extrabold text-center mb-4">
-            Our Expertise
-          </h2>
-
-          <p className="text-center text-white/60 mb-12">
-            Integrated Climate and Carbon Market Capabilities
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-10">
-
-            <div className="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-accent transition">
-              <h3 className="font-bold text-lg mb-4">Carbon Markets</h3>
-              <ul className="space-y-3 text-sm text-white/70">
-                <li>Voluntary & compliance markets</li>
-                <li>Registry selection & methodology</li>
-                <li>Credit lifecycle advisory</li>
-                <li>Market positioning strategy</li>
-              </ul>
-            </div>
-
-            <div className="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-accent transition">
-              <h3 className="font-bold text-lg mb-4">Project Development</h3>
-              <ul className="space-y-3 text-sm text-white/70">
-                <li>Feasibility & baseline analysis</li>
-                <li>Financial modelling</li>
-                <li>Project structuring</li>
-                <li>Implementation strategy</li>
-              </ul>
-            </div>
-
-            <div className="bg-white/5 p-6 rounded-xl border border-white/10 hover:border-accent transition">
-              <h3 className="font-bold text-lg mb-4">MRV & Compliance</h3>
-              <ul className="space-y-3 text-sm text-white/70">
-                <li>Monitoring frameworks</li>
-                <li>Emission tracking systems</li>
-                <li>Verification support</li>
-                <li>Audit readiness</li>
-              </ul>
-            </div>
-
-          </div>
         </div>
       </section>
 
       {/* WORKING WITH US */}
       <section className="py-24 border-t border-white/10">
-        <div className="max-w-5xl mx-auto px-6 text-center">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-emerald-500 font-bold tracking-wider uppercase text-sm mb-2 block">Working With Us</span>
+            <h2 className="text-3xl md:text-4xl font-bold">A Partner Built for the Long Game</h2>
+            <p className="mt-6 text-white/70 max-w-3xl mx-auto leading-relaxed">
+              Climate project development is not a sprint, it is a multi-year commitment requiring tenacity, technical excellence and deep market relationships. Ecoveda Climate was built to serve as a long-term partner to governments, landowners, corporations, project developers, and indigenous communities navigating this landscape.
+            </p>
+          </div>
 
-          <h2 className="text-4xl font-extrabold mb-6">
-            Built for Long-Term Climate Impact
-          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-8 bg-white/5 border border-white/10 rounded-xl backdrop-blur hover:bg-white/10 transition">
+              <h3 className="text-xl font-bold mb-4 text-emerald-400">End-to-End Expertise</h3>
+              <p className="text-white/70 leading-relaxed text-sm md:text-base">
+                From project identification and feasibility through validation, MRV and carbon credit sales, we cover the full cycle so you never need to piece together multiple advisors.
+              </p>
+            </div>
+            <div className="p-8 bg-white/5 border border-white/10 rounded-xl backdrop-blur hover:bg-white/10 transition">
+              <h3 className="text-xl font-bold mb-4 text-emerald-400">Market-Grade Rigour</h3>
+              <p className="text-white/70 leading-relaxed text-sm md:text-base">
+                Every project we touch is built to the highest integrity standards. Our team combines field science with financial discipline to create assets that earn and sustain buyer trust.
+              </p>
+            </div>
+            <div className="p-8 bg-white/5 border border-white/10 rounded-xl backdrop-blur hover:bg-white/10 transition">
+              <h3 className="text-xl font-bold mb-4 text-emerald-400">Aligned Incentives</h3>
+              <p className="text-white/70 leading-relaxed text-sm md:text-base">
+                We succeed when your project succeeds. Our engagement models are designed to align our interests with yours, whether you are a first-time developer or a seasoned operator scaling a portfolio.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <p className="text-white/70 leading-relaxed mb-10">
-            Climate services demand deep integration across science, policy and
-            financial systems. We build solutions that are not only compliant
-            but scalable and revenue-generating.
-          </p>
+      {/* FIVE-PHASE FRAMEWORK */}
+      <section className="py-24 border-t border-white/10 bg-white/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-emerald-500 font-bold tracking-wider uppercase text-sm mb-2 block">Developing Climate Projects</span>
+            <h2 className="text-3xl md:text-4xl font-bold">Our Five-Phase Project Development Framework</h2>
+            <p className="mt-6 text-white/70 max-w-3xl mx-auto leading-relaxed">
+              Successful climate projects do not happen by accident. They are built through a structured, disciplined process that accounts for scientific complexity, regulatory requirements, community dynamics, and market realities. Our proprietary five-phase framework ensures nothing is left to chance.
+            </p>
+          </div>
 
-          <div className="grid md:grid-cols-2 gap-6 text-left">
+          <div className="space-y-6">
             {[
               {
-                title: "Technical Depth",
-                desc: "Scientific and engineering-backed solutions."
+                num: "01",
+                title: "Identification: Project Screening And Origination",
+                points: ["Opportunity mapping", "Site assessment", "Baseline analysis", "Feasibility scoring"]
               },
               {
-                title: "Market Intelligence",
-                desc: "Global carbon market expertise."
+                num: "02",
+                title: "Design: Technical And Financial Assessment",
+                points: ["Registry and Methodology selection", "Carbon quantification modelling", "Financial structuring", "Institutional arrangements and partnerships"]
               },
               {
-                title: "Execution Focus",
-                desc: "Real implementation, not theory."
+                num: "03",
+                title: "Advisory: Strategy And Capacity Building",
+                points: ["Carbon market review", "Article 6 implementation", "Host country technical assistance", "Stakeholder capacity building"]
               },
               {
-                title: "Scalable Impact",
-                desc: "Designed for long-term growth."
+                num: "04",
+                title: "Development: Validation, MRV And Operations",
+                points: ["Third-party validation", "Project registration", "Monitoring, reporting and verification (MRV)", "Management & operations"]
+              },
+              {
+                num: "05",
+                title: "Commercialisation: Market Access",
+                points: ["Long-term offtake agreements", "Carbon credit sales and marketing", "Buyer matching and negotiation", "Portfolio optimisation"]
               }
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="flex gap-3 bg-white/5 p-5 rounded-lg border border-white/10 hover:border-accent transition"
-              >
-                <CheckCircle2 className="text-accent mt-1" />
-                <div>
-                  <h4 className="font-semibold">{item.title}</h4>
-                  <p className="text-sm text-white/60">{item.desc}</p>
+            ].map((phase, idx) => (
+              <div key={idx} className="flex flex-col md:flex-row gap-6 p-6 md:p-8 border border-white/10 rounded-xl bg-black/40 hover:bg-white/5 transition">
+                <div className="md:w-1/3 xl:w-1/4">
+                  <div className="text-5xl font-extrabold text-white/10 mb-2">{phase.num}</div>
+                  <h3 className="text-xl font-bold text-emerald-400 leading-snug">{phase.title.split(':')[0]}</h3>
+                  <div className="text-white/80 font-semibold mt-2">{phase.title.split(':')[1]}</div>
+                </div>
+                <div className="md:w-2/3 xl:w-3/4 flex items-center">
+                  <div className="grid sm:grid-cols-2 gap-y-4 gap-x-8 w-full">
+                    {phase.points.map((pt, i) => (
+                      <div key={i} className="flex items-start gap-3">
+                        <CheckCircle2 className="text-emerald-500 shrink-0 w-5 h-5 mt-0.5" />
+                        <span className="text-white/70 text-sm md:text-base">{pt}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
+      {/* TYPES OF PROJECTS */}
+      <section className="py-24 border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-emerald-500 font-bold tracking-wider uppercase text-sm mb-2 block">Types of Projects</span>
+            <h2 className="text-3xl md:text-4xl font-bold">Where We Work Across the Carbon Landscape</h2>
+            <p className="mt-6 text-white/70 max-w-3xl mx-auto leading-relaxed">
+              The carbon market is expanding rapidly across ecosystems, technologies and geographies. Ecoveda Climate provides consultancy across three interconnected domains, each critical to achieving net-zero at scale.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* NCS */}
+            <div className="p-8 border border-white/10 rounded-xl bg-white/5 hover:border-emerald-500/50 transition duration-300">
+              <Globe className="w-12 h-12 text-emerald-400 mb-6" />
+              <h3 className="text-2xl font-bold mb-4 text-white">Natural Climate Solutions (NCS)</h3>
+              <p className="text-white/70 mb-6 text-sm leading-relaxed">
+                Nature holds extraordinary power to absorb and store carbon. Our NCS practice helps project developers unlock the full potential of ecosystems as living carbon infrastructure, with rigorous science and genuine co-benefits for biodiversity and communities.
+              </p>
+              <ul className="space-y-4 text-sm text-white/80">
+                <li className="flex flex-col"><span className="text-emerald-400 font-bold mb-1">ARR</span> Afforestation, Reforestation and Revegetation</li>
+                <li className="flex flex-col"><span className="text-emerald-400 font-bold mb-1">REDD+</span> Reducing Emissions from Deforestation & Degradation</li>
+                <li className="flex flex-col"><span className="text-emerald-400 font-bold mb-1">WRC</span> Wetland Restoration and Conservation</li>
+                <li className="flex flex-col"><span className="text-emerald-400 font-bold mb-1">ALM</span> Sustainable Agricultural Land Management</li>
+                <li className="flex flex-col"><span className="text-emerald-400 font-bold mb-1">IFM</span> Improved Forest Management</li>
+              </ul>
+            </div>
+
+            {/* CDR */}
+            <div className="p-8 border border-white/10 rounded-xl bg-white/5 hover:border-emerald-500/50 transition duration-300">
+              <ShieldCheck className="w-12 h-12 text-emerald-400 mb-6" />
+              <h3 className="text-2xl font-bold mb-4 text-white">Carbon Dioxide Removal (CDR)</h3>
+              <p className="text-white/70 mb-6 text-sm leading-relaxed">
+                As the world recognises that emission reductions alone cannot achieve 1.5°C, engineered and enhanced removal pathways are gaining critical importance. We help CDR technology developers navigate methodologies, markets, and commercialisation.
+              </p>
+              <ul className="space-y-4 text-sm text-white/80">
+                <li className="flex flex-col"><span className="text-emerald-400 font-bold mb-1">Biochar:</span> Converting organic waste into stable carbon stored for centuries in soils.</li>
+                <li className="flex flex-col"><span className="text-emerald-400 font-bold mb-1">ERW:</span> Enhanced Rock Weathering, applying crushed silicate rock to agricultural lands.</li>
+                <li className="flex flex-col"><span className="text-emerald-400 font-bold mb-1">DAC:</span> Direct Air Capture of CO2 directly from the atmosphere.</li>
+              </ul>
+            </div>
+
+            {/* Energy */}
+            <div className="p-8 border border-white/10 rounded-xl bg-white/5 hover:border-emerald-500/50 transition duration-300">
+              <Zap className="w-12 h-12 text-emerald-400 mb-6" />
+              <h3 className="text-2xl font-bold mb-4 text-white">Energy & Industry</h3>
+              <p className="text-white/70 mb-6 text-sm leading-relaxed">
+                The energy transition requires deep decarbonisation of power systems, industrial processes and waste streams. Our energy and industry practice supports project developers delivering measurable emissions reductions through proven technologies.
+              </p>
+              <ul className="space-y-4 text-sm text-white/80">
+                <li className="flex flex-col"><span className="text-emerald-400 font-bold mb-1">Renewables:</span> Solar, wind, hydro and geothermal projects.</li>
+                <li className="flex flex-col"><span className="text-emerald-400 font-bold mb-1">Energy Efficiency:</span> Industrial, commercial and residential efficiency.</li>
+                <li className="flex flex-col"><span className="text-emerald-400 font-bold mb-1">Biogas:</span> Capturing methane from agricultural and organic waste.</li>
+                <li className="flex flex-col"><span className="text-emerald-400 font-bold mb-1">Waste Management:</span> Landfill gas capture and waste-to-energy.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* REGISTRIES */}
+      <section className="py-24 border-t border-white/10 bg-gradient-to-b from-black to-slate-900">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <span className="text-emerald-500 font-bold tracking-wider uppercase text-sm mb-2 block">05 · Registries We Work With</span>
+            <h2 className="text-3xl md:text-4xl font-bold">Credibility Starts With the Right Standard</h2>
+            <p className="mt-4 text-white/70 leading-relaxed text-lg">
+              The integrity of a carbon credit is only as strong as the standard it is certified against. Ecoveda Climate works across the full spectrum of leading voluntary and compliance carbon standards.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto border border-white/10 rounded-xl bg-white/5 shadow-2xl">
+            <table className="w-full text-left border-collapse min-w-[600px]">
+              <thead>
+                <tr className="border-b border-white/10 bg-black/60">
+                  <th className="p-6 font-bold text-emerald-400 tracking-wider">REGISTRY</th>
+                  <th className="p-6 font-bold text-emerald-400 tracking-wider">STANDARDS</th>
+                </tr>
+              </thead>
+              <tbody className="text-sm md:text-base text-white/90">
+                <tr className="border-b border-white/5 hover:bg-white/5 transition">
+                  <td className="p-6 font-bold text-white">VERRA</td>
+                  <td className="p-6 text-white/70 space-y-1">
+                    <div>Verified Carbon Standard</div>
+                    <div>Climate, Community and Biodiversity Standard</div>
+                    <div>Sustainable Development Verified Impact Standard</div>
+                  </td>
+                </tr>
+                <tr className="border-b border-white/5 hover:bg-white/5 transition">
+                  <td className="p-6 font-bold text-white">Gold Standard</td>
+                  <td className="p-6 text-white/70">GS4GG</td>
+                </tr>
+                <tr className="border-b border-white/5 hover:bg-white/5 transition">
+                  <td className="p-6 font-bold text-white">International Carbon Registry (ICR)</td>
+                  <td className="p-6 text-white/70">-</td>
+                </tr>
+                <tr className="border-b border-white/5 hover:bg-white/5 transition">
+                  <td className="p-6 font-bold text-white">Cercarbono</td>
+                  <td className="p-6 text-white/70">-</td>
+                </tr>
+                <tr className="border-b border-white/5 hover:bg-white/5 transition">
+                  <td className="p-6 font-bold text-white">Global Carbon Council (GCC)</td>
+                  <td className="p-6 text-white/70">-</td>
+                </tr>
+                <tr className="border-b border-white/5 hover:bg-white/5 transition">
+                  <td className="p-6 font-bold text-white">Plan Vivo</td>
+                  <td className="p-6 text-white/70">PV Standard</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition">
+                  <td className="p-6 font-bold text-white">Climate Action Reserve (CAR)</td>
+                  <td className="p-6 text-white/70">-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* HIGH INTEGRITY FRAMEWORK */}
+      <section className="py-24 border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-emerald-500 font-bold tracking-wider uppercase text-sm mb-2 block">Ecoveda Climate's High Integrity Framework</span>
+            <h2 className="text-3xl md:text-4xl font-bold">Integrity Is Not a Feature. It Is the Foundation.</h2>
+            <p className="mt-6 text-white/70 max-w-4xl mx-auto leading-relaxed text-lg">
+              In a market where credit quality controversies have shaken buyer confidence, Ecoveda Climate stands apart. Our High Integrity Framework is a set of non-negotiable principles that govern every project we touch. We believe that the voluntary carbon market’s most urgent challenge is not scale, it is credibility. Every project we develop or advise on is held to a standard that goes beyond certification.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="p-8 bg-white/5 border border-white/10 rounded-xl hover:border-emerald-500/50 transition">
+              <BarChart3 className="w-10 h-10 text-emerald-400 mb-6" />
+              <h3 className="text-xl font-bold mb-6 text-white">Scientific Rigour</h3>
+              <ul className="space-y-4 text-white/70 text-sm md:text-base">
+                <li className="flex gap-3"><span className="text-emerald-500">›</span> Conservative baselines</li>
+                <li className="flex gap-3"><span className="text-emerald-500">›</span> Peer-reviewed methodology selection</li>
+                <li className="flex gap-3"><span className="text-emerald-500">›</span> Independent MRV with zero tolerance for manipulation</li>
+                <li className="flex gap-3"><span className="text-emerald-500">›</span> Permanence and leakage accounted for in every model</li>
+              </ul>
+            </div>
+            <div className="p-8 bg-white/5 border border-white/10 rounded-xl hover:border-emerald-500/50 transition">
+              <Users className="w-10 h-10 text-emerald-400 mb-6" />
+              <h3 className="text-xl font-bold mb-6 text-white">Social Equity</h3>
+              <ul className="space-y-4 text-white/70 text-sm md:text-base">
+                <li className="flex gap-3"><span className="text-emerald-500">›</span> Free, prior and informed consent (FPIC) of communities</li>
+                <li className="flex gap-3"><span className="text-emerald-500">›</span> Benefit-sharing mechanisms built into project design</li>
+                <li className="flex gap-3"><span className="text-emerald-500">›</span> Gender-inclusive stakeholder engagement</li>
+                <li className="flex gap-3"><span className="text-emerald-500">›</span> Protection of indigenous rights and tenure</li>
+              </ul>
+            </div>
+            <div className="p-8 bg-white/5 border border-white/10 rounded-xl hover:border-emerald-500/50 transition">
+              <Scale className="w-10 h-10 text-emerald-400 mb-6" />
+              <h3 className="text-xl font-bold mb-6 text-white">Transparent Governance</h3>
+              <ul className="space-y-4 text-white/70 text-sm md:text-base">
+                <li className="flex gap-3"><span className="text-emerald-500">›</span> Full project documentation available to buyers</li>
+                <li className="flex gap-3"><span className="text-emerald-500">›</span> Real-time monitoring dashboards where applicable</li>
+                <li className="flex gap-3"><span className="text-emerald-500">›</span> Third-party audits at every verification cycle</li>
+                <li className="flex gap-3"><span className="text-emerald-500">›</span> Zero tolerance for double-counting or double-claiming</li>
+              </ul>
+            </div>
+            <div className="p-8 bg-white/5 border border-white/10 rounded-xl hover:border-emerald-500/50 transition">
+              <FileText className="w-10 h-10 text-emerald-400 mb-6" />
+              <h3 className="text-xl font-bold mb-6 text-white">Market Alignment</h3>
+              <ul className="space-y-4 text-white/70 text-sm md:text-base">
+                <li className="flex gap-3"><span className="text-emerald-500">›</span> VCMI, ICVCM Core Carbon Principles alignment</li>
+                <li className="flex gap-3"><span className="text-emerald-500">›</span> Article 6 corresponding adjustment readiness</li>
+                <li className="flex gap-3"><span className="text-emerald-500">›</span> Buyer-grade documentation and disclosure</li>
+                <li className="flex gap-3"><span className="text-emerald-500">›</span> Long-term credit quality and price stability focus</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="text-center p-8 border border-emerald-500/30 rounded-xl bg-emerald-900/20 text-emerald-100 max-w-4xl mx-auto font-medium text-lg">
+            The High Integrity Framework is not a marketing statement. It is an operational commitment embedded in our due diligence checklists, our project agreements and our team’s day-to-day decisions.
+          </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-24 text-center border-t border-white/10">
-        <h2 className="text-4xl font-extrabold mb-6">
-          Ready to Lead in the Climate Economy?
-        </h2>
+      <section className="py-32 text-center border-t border-white/10 bg-black">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-8 text-white">Ready to Build Something That Lasts?</h2>
+          <p className="text-white/70 mb-12 leading-relaxed text-lg max-w-3xl mx-auto">
+            Whether you are a landowner exploring your first NCS project, a corporation building a credible carbon procurement strategy, a government designing Article 6 frameworks or an investor seeking high-integrity climate assets, we want to hear from you.
+            <br/><br/>
+            Climate action at the scale the planet needs requires collaboration between science, finance, policy, and communities. Ecoveda Climate exists at the intersection of all four.
+          </p>
 
-        <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-          Build scalable, compliant and high-value climate strategies with us.
-        </p>
-
-        <Link
-          to="/contact"
-          className="inline-flex items-center gap-2 px-8 py-3 bg-accent rounded-md font-bold hover:scale-105 transition"
-        >
-          Contact Our Team
-          <ArrowRight />
-        </Link>
+          <div className="flex flex-col md:flex-row justify-center gap-8">
+            <div className="text-left bg-white/5 p-8 rounded-2xl border border-white/10 md:w-1/2 hover:bg-white/10 transition group">
+              <h3 className="font-bold text-2xl mb-3 text-emerald-400">Start a Conversation</h3>
+              <p className="text-base text-white/60 mb-8">Tell us about your project idea, your organisation’s climate goals or the challenge you are trying to solve. Our team will respond within 48 hours.</p>
+              <Link to="/get-started" className="inline-block px-8 py-3 bg-emerald-600 rounded-lg text-base font-bold hover:bg-emerald-500 transition w-full text-center text-white shadow-lg shadow-emerald-900/50 group-hover:shadow-emerald-900/80">
+                Send Us a Message
+              </Link>
+            </div>
+            
+            <div className="text-left bg-white/5 p-8 rounded-2xl border border-white/10 md:w-1/2 hover:bg-white/10 transition group">
+              <h3 className="font-bold text-2xl mb-3 text-emerald-400">Request a Project Assessment</h3>
+              <p className="text-base text-white/60 mb-8">Have a specific site or project in mind? Request a no-obligation preliminary assessment from our technical team. We will evaluate the potential.</p>
+              <Link to="/contact" className="inline-block px-8 py-3 border border-emerald-500 text-emerald-400 rounded-lg text-base font-bold hover:bg-emerald-900/30 transition w-full text-center">
+                Request Assessment
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
 
     </div>

@@ -40,7 +40,7 @@ export default function Footer() {
             <a href="https://in.linkedin.com/company/ecoveda-climate?trk=public_post_follow-view-profile" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-white transition-all duration-300 hover:-translate-y-1 group">
               <Linkedin className="w-5 h-5 text-white/70 group-hover:text-white transition-colors duration-300" />
             </a>
-            <a href="" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-white transition-all duration-300 hover:-translate-y-1 group">
+            <a href="https://x.com/ecoveda_climate?s=21" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-white transition-all duration-300 hover:-translate-y-1 group">
               <Twitter className="w-5 h-5 text-white/70 group-hover:text-white transition-colors duration-300" />
             </a>
             <a href="https://www.facebook.com/p/Ecoveda-Climate-61555287362296/" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-white transition-all duration-300 hover:-translate-y-1 group">

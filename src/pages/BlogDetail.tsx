@@ -1,57 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-
-const BLOGS = [
-  {
-    id: "1",
-    title: "Understanding Carbon Credit Markets",
-    category: "Carbon Markets",
-    date: "April 2026",
-    image: "https://images.unsplash.com/photo-1509395176047-4a66953fd231",
-    content: `Carbon credit markets are a key mechanism in global climate action.
-
-They allow organizations to offset emissions by investing in verified
-projects that reduce or remove carbon from the atmosphere.
-
-These markets are rapidly evolving and becoming central to corporate
-sustainability strategies.`,
-  },
-  {
-    id: "2",
-    title: "Nature-Based Solutions Explained",
-    category: "Sustainability",
-    date: "April 2026",
-    image: "https://images.unsplash.com/photo-1470115636492-6d2b56f9146d",
-    content: `Nature-based solutions use ecosystems to address environmental challenges.
-
-This includes afforestation, wetland restoration, and sustainable land use.
-
-They deliver both climate benefits and community impact.`,
-  },
-  {
-    id: "3",
-    title: "The Future of Climate Technology",
-    category: "Climate Tech",
-    date: "March 2026",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
-    content: `Climate technology is transforming how we measure, monitor and reduce emissions.
-
-From satellite analytics to AI-driven MRV systems, innovation is accelerating.
-
-This space will define the next decade of climate action.`,
-  },
-  {
-    id: "4",
-    title: "Scaling Renewable Energy Globally",
-    category: "Energy",
-    date: "March 2026",
-    image: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1",
-    content: `Renewable energy is expanding rapidly across emerging and developed markets.
-
-Solar, wind and hybrid systems are becoming more efficient and affordable.
-
-Scaling these systems is critical for achieving net-zero targets.`,
-  },
-];
+import { BLOGS } from "../data/blogs";
 
 export default function BlogDetail() {
   const { id } = useParams();
@@ -59,7 +7,7 @@ export default function BlogDetail() {
 
   if (!blog) {
     return (
-      <div className="pt-40 text-center text-2xl">
+      <div className="pt-40 pb-40 text-center text-2xl font-bold text-slate-800">
         Blog Not Found
       </div>
     );
@@ -69,75 +17,67 @@ export default function BlogDetail() {
     <div className="pt-16">
 
       {/* HERO */}
-      <section className="relative h-[60vh] flex items-center">
-
-        <img
-          src={blog.image}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        <div className="absolute inset-0 bg-black/50" />
-
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-white">
-
+      <section className="py-24 bg-emerald-600 text-white text-center mt-10 md:mt-0 relative overflow-hidden">
+        <div className="relative z-10 max-w-4xl mx-auto px-6">
           <Link
             to="/blogs"
-            className="text-sm mb-6 inline-block opacity-80 hover:opacity-100"
+            className="text-sm mb-8 inline-block font-semibold text-emerald-100 hover:text-white transition"
           >
             ← Back to Blogs
           </Link>
 
-          <p className="text-emerald-400 font-semibold mb-2">
-            {blog.category}
-          </p>
-
-          <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
             {blog.title}
           </h1>
-
-          <p className="text-sm text-white/80">
-            {blog.date}
-          </p>
-
         </div>
       </section>
 
       {/* CONTENT */}
-      <section className="max-w-3xl mx-auto px-6 py-16">
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          
+          {/* BLOG IMAGE */}
+          <div className="w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-xl shadow-slate-200/50 mb-12">
+            <img
+              src={blog.image}
+              alt={blog.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
 
-        <div className="prose prose-lg max-w-none text-slate-700 leading-relaxed whitespace-pre-line">
-          {blog.content}
+          {/* BLOG HEADER (Category and Date) */}
+          <div className="mb-12 border-b border-slate-100 pb-8 text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start gap-3 text-sm font-bold text-emerald-600 uppercase tracking-widest">
+              <span>{blog.category}</span>
+              <span className="text-slate-300">•</span>
+              <span className="text-slate-500">{blog.date}</span>
+            </div>
+          </div>
+
+          {/* BLOG BODY */}
+          <div className="prose prose-lg max-w-none text-slate-700 leading-relaxed whitespace-pre-line text-left">
+            {blog.content}
+          </div>
+
         </div>
-
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-slate-50 text-center">
-
+      <section className="py-20 bg-slate-50 text-center border-t border-slate-100">
         <h2 className="text-2xl font-bold mb-4">
           Want to Learn More?
         </h2>
-
-        <p className="text-slate-600 mb-6">
+        <p className="text-slate-600 mb-8">
           Explore more insights or connect with our team.
         </p>
-
         <div className="flex justify-center gap-4">
           <Link
-            to="/blogs"
-            className="px-6 py-3 bg-emerald-500 text-white rounded-md"
-          >
-            View All Blogs
-          </Link>
-
-          <Link
             to="/contact"
-            className="px-6 py-3 border rounded-md"
+            className="px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold transition shadow-lg shadow-emerald-600/20"
           >
             Contact Us
           </Link>
         </div>
-
       </section>
 
     </div>

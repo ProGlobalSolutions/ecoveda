@@ -28,6 +28,67 @@ export default function Corporates() {
         </div>
       </section>
 
+      {/* INTRO FROM SUSTAINABILITY */}
+      <section className="py-20 bg-white text-center border-t border-slate-100">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-4xl font-extrabold mb-6">
+            Turning Compliance Into Competitive Advantage
+          </h2>
+          <p className="text-slate-600 text-lg leading-relaxed">
+            Sustainability is not a checklist, it is a strategic operating system.
+            We architect resilient, future-ready organisations through a disciplined
+            four-phase methodology that transforms regulatory obligation into
+            long-term enterprise value.
+          </p>
+        </div>
+      </section>
+
+      {/* PHASES FROM SUSTAINABILITY */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          {[
+            {
+              title: "Assess",
+              subtitle: "Discover and Align",
+              desc: "Double Materiality assessments and stakeholder mapping to identify ESG indicators shaping resilience."
+            },
+            {
+              title: "Report",
+              subtitle: "Disclose and Defend",
+              desc: "Audit-grade disclosures from BRSR Core to CBAM with regulator-ready data systems."
+            },
+            {
+              title: "Reduce",
+              subtitle: "Engineer and Execute",
+              desc: "MACC analysis and energy modelling to build financially viable Net Zero pathways."
+            },
+            {
+              title: "Embed",
+              subtitle: "Govern and Empower",
+              desc: "Governance frameworks and capability programs to embed ESG permanently."
+            }
+          ].map((phase, i) => (
+            <motion.div
+              key={i}
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              className="bg-white p-6 rounded-xl shadow border hover:shadow-lg transition"
+            >
+              <p className="text-sm text-accent font-bold mb-2">
+                PHASE {`0${i + 1}`}
+              </p>
+              <h3 className="text-xl font-bold mb-1">{phase.title}</h3>
+              <p className="text-sm font-medium text-slate-500 mb-3">
+                {phase.subtitle}
+              </p>
+              <p className="text-sm text-slate-600">{phase.desc}</p>
+            </motion.div>
+          ))}
+
+        </div>
+      </section>
+
       {/* SECTION 1 */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
