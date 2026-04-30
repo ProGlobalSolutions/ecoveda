@@ -28,7 +28,7 @@ const POSTS = [
 
 export default function BlogSection() {
   return (
-    <section className="py-24 bg-slate-50">
+    <section className="py-24 bg-stone-50">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* HEADER */}
@@ -78,7 +78,7 @@ export default function BlogSection() {
                   src={post.image}
                   alt={post.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                />
+                 loading="lazy" decoding="async" />
 
                 <span className="absolute top-4 left-4 bg-emerald-500 text-white text-xs px-3 py-1 rounded-full">
                   {post.category}

@@ -59,7 +59,7 @@ export default function ProjectDetail() {
   const isCDR = project.type === 'CDR';
 
   return (
-    <div className={`pt-16 min-h-screen ${isCDR ? 'bg-slate-900 text-white' : 'bg-white text-slate-900'}`}>
+    <div className={`pt-16 min-h-screen ${isCDR ? 'bg-slate-900 text-white' : 'bg-stone-50 text-slate-900'}`}>
       {/* Hero Section */}
       <section className="relative h-[70vh] flex items-center">
 
@@ -67,7 +67,7 @@ export default function ProjectDetail() {
   <img
     src={project.image}
     className="absolute inset-0 w-full h-full object-cover"
-  />
+   loading="lazy" decoding="async" />
 
   {/* Overlay */}
   <div className="absolute inset-0 bg-black/50" />
@@ -177,7 +177,7 @@ export default function ProjectDetail() {
                     className="w-full h-full object-cover opacity-30 grayscale blur-[2px]" 
                     alt="Map Context"
                     referrerPolicy="no-referrer"
-                 />
+                  loading="lazy" decoding="async" />
                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
                     <div className={`p-4 rounded-full mb-6 ${isCDR ? 'bg-blue-600' : 'bg-primary'}`}>
                       <MapPin className="w-8 h-8 text-white" />

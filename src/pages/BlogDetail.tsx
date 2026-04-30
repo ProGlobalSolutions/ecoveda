@@ -33,7 +33,7 @@ export default function BlogDetail() {
       </section>
 
       {/* CONTENT */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-stone-50">
         <div className="max-w-4xl mx-auto px-6">
           
           {/* BLOG IMAGE */}
@@ -42,7 +42,7 @@ export default function BlogDetail() {
               src={blog.image}
               alt={blog.title}
               className="w-full h-full object-cover"
-            />
+             loading="lazy" decoding="async" />
           </div>
 
           {/* BLOG HEADER (Category and Date) */}

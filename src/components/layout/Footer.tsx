@@ -31,7 +31,7 @@ export default function Footer() {
   src={footerlogo} 
   alt="Ecoveda Climate" 
   className="h-[40px] w-auto mb-3"
-/>
+ loading="lazy" decoding="async" />
             <p className="text-base text-white/70 leading-relaxed max-w-xs">
               Pioneering comprehensive climate solutions through innovation, sustainability, and actionable insights.
             </p>

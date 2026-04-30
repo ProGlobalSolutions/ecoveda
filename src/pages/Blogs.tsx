@@ -36,7 +36,7 @@ export default function Blogs() {
                     <img
                       src={blog.image}
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700"
-                    />
+                     loading="lazy" decoding="async" />
                   </div>
 
                   {/* CONTENT */}
@@ -65,7 +65,7 @@ export default function Blogs() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-white text-center">
+      <section className="py-20 bg-stone-50 text-center">
         <h2 className="text-2xl font-bold mb-4">
           Want to Learn More?
         </h2>

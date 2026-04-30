@@ -7,7 +7,7 @@ export default function Team() {
     <div className="pt-16">
 
       {/* 🔥 HERO */}
-<section className="py-12 md:py-20 text-center !bg-slate-200">
+<section className="py-12 md:py-20 text-center bg-stone-50">
         <div className="max-w-5xl mx-auto px-6">
 
           <p className="text-xs font-semibold tracking-widest text-emerald-600 uppercase mb-2">
@@ -65,14 +65,14 @@ export default function Team() {
               src={leaderImg}
               alt="Leadership"
               className="w-full h-auto rounded-2xl shadow-lg object-cover"
-            />
+             loading="lazy" decoding="async" />
           </div>
 
         </div>
       </section>
 
       {/* 🔥 TEAM CULTURE */}
-      <section className="py-12 md:py-20 bg-white">
+      <section className="py-12 md:py-20 bg-emerald-50">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
 
           {/* IMAGE */}
@@ -81,7 +81,7 @@ export default function Team() {
               src={teamImg}
               alt="Team Culture"
               className="w-full h-auto rounded-2xl shadow-lg object-cover"
-            />
+             loading="lazy" decoding="async" />
           </div>
 
           {/* TEXT */}
@@ -145,13 +145,13 @@ export default function Team() {
         src={ground}
         alt="Field Work"
         className="w-full h-auto rounded-2xl shadow-lg object-cover"
-      />
+       loading="lazy" decoding="async" />
     </div>
 
   </div>
 </section>
 
-<section className="py-12 md:py-20 bg-white">
+<section className="py-12 md:py-20 bg-stone-50">
   <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
 
     {/* IMAGE */}
@@ -160,7 +160,7 @@ export default function Team() {
         src={collab}
         alt="Collaboration"
         className="w-full h-auto rounded-2xl shadow-lg object-cover"
-      />
+       loading="lazy" decoding="async" />
     </div>
 
     {/* TEXT */}

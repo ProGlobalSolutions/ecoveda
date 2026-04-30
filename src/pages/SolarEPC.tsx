@@ -7,7 +7,7 @@ export default function SolarEPC() {
     <div className="pt-20">
 
       {/* TITLE */}
-      <section className="py-16 text-center bg-white">
+      <section className="py-16 text-center bg-stone-50">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-6">
             Solar EPC Solutions
@@ -21,14 +21,14 @@ export default function SolarEPC() {
       </section>
 
       {/* INTRO + IMAGE */}
-      <section className="py-20">
+      <section className="py-20 bg-emerald-50">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
           <div className="h-[420px] rounded-xl overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1509395176047-4a66953fd231"
               className="w-full h-full object-cover"
-            />
+             loading="lazy" decoding="async" />
           </div>
 
           <div>
@@ -94,7 +94,7 @@ export default function SolarEPC() {
       </section>
 
       {/* SYSTEM TYPES */}
-      <section className="py-20">
+      <section className="py-20 bg-stone-50">
         <div className="max-w-6xl mx-auto px-6 text-center">
 
           <h2 className="text-3xl font-bold mb-12 text-slate-800">

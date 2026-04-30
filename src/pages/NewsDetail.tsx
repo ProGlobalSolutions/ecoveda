@@ -80,7 +80,7 @@ export default function NewsDetail() {
         <img
           src={news.image}
           className="absolute inset-0 w-full h-full object-cover"
-        />
+         loading="lazy" decoding="async" />
 
         <div className="absolute inset-0 bg-black/50" />
 

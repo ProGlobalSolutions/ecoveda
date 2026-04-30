@@ -27,7 +27,7 @@ const PROJECTS = [
 
 export default function Projects() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-emerald-50">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* HEADER */}

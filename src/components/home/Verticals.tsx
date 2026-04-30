@@ -35,7 +35,7 @@ const SERVICES = [
 
 export default function Verticals() {
   return (
-    <section className="py-24 bg-slate-50">
+    <section className="py-24 bg-stone-50">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* HEADER */}

@@ -12,32 +12,24 @@ export default function GovtNgo() {
     <div className="pt-16">
 
       {/* HERO */}
-      <section className="relative h-[70vh] flex items-center justify-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-          backgroundImage: `url(${govthero})`
-          }}
-        />
-        <div className="absolute inset-0 bg-black/70" />
-
-        <div className="relative z-10 text-center text-white px-4">
+      <section className="relative py-32 flex items-center justify-center bg-gradient-to-br from-emerald-100 via-teal-50 to-emerald-100 border-b border-emerald-200/50">
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-extrabold mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-slate-900 mb-6 leading-tight"
           >
             Government & NGO Partnerships
           </motion.h1>
 
-          <p className="max-w-2xl mx-auto text-white/80 text-lg">
+          <p className="max-w-2xl mx-auto text-lg md:text-xl text-emerald-700 font-medium tracking-wide">
             Delivering large-scale climate impact through institutional collaboration
           </p>
         </div>
       </section>
 
       {/* INTRO */}
-      <section className="py-24 bg-white text-center">
+      <section className="py-24 bg-stone-50 text-center">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl font-bold mb-6 text-slate-800">
             Scaling Climate Solutions Through Partnerships
@@ -75,20 +67,20 @@ export default function GovtNgo() {
             <img
               src={govt1}
               className="w-full h-full object-cover"
-            />
+             loading="lazy" decoding="async" />
           </div>
         </div>
       </section>
 
       {/* SECTION 2 */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-emerald-50">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
           <div className="h-[350px] rounded-xl overflow-hidden order-2 md:order-1">
             <img
               src={govt2}
               className="w-full h-full object-cover"
-            />
+             loading="lazy" decoding="async" />
           </div>
 
           <div className="order-1 md:order-2">
@@ -136,21 +128,21 @@ export default function GovtNgo() {
             <img
               src={govt3}
               className="w-full h-full object-cover"
-            />
+             loading="lazy" decoding="async" />
           </div>
 
         </div>
       </section>
 
       {/* SECTION 4 */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-stone-50">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
           <div className="h-[350px] rounded-xl overflow-hidden order-2 md:order-1">
             <img
               src={govt4}
               className="w-full h-full object-cover"
-            />
+             loading="lazy" decoding="async" />
           </div>
 
           <div className="order-1 md:order-2">

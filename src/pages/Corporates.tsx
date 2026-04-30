@@ -11,7 +11,7 @@ export default function Corporates() {
     <div className="pt-20">
 
       {/* TITLE */}
-      <section className="py-16 bg-white text-center">
+      <section className="py-16 bg-stone-50 text-center">
         <div className="max-w-4xl mx-auto px-6">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -29,7 +29,7 @@ export default function Corporates() {
       </section>
 
       {/* INTRO FROM SUSTAINABILITY */}
-      <section className="py-20 bg-white text-center border-t border-slate-100">
+      <section className="py-20 bg-emerald-50 text-center border-t border-slate-100">
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="text-4xl font-extrabold mb-6">
             Turning Compliance Into Competitive Advantage
@@ -90,7 +90,7 @@ export default function Corporates() {
       </section>
 
       {/* SECTION 1 */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-24 bg-stone-50">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
           <div>
@@ -114,21 +114,21 @@ export default function Corporates() {
             <img
               src={corporates1}
               className="w-full h-full object-cover"
-            />
+             loading="lazy" decoding="async" />
           </div>
 
         </div>
       </section>
 
       {/* SECTION 2 */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-emerald-50">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
           <div className="h-[350px] rounded-xl overflow-hidden order-2 md:order-1">
             <img
               src={corporates2}
               className="w-full h-full object-cover"
-            />
+             loading="lazy" decoding="async" />
           </div>
 
           <div className="order-1 md:order-2">
@@ -176,21 +176,21 @@ export default function Corporates() {
             <img
               src={corporates3}
               className="w-full h-full object-cover"
-            />
+             loading="lazy" decoding="async" />
           </div>
 
         </div>
       </section>
 
       {/* SECTION 4 */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-stone-50">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
           <div className="h-[350px] rounded-xl overflow-hidden order-2 md:order-1">
             <img
               src="https://images.unsplash.com/photo-1492724441997-5dc865305da7"
               className="w-full h-full object-cover"
-            />
+             loading="lazy" decoding="async" />
           </div>
 
           <div className="order-1 md:order-2">

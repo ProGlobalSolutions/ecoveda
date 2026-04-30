@@ -28,7 +28,7 @@ export default function CarbonProjectDevelopment() {
             <img
               src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8"
               className="w-full h-full object-cover"
-            />
+             loading="lazy" decoding="async" />
           </div>
 
           <div>

@@ -59,7 +59,7 @@ export default function About() {
       </section>
 
       {/* ABOUT */}
-      <section className="py-28 bg-white">
+      <section className="py-28 bg-stone-50">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
 
           <div>
@@ -95,7 +95,7 @@ export default function About() {
          <img
   src={vision}
   className="rounded-2xl shadow-xl w-[75%] mx-auto object-cover"
-/>
+ loading="lazy" decoding="async" />
 
         </div>
       </section>
@@ -134,7 +134,7 @@ export default function About() {
       </section>
 
       {/* STATS */}
-     <section className="py-16 md:py-24 bg-white">
+     <section className="py-16 md:py-24 bg-emerald-50">
   <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
 
     {/* LEFT CONTENT */}
@@ -166,7 +166,7 @@ export default function About() {
         src={whyeco}
         alt="Ecoveda Impact"
         className="w-full h-full object-cover rounded-2xl shadow-lg"
-      />
+       loading="lazy" decoding="async" />
     </div>
 
   </div>

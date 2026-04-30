@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Leaf, ShieldCheck, Globe } from 'lucide-react';
+import largefarm from '../../assets/largefarms.webp';
 
 export default function Intro() {
   const features = [
@@ -24,7 +25,7 @@ export default function Intro() {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-stone-50">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -110,10 +111,10 @@ export default function Intro() {
 
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <img
-                src="https://images.unsplash.com/photo-1508780709619-79562169bc64"
+                src={largefarm}
                 alt="Climate Solutions"
                 className="w-full h-full object-cover"
-              />
+               loading="lazy" decoding="async" />
             </div>
 
           </motion.div>

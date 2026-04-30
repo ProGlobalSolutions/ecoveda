@@ -1,5 +1,4 @@
-/* 🔥 GOOGLE FONTS (SERIF - PREMIUM) */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+/* 🔥 GOOGLE FONTS (SERIF - PREMIUM) - Loaded in index.html for better performance */
 
 /* 🔥 TAILWIND */
 @import "tailwindcss";

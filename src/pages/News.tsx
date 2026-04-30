@@ -96,7 +96,7 @@ export default function News() {
                     src={item.image}
                     alt={item.title}
                     className="absolute inset-0 w-full h-full object-cover"
-                  />
+                   loading="lazy" decoding="async" />
                 </div>
 
                 {/* CONTENT */}

@@ -8,7 +8,7 @@ export default function Training() {
     <div className="pt-20">
 
       {/* TITLE */}
-      <section className="py-16 text-center bg-white">
+      <section className="py-16 text-center bg-stone-50">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-6">
             Customized Training Programs
@@ -22,7 +22,7 @@ export default function Training() {
       </section>
 
       {/* INTRO */}
-      <section className="py-20">
+      <section className="py-20 bg-emerald-50">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
           <div>
@@ -48,7 +48,7 @@ export default function Training() {
             <img
               src={training1}
               className="w-full h-full object-cover"
-            />
+             loading="lazy" decoding="async" />
           </div>
 
         </div>
@@ -85,7 +85,7 @@ export default function Training() {
       </section>
 
       {/* TRAINING MODULES */}
-      <section className="py-20">
+      <section className="py-20 bg-stone-50">
         <div className="max-w-6xl mx-auto px-6 text-center">
 
           <h2 className="text-3xl font-bold mb-12 text-slate-800">
@@ -150,7 +150,7 @@ export default function Training() {
       </section>
 
       {/* OUTCOMES */}
-      <section className="py-20 text-center">
+      <section className="py-20 text-center bg-emerald-50">
         <div className="max-w-5xl mx-auto px-6">
 
           <h2 className="text-3xl font-bold mb-6 text-slate-800">

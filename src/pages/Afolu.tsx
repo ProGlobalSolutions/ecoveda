@@ -67,7 +67,7 @@ export default function Afolu() {
       </section>
 
       {/* Intro Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-stone-50">
         <div className="max-w-4xl mx-auto px-10 text-center">
           <motion.span
             initial={{ opacity: 0 }}
@@ -98,7 +98,7 @@ export default function Afolu() {
       </section>
 
       {/* Expertise Section */}
-      <section className="py-24 bg-card-bg">
+      <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-10">
           <div className="mb-16">
             <span className="text-primary font-bold tracking-[1.5px] uppercase text-[12px] mb-4 block">Our Expertise</span>
@@ -121,7 +121,7 @@ export default function Afolu() {
                     alt={item.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     referrerPolicy="no-referrer"
-                  />
+                   loading="lazy" decoding="async" />
                 </div>
                 <div className="p-8 text-center">
                   <h3 className="text-xl font-bold text-slate-800 group-hover:text-primary transition-colors mb-2">
@@ -138,7 +138,7 @@ export default function Afolu() {
       </section>
 
       {/* Impact Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-emerald-50">
         <div className="max-w-7xl mx-auto px-10">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
@@ -166,7 +166,7 @@ export default function Afolu() {
                 alt="Impact"
                 className="rounded-xl shadow-2xl"
                 referrerPolicy="no-referrer"
-              />
+               loading="lazy" decoding="async" />
               <div className="absolute -bottom-6 -right-6 bg-accent p-8 rounded-lg shadow-xl text-white">
                 <p className="text-3xl font-extrabold">100%</p>
                 <p className="text-[10px] font-bold uppercase tracking-wider">Verified Sequestration</p>

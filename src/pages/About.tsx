@@ -148,7 +148,7 @@ export default function About() {
       </section>
 
       {/* ABOUT */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-stone-50">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
 
           <div>
@@ -174,7 +174,7 @@ export default function About() {
             src={ecovedacli}
             alt="Ecoveda Climate"
             className="rounded-xl shadow-lg w-full h-auto object-cover"
-          />
+           loading="lazy" decoding="async" />
 
         </div>
       </section>
@@ -209,7 +209,7 @@ export default function About() {
       </section>
 
       {/* EXPERTISE */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-emerald-50">
         <div className="max-w-7xl mx-auto px-6 text-center mb-12">
           <h2 className="text-4xl font-bold text-slate-800">
             Our Expertise

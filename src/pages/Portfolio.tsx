@@ -44,7 +44,7 @@ export default function Portfolio() {
         </section>
 
         {/* PROJECT GRID */}
-        <section className="pt-10 pb-16 bg-card-bg">
+        <section className="pt-10 pb-16 bg-stone-50">
           <div className="max-w-7xl mx-auto px-10">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredProjects.map((project) => (
@@ -55,7 +55,7 @@ export default function Portfolio() {
                       src={project.image}
                       alt={project.name}
                       className="w-full h-full object-cover"
-                    />
+                     loading="lazy" decoding="async" />
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
 
@@ -73,7 +73,7 @@ export default function Portfolio() {
         </section>
 
         {/* IMPLEMENTATION */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-slate-50">
           <div className="max-w-7xl mx-auto px-10">
 
             <h2 className="text-4xl font-extrabold text-center text-slate-800 mb-10">
@@ -83,7 +83,7 @@ export default function Portfolio() {
             <div className="grid md:grid-cols-3 gap-10">
 
               <div className="bg-white rounded-xl shadow-md overflow-hidden">
-                <img src={pd1} className="h-[220px] w-full object-cover" />
+                <img src={pd1} className="h-[220px] w-full object-cover"  loading="lazy" decoding="async" />
                 <div className="p-6">
                   <h3 className="font-bold text-lg mb-2">
                     Field Measurement & Data Collection
@@ -95,7 +95,7 @@ export default function Portfolio() {
               </div>
 
               <div className="bg-white rounded-xl shadow-md overflow-hidden">
-                <img src={pd2} className="h-[220px] w-full object-cover" />
+                <img src={pd2} className="h-[220px] w-full object-cover"  loading="lazy" decoding="async" />
                 <div className="p-6">
                   <h3 className="font-bold text-lg mb-2">
                     Ecosystem Restoration Activities
@@ -107,7 +107,7 @@ export default function Portfolio() {
               </div>
 
               <div className="bg-white rounded-xl shadow-md overflow-hidden">
-                <img src={pd3} className="h-[220px] w-full object-cover" />
+                <img src={pd3} className="h-[220px] w-full object-cover"  loading="lazy" decoding="async" />
                 <div className="p-6">
                   <h3 className="font-bold text-lg mb-2">
                     Monitoring & Verification (MRV)
@@ -123,7 +123,7 @@ export default function Portfolio() {
         </section>
 
         {/* CTA */}
-        <section className="py-10 bg-white text-center">
+        <section className="py-10 bg-emerald-50 text-center">
           <h2 className="text-3xl font-extrabold text-slate-800 mb-6">
             Advancing Global Climate Stewardship
           </h2>

@@ -20,7 +20,7 @@ export default function WhyEcoveda() {
     <div className="pt-16">
 
       {/* 🔥 WHY SECTION */}
-      <section className="py-12 md:py-20 bg-white">
+      <section className="py-12 md:py-20 bg-stone-50">
         <div className="max-w-7xl mx-auto px-6">
 
           {/* HEADING */}
@@ -71,7 +71,7 @@ export default function WhyEcoveda() {
                 src={whyeco}
                 alt="Ecoveda Impact"
                 className="w-full h-auto rounded-2xl shadow-lg object-cover"
-              />
+               loading="lazy" decoding="async" />
             </div>
 
           </div>
@@ -104,7 +104,7 @@ export default function WhyEcoveda() {
                 src={img}
                 className="h-16 sm:h-20 w-auto object-contain hover:drop-shadow-lg transition-all duration-300"
                 alt={`Partner logo ${i + 1}`}
-              />
+               loading="lazy" decoding="async" />
             </motion.div>
           ))}
         </div>
