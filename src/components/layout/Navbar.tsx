@@ -211,92 +211,112 @@ export default function Navbar() {
               </div>
 
               {/* Links - Centered */}
-              <div className="flex-1 overflow-y-auto flex flex-col items-center pt-12 pb-24 px-8 space-y-5">
-                {NAV_ITEMS.map((link) => (
-                  <div key={link.name} className="w-full flex flex-col items-center">
-                    {link.dropdown ? (
-                      <>
-                        <button
-                          onClick={() =>
-                            setActiveMobileDropdown(
-                              activeMobileDropdown === link.name ? null : link.name
-                            )
-                          }
-                          className="relative flex items-center justify-center text-[24px] tracking-wide font-medium text-slate-800 hover:text-emerald-600 transition-colors"
-                        >
-                            <span>{link.name}</span>
-                            <ChevronDown className={`absolute -right-10 w-6 h-6 opacity-70 transition-transform duration-400 ${activeMobileDropdown === link.name ? 'rotate-180' : ''}`} strokeWidth={2} />
-                          </button>
+           
 
-                          <AnimatePresence initial={false}>
-                            {activeMobileDropdown === link.name && (
-                              <motion.div
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: "auto", opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                                className="overflow-hidden w-full flex flex-col items-center mt-6 space-y-6"
+{/* Links - Centered */}
+<div className="flex-1 overflow-y-auto flex flex-col items-center pt-[18vh] pb-24 px-8 space-y-5">
+  {NAV_ITEMS.map((link) => (
+    <div key={link.name} className="w-full flex flex-col items-center">
+
+      {link.dropdown ? (
+        <>
+          {/* 🔥 MAIN MENU */}
+          <button
+            onClick={() =>
+              setActiveMobileDropdown(
+                activeMobileDropdown === link.name ? null : link.name
+              )
+            }
+            className="relative flex items-center justify-center text-[24px] tracking-wide font-semibold text-slate-800 hover:text-emerald-600 transition-colors"
+          >
+            <span>{link.name}</span>
+            <ChevronDown className={`absolute -right-10 w-6 h-6 opacity-70 transition-transform duration-400 ${activeMobileDropdown === link.name ? 'rotate-180' : ''}`} />
+          </button>
+
+          <AnimatePresence initial={false}>
+            {activeMobileDropdown === link.name && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.4 }}
+                className="overflow-hidden w-full flex flex-col items-center mt-6 space-y-5"
+              >
+                {link.dropdown.map((item) => (
+
+                  item.subDropdown ? (
+                    <div key={item.name} className="flex flex-col items-center w-full">
+
+                      {/* 🔥 SUB HEADING (LESS BOLD) */}
+                      <button
+                        onClick={() =>
+                          setActiveMobileSubDropdown(
+                            activeMobileSubDropdown === item.name ? null : item.name
+                          )
+                        }
+                        className="relative flex items-center justify-center text-[18px] font-medium text-slate-600 hover:text-emerald-600 transition-colors text-center"
+                      >
+                        <span>{item.name}</span>
+                        <ChevronDown className={`absolute -right-8 w-5 h-5 opacity-60 transition-transform duration-400 ${activeMobileSubDropdown === item.name ? 'rotate-180' : ''}`} />
+                      </button>
+
+                      <AnimatePresence initial={false}>
+                        {activeMobileSubDropdown === item.name && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.4 }}
+                            className="overflow-hidden w-full flex flex-col items-center space-y-4 mt-4 bg-stone-50 border border-stone-100 rounded-2xl py-4"
+                          >
+                            {/* 🔥 FINAL ITEMS (LIGHTEST) */}
+                            {item.subDropdown.map(subItem => (
+                              <Link
+                                key={subItem.name}
+                                to={subItem.path}
+                                className="text-[16px] font-normal text-slate-500 hover:text-emerald-600 transition-colors text-center w-full block px-4"
+                                onClick={() => setMobileMenuOpen(false)}
                               >
-                                {link.dropdown.map((item) => (
-                                  item.subDropdown ? (
-                                    <div key={item.name} className="flex flex-col items-center w-full">
-                                      <button
-                                        onClick={() => setActiveMobileSubDropdown(activeMobileSubDropdown === item.name ? null : item.name)}
-                                        className="relative flex items-center justify-center text-[20px] font-medium text-slate-700 hover:text-emerald-600 transition-colors text-center"
-                                      >
-                                        <span>{item.name}</span>
-                                        <ChevronDown className={`absolute -right-8 w-5 h-5 opacity-60 transition-transform duration-400 ${activeMobileSubDropdown === item.name ? 'rotate-180' : ''}`} strokeWidth={2} />
-                                      </button>
-                                      
-                                      <AnimatePresence initial={false}>
-                                        {activeMobileSubDropdown === item.name && (
-                                          <motion.div
-                                            initial={{ height: 0, opacity: 0 }}
-                                            animate={{ height: "auto", opacity: 1 }}
-                                            exit={{ height: 0, opacity: 0 }}
-                                            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                                            className="overflow-hidden w-full flex flex-col items-center space-y-5 mt-4 bg-stone-50 border border-stone-100 rounded-2xl py-4"
-                                          >
-                                            {item.subDropdown.map(subItem => (
-                                              <Link key={subItem.name} to={subItem.path} className="text-[18px] font-normal text-slate-600 hover:text-emerald-600 transition-colors text-center w-full block px-4" onClick={() => setMobileMenuOpen(false)}>
-                                                {subItem.name}
-                                              </Link>
-                                            ))}
-                                          </motion.div>
-                                        )}
-                                      </AnimatePresence>
-                                    </div>
-                                  ) : (
-                                    <Link
-                                      key={item.name}
-                                      to={item.path as string}
-                                      className="text-[20px] font-medium text-slate-700 hover:text-emerald-600 transition-colors text-center"
-                                      onClick={() => setMobileMenuOpen(false)}
-                                    >
-                                      {item.name}
-                                    </Link>
-                                  )
-                                ))}
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </>
-                      ) : (
-                        <Link to={link.path} className="text-[24px] tracking-wide font-medium text-slate-800 hover:text-emerald-600 transition-colors text-center" onClick={() => setMobileMenuOpen(false)}>
-                          {link.name}
-                        </Link>
-                      )}
+                                {subItem.name}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+
                     </div>
+                  ) : (
+
+                    <Link
+                      key={item.name}
+                      to={item.path as string}
+                      className="text-[18px] font-medium text-slate-600 hover:text-emerald-600 transition-colors text-center"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+
+                  )
                 ))}
-                
-                <Link
-                  to="/get-started"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="mt-12 px-10 py-4 rounded-full text-lg font-bold tracking-wide uppercase bg-emerald-500 text-white hover:bg-emerald-600 transition-all duration-300 shadow-[0_8px_24px_rgba(16,185,129,0.25)] text-center"
-                >
-                  Get Started
-                </Link>
-              </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </>
+      ) : (
+
+        <Link
+          to={link.path}
+          className="text-[24px] tracking-wide font-semibold text-slate-800 hover:text-emerald-600 transition-colors text-center"
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          {link.name}
+        </Link>
+
+      )}
+
+    </div>
+  ))}
+</div>
             </div>
           </motion.div>
         )}
