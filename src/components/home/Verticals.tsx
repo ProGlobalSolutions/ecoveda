@@ -1,15 +1,9 @@
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { ArrowRight, Leaf, Building2, Cpu, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const SERVICES = [
-  {
-    icon: Leaf,
-    title: 'Sustainability Services',
-    description: 'End-to-end climate solutions including carbon project development and sustainability strategy.',
-    link: '/services/sustainability',
-    bg: 'https://images.unsplash.com/photo-1508780709619-79562169bc64', // nature/forest
-  },
+
   {
     icon: Building2,
     title: 'Government & NGOs',
@@ -35,8 +29,8 @@ const SERVICES = [
 
 export default function Verticals() {
   return (
-    <section className="py-10 bg-stone-50">
-      <div className="max-w-7xl mx-auto px-6">
+   <section className="py-8 bg-stone-50">
+    <div className="max-w-7xl mx-auto px-6">
 
         {/* HEADER */}
         <div className="mb-5 text-center">
@@ -54,7 +48,7 @@ export default function Verticals() {
         </div>
 
         {/* GRID */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
 
           {SERVICES.map((service, i) => (
             <motion.div
@@ -63,7 +57,7 @@ export default function Verticals() {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group relative rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition"
+            className="group relative w-full max-w-sm mx-auto rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition"
             >
 
               {/* BACKGROUND IMAGE */}
