@@ -20,7 +20,7 @@ export default function Ecotech() {
             Climate Technology
           </motion.h1>
 
-          <p className="text-lg text-white/70 mb-10">
+          <p className="text-lg text-white/70 mb-6">
             Building digital infrastructure for monitoring, verifying and scaling climate impact
           </p>
 
@@ -34,10 +34,10 @@ export default function Ecotech() {
       </section>
 
       {/* GRID FEATURES */}
-      <section className="py-24">
+      <section className="py-10">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10">
 
-          <div className="relative p-8 rounded-xl overflow-hidden border border-white/10 hover:border-emerald-500/50 transition group min-h-[300px] flex flex-col justify-end">
+          <div className="relative p-5 rounded-xl overflow-hidden border border-white/10 hover:border-emerald-500/50 transition group min-h-[300px] flex flex-col justify-end">
             <div 
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{ backgroundImage: `url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop')` }}
@@ -53,7 +53,7 @@ export default function Ecotech() {
             </div>
           </div>
 
-          <div className="relative p-8 rounded-xl overflow-hidden border border-white/10 hover:border-emerald-500/50 transition group min-h-[300px] flex flex-col justify-end">
+          <div className="relative p-5 rounded-xl overflow-hidden border border-white/10 hover:border-emerald-500/50 transition group min-h-[300px] flex flex-col justify-end">
             <div 
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{ backgroundImage: `url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=1000&auto=format&fit=crop')` }}
@@ -69,7 +69,7 @@ export default function Ecotech() {
             </div>
           </div>
 
-          <div className="relative p-8 rounded-xl overflow-hidden border border-white/10 hover:border-emerald-500/50 transition group min-h-[300px] flex flex-col justify-end">
+          <div className="relative p-5 rounded-xl overflow-hidden border border-white/10 hover:border-emerald-500/50 transition group min-h-[300px] flex flex-col justify-end">
             <div 
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{ backgroundImage: `url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop')` }}
@@ -85,7 +85,7 @@ export default function Ecotech() {
             </div>
           </div>
 
-          <div className="relative p-8 rounded-xl overflow-hidden border border-white/10 hover:border-emerald-500/50 transition group min-h-[300px] flex flex-col justify-end">
+          <div className="relative p-5 rounded-xl overflow-hidden border border-white/10 hover:border-emerald-500/50 transition group min-h-[300px] flex flex-col justify-end">
             <div 
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{ backgroundImage: `url('https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=1000&auto=format&fit=crop')` }}
@@ -105,7 +105,7 @@ export default function Ecotech() {
       </section>
 
       {/* HIGHLIGHT STRIP */}
-      <section className="py-24 text-center">
+      <section className="py-10 text-center">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-bold mb-6">
             Technology Driven Climate Solutions
@@ -119,7 +119,7 @@ export default function Ecotech() {
       </section>
 
       {/* ---------------- NEW CONTENT: SUSTAINABILITY ADVISORY ---------------- */}
-      <section className="py-24 border-t border-white/10 bg-white/5">
+      <section className="py-10 border-t border-white/10 bg-white/5">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <span className="text-emerald-500 font-bold tracking-wider uppercase text-sm mb-2 block">Sustainability Advisory</span>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Architects of carbon and climate finance that drives real-world impact.</h2>
@@ -130,9 +130,9 @@ export default function Ecotech() {
       </section>
 
       {/* METHODOLOGY: 4 PHASES */}
-      <section className="py-24 border-t border-white/10">
+      <section className="py-10 border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-5">
             <span className="text-emerald-500 font-bold tracking-wider uppercase text-sm mb-2 block">Sustainability Services</span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Turning Compliance Into Competitive Advantage</h2>
             <p className="text-white/70 max-w-3xl mx-auto leading-relaxed">
@@ -140,7 +140,7 @@ export default function Ecotech() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               {
                 title: "Assess", subtitle: "Discover and Align",
@@ -159,7 +159,7 @@ export default function Ecotech() {
                 desc: "Sustainability institutionalised into your governance architecture, building frameworks and capability programmes that make ESG a permanent organisational muscle."
               }
             ].map((phase, i) => (
-              <div key={i} className="bg-white/5 p-8 rounded-xl border border-white/10 hover:bg-white/10 transition">
+              <div key={i} className="bg-white/5 p-5 rounded-xl border border-white/10 hover:bg-white/10 transition">
                 <p className="text-sm text-emerald-400 font-bold mb-3">PHASE {`0${i + 1}`}</p>
                 <h3 className="text-2xl font-bold mb-1 text-white">{phase.title}</h3>
                 <p className="text-sm font-semibold text-white/60 mb-4">{phase.subtitle}</p>
@@ -171,9 +171,9 @@ export default function Ecotech() {
       </section>
 
       {/* EXPERTISE PILLARS */}
-      <section className="py-24 border-t border-white/10 bg-white/5">
+      <section className="py-10 border-t border-white/10 bg-white/5">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-5">
             <span className="text-emerald-500 font-bold tracking-wider uppercase text-sm mb-2 block">Our Expertise</span>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Three Pillars of Climate and Sustainability Impact</h2>
             <p className="text-white/70 max-w-3xl mx-auto leading-relaxed">
@@ -181,9 +181,9 @@ export default function Ecotech() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-5">
             {/* PILLAR 1 */}
-            <div className="relative p-8 border border-white/10 rounded-xl overflow-hidden hover:border-emerald-500/50 transition group flex flex-col min-h-[400px]">
+            <div className="relative p-5 border border-white/10 rounded-xl overflow-hidden hover:border-emerald-500/50 transition group flex flex-col min-h-[400px]">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                 style={{ backgroundImage: `url('https://images.unsplash.com/photo-1502224562085-639556652f33?q=80&w=1000&auto=format&fit=crop')` }}
@@ -203,7 +203,7 @@ export default function Ecotech() {
             </div>
 
             {/* PILLAR 2 */}
-            <div className="relative p-8 border border-white/10 rounded-xl overflow-hidden hover:border-emerald-500/50 transition group flex flex-col min-h-[400px]">
+            <div className="relative p-5 border border-white/10 rounded-xl overflow-hidden hover:border-emerald-500/50 transition group flex flex-col min-h-[400px]">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                 style={{ backgroundImage: `url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop')` }}
@@ -224,7 +224,7 @@ export default function Ecotech() {
             </div>
 
             {/* PILLAR 3 */}
-            <div className="relative p-8 border border-white/10 rounded-xl overflow-hidden hover:border-emerald-500/50 transition group flex flex-col min-h-[400px]">
+            <div className="relative p-5 border border-white/10 rounded-xl overflow-hidden hover:border-emerald-500/50 transition group flex flex-col min-h-[400px]">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                 style={{ backgroundImage: `url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=1000&auto=format&fit=crop')` }}
@@ -247,12 +247,12 @@ export default function Ecotech() {
       </section>
 
       {/* WORKING WITH US */}
-      <section className="py-24 border-t border-white/10">
+      <section className="py-10 border-t border-white/10">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <span className="text-emerald-500 font-bold tracking-wider uppercase text-sm mb-2 block">Working With Us</span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">A Partnership Engineered for Lasting Impact</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-5">A Partnership Engineered for Lasting Impact</h2>
           
-          <div className="text-white/70 text-lg leading-relaxed space-y-6 text-left max-w-4xl mx-auto mb-16">
+          <div className="text-white/70 text-lg leading-relaxed space-y-6 text-left max-w-4xl mx-auto mb-5">
             <p>
               Climate and sustainability advisory is not a transaction, it is a multi-year commitment that demands technical depth, regulatory foresight, and the patience to build solutions that endure beyond the first reporting cycle.
             </p>
@@ -287,11 +287,11 @@ export default function Ecotech() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 text-center border-t border-white/10 bg-black">
+      <section className="py-10 text-center border-t border-white/10 bg-black">
         <h2 className="text-4xl font-bold mb-6">
           Ready to Deliver on Your Net-Zero Ambition?
         </h2>
-        <p className="text-white/70 mb-10 text-lg max-w-2xl mx-auto">
+        <p className="text-white/70 mb-6 text-lg max-w-2xl mx-auto">
           Whether you are shaping national climate policy or decarbonising a global supply chain, our advisory team is ready to build the path forward with you.
         </p>
 
@@ -316,3 +316,6 @@ export default function Ecotech() {
     </div>
   );
 }
+
+
+

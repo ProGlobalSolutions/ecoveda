@@ -65,7 +65,7 @@ export default function NewsDetail() {
 
   if (!news) {
     return (
-      <div className="pt-40 text-center text-2xl">
+      <div className="pt-20 text-center text-2xl">
         News Not Found
       </div>
     );
@@ -118,7 +118,7 @@ export default function NewsDetail() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-slate-50 text-center">
+      <section className="py-8 bg-slate-50 text-center">
 
         <h2 className="text-2xl font-bold mb-4">
           Stay Updated with Our Work
@@ -149,3 +149,6 @@ export default function NewsDetail() {
     </div>
   );
 }
+
+
+

@@ -81,7 +81,7 @@ export default function NonAfolu() {
       </section>
 
       {/* Intro Section */}
-      <section className="py-24 bg-stone-50">
+      <section className="py-10 bg-stone-50">
         <div className="max-w-4xl mx-auto px-10 text-center">
           <motion.span
             initial={{ opacity: 0 }}
@@ -95,7 +95,7 @@ export default function NonAfolu() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-sans font-extrabold text-slate-800 mb-8"
+            className="text-4xl font-sans font-extrabold text-slate-800 mb-5"
           >
             What is Non-AFOLU?
           </motion.h2>
@@ -112,14 +112,14 @@ export default function NonAfolu() {
       </section>
 
       {/* Expertise Section */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-10 bg-slate-50">
         <div className="max-w-7xl mx-auto px-10">
-          <div className="mb-16">
+          <div className="mb-5">
             <span className="text-primary font-bold tracking-[1.5px] uppercase text-[12px] mb-4 block">Our Expertise</span>
             <h2 className="text-3xl md:text-[36px] font-sans font-extrabold text-slate-800">Technological & Industrial Innovations</h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {EXPERTISE.map((item, idx) => (
               <motion.div
                 key={idx}
@@ -137,7 +137,7 @@ export default function NonAfolu() {
                     referrerPolicy="no-referrer"
                    loading="lazy" decoding="async" />
                 </div>
-                <div className="p-8 text-center">
+                <div className="p-5 text-center">
                   <h3 className="text-xl font-bold text-slate-800 group-hover:text-primary transition-colors mb-2">
                     {item.title}
                   </h3>
@@ -152,12 +152,12 @@ export default function NonAfolu() {
       </section>
 
       {/* Impact Section */}
-      <section className="py-24 bg-emerald-50">
+      <section className="py-10 bg-emerald-50">
         <div className="max-w-7xl mx-auto px-10">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
               <span className="text-primary font-bold tracking-[1.5px] uppercase text-[12px] mb-4 block">Measurable Outcomes</span>
-              <h2 className="text-4xl font-sans font-extrabold text-slate-800 mb-8">Impact We Deliver</h2>
+              <h2 className="text-4xl font-sans font-extrabold text-slate-800 mb-5">Impact We Deliver</h2>
               <div className="grid gap-4">
                 {IMPACTS.map((impact, idx) => (
                   <motion.div
@@ -181,7 +181,7 @@ export default function NonAfolu() {
                 className="rounded-xl shadow-2xl"
                 referrerPolicy="no-referrer"
                loading="lazy" decoding="async" />
-              <div className="absolute -bottom-6 -right-6 bg-accent p-8 rounded-lg shadow-xl text-white">
+              <div className="absolute -bottom-6 -right-6 bg-accent p-5 rounded-lg shadow-xl text-white">
                 <p className="text-3xl font-extrabold">Net Zero</p>
                 <p className="text-[10px] font-bold uppercase tracking-wider">Emission Reduction</p>
               </div>
@@ -191,11 +191,11 @@ export default function NonAfolu() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-primary text-white text-center relative overflow-hidden">
+      <section className="py-10 bg-primary text-white text-center relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-primary-dark/20" />
         <div className="relative z-10 max-w-4xl mx-auto px-10">
-          <h2 className="text-4xl font-sans font-extrabold mb-8 leading-tight">Partner With Us</h2>
-          <p className="text-white/80 mb-10 text-lg">
+          <h2 className="text-4xl font-sans font-extrabold mb-5 leading-tight">Partner With Us</h2>
+          <p className="text-white/80 mb-6 text-lg">
             Ready to transition to clean energy or sustainable industrial practices? Let's work together to reduce your carbon footprint.
           </p>
           <Link
@@ -209,3 +209,7 @@ export default function NonAfolu() {
     </div>
   );
 }
+
+
+
+

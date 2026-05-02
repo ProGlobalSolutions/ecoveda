@@ -90,11 +90,11 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 pt-28 pb-10 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-slate-50 pt-20 pb-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
           <div>
             <h1 className="text-3xl font-bold text-slate-900 flex items-center gap-3">
               <Users className="text-emerald-600" />
@@ -150,7 +150,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
               <tbody className="divide-y divide-slate-100">
                 {loading ? (
                   <tr>
-                    <td colSpan={6} className="px-6 py-12 text-center text-slate-500">
+                    <td colSpan={6} className="px-6 py-8 text-center text-slate-500">
                       <RefreshCw className="w-6 h-6 animate-spin text-emerald-600" />
                       <p>Loading leads...</p>
                     </td>
@@ -188,3 +188,6 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
     </div>
   );
 }
+
+
+

@@ -52,7 +52,7 @@ export default function Hero() {
           </h1>
 
           {/* DESCRIPTION */}
-          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-white/90 mb-6 max-w-2xl mx-auto">
             {HERO_SLIDES[0]?.description}
           </p>
 
@@ -82,3 +82,6 @@ export default function Hero() {
     </section>
   );
 }
+
+
+

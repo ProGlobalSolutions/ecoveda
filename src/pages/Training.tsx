@@ -22,7 +22,7 @@ export default function Training() {
       </section>
 
       {/* INTRO */}
-      <section className="py-20 bg-emerald-50">
+      <section className="py-8 bg-emerald-50">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
           <div>
@@ -55,10 +55,10 @@ export default function Training() {
       </section>
 
       {/* TARGET AUDIENCE */}
-      <section className="py-20 bg-slate-50 text-center">
+      <section className="py-8 bg-slate-50 text-center">
         <div className="max-w-6xl mx-auto px-6">
 
-          <h2 className="text-3xl font-bold mb-12 text-slate-800">
+          <h2 className="text-3xl font-bold mb-6 text-slate-800">
             Who This Is For
           </h2>
 
@@ -85,10 +85,10 @@ export default function Training() {
       </section>
 
       {/* TRAINING MODULES */}
-      <section className="py-20 bg-stone-50">
+      <section className="py-8 bg-stone-50">
         <div className="max-w-6xl mx-auto px-6 text-center">
 
-          <h2 className="text-3xl font-bold mb-12 text-slate-800">
+          <h2 className="text-3xl font-bold mb-6 text-slate-800">
             Core Training Modules
           </h2>
 
@@ -130,14 +130,14 @@ export default function Training() {
       </section>
 
       {/* DELIVERY FORMAT */}
-      <section className="py-20 bg-slate-50 text-center">
+      <section className="py-8 bg-slate-50 text-center">
         <div className="max-w-6xl mx-auto px-6">
 
-          <h2 className="text-3xl font-bold mb-12 text-slate-800">
+          <h2 className="text-3xl font-bold mb-6 text-slate-800">
             Training Formats
           </h2>
 
-          <div className="grid md:grid-cols-4 gap-8 text-slate-600 font-medium">
+          <div className="grid md:grid-cols-4 gap-5 text-slate-600 font-medium">
 
             <div>On-site Workshops</div>
             <div>Virtual Sessions</div>
@@ -150,7 +150,7 @@ export default function Training() {
       </section>
 
       {/* OUTCOMES */}
-      <section className="py-20 text-center bg-emerald-50">
+      <section className="py-8 text-center bg-emerald-50">
         <div className="max-w-5xl mx-auto px-6">
 
           <h2 className="text-3xl font-bold mb-6 text-slate-800">
@@ -166,7 +166,7 @@ export default function Training() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-black text-white text-center">
+      <section className="py-10 bg-black text-white text-center">
         <h2 className="text-4xl font-bold mb-6">
           Build Climate Expertise Within Your Team
         </h2>
@@ -192,3 +192,6 @@ export default function Training() {
     </div>
   );
 }
+
+
+

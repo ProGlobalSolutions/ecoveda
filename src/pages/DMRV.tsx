@@ -21,7 +21,7 @@ export default function DMRV() {
       </section>
 
       {/* INTRO */}
-      <section className="py-20 border-t border-white/10">
+      <section className="py-8 border-t border-white/10">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-6">
             Data-Driven Climate Intelligence
@@ -36,10 +36,10 @@ export default function DMRV() {
       </section>
 
       {/* SYSTEM FLOW */}
-      <section className="py-20">
+      <section className="py-8">
         <div className="max-w-6xl mx-auto px-6">
 
-          <h2 className="text-3xl font-bold text-center mb-16">
+          <h2 className="text-3xl font-bold text-center mb-5">
             How Our DMRV System Works
           </h2>
 
@@ -89,10 +89,10 @@ export default function DMRV() {
       </section>
 
       {/* TECH CAPABILITIES */}
-      <section className="py-20 border-t border-white/10">
+      <section className="py-8 border-t border-white/10">
         <div className="max-w-6xl mx-auto px-6 text-center">
 
-          <h2 className="text-3xl font-bold mb-12">
+          <h2 className="text-3xl font-bold mb-6">
             Technology Capabilities
           </h2>
 
@@ -134,7 +134,7 @@ export default function DMRV() {
       </section>
 
       {/* WHY IT MATTERS */}
-      <section className="py-20 border-t border-white/10">
+      <section className="py-8 border-t border-white/10">
         <div className="max-w-5xl mx-auto px-6 text-center">
 
           <h2 className="text-3xl font-bold mb-6">
@@ -152,7 +152,7 @@ export default function DMRV() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 text-center border-t border-white/10">
+      <section className="py-10 text-center border-t border-white/10">
         <h2 className="text-4xl font-bold mb-6">
           Power Your Projects With Data
         </h2>
@@ -178,3 +178,6 @@ export default function DMRV() {
     </div>
   );
 }
+
+
+

@@ -75,12 +75,12 @@ export default function GetStarted() {
       </section>
 
       {/* FORM */}
-      <section className="py-24 bg-gradient-to-b from-white to-emerald-50">
+      <section className="py-10 bg-gradient-to-b from-white to-emerald-50">
         <div className="max-w-4xl mx-auto px-6">
 
           <form
             onSubmit={handleSubmit}
-            className="bg-white/70 backdrop-blur-2xl p-10 md:p-14 rounded-[2rem] shadow-xl border space-y-8"
+            className="bg-white/70 backdrop-blur-2xl p-10 md:p-14 rounded-[2rem] shadow-xl border space-y-5"
           >
 
             {/* NAME */}
@@ -204,3 +204,6 @@ export default function GetStarted() {
     </div>
   );
 }
+
+
+

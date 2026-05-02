@@ -27,11 +27,11 @@ const PROJECTS = [
 
 export default function Projects() {
   return (
-    <section className="py-24 bg-emerald-50">
+    <section className="py-10 bg-emerald-50">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* HEADER */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-6">
 
           <div className="max-w-2xl">
             <span className="text-emerald-600 font-semibold uppercase text-sm tracking-wider mb-3 block">
@@ -59,40 +59,48 @@ export default function Projects() {
         </div>
 
         {/* PROJECT CARDS */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-4">
 
           {PROJECTS.map((project, i) => (
             <motion.div
               key={i}
-              initial={{ scale: 0.95, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="group relative overflow-hidden rounded-2xl h-[400px] bg-primary-dark hover:bg-[#053d2e] border border-white/5 hover:border-emerald-500/30 flex flex-col justify-end p-8 cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-900/20"
+              transition={{ duration: 0.6, delay: i * 0.15 }}
+              className="group relative overflow-hidden rounded-2xl bg-primary-dark hover:bg-[#053d2e] border border-white/5 hover:border-emerald-500/40 flex flex-col justify-between p-5 cursor-pointer transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-900/30 min-h-[380px]"
             >
 
-              {/* CONTENT */}
-              <div className="relative z-10 text-white transform transition-transform duration-500 group-hover:translate-y-[-8px]">
+              {/* TOP: Icon + Subtitle */}
+              <div className="flex flex-col">
+                <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/10 group-hover:bg-emerald-500/20 border border-white/10 group-hover:border-emerald-400/30 transition-all duration-300 mb-5">
+                  <span className="text-emerald-400 text-xl">
+                    {i === 0 ? '🌿' : '⚡'}
+                  </span>
+                </div>
 
-                <span className="text-xs uppercase tracking-wider text-emerald-400 font-medium">
+                <span className="text-xs uppercase tracking-widest text-emerald-400 font-semibold mb-3">
                   {project.subtitle}
                 </span>
 
-                <h3 className="text-3xl font-heading font-bold mt-3 mb-4">
+                <h3 className="text-2xl md:text-3xl font-bold text-white leading-snug mb-4">
                   {project.title}
                 </h3>
 
-                <p className="text-base text-white/70 mb-8 max-w-sm leading-relaxed">
+                <p className="text-sm md:text-base text-white/65 leading-relaxed max-w-sm">
                   {project.description}
                 </p>
+              </div>
 
+              {/* BOTTOM: CTA */}
+              <div className="mt-8">
                 <Link
                   to={project.link}
-                  className="inline-flex items-center gap-2 bg-emerald-500 px-6 py-2.5 rounded-lg text-sm font-semibold hover:bg-emerald-400 hover:text-primary-dark transition-colors duration-300"
+                  className="inline-flex items-center gap-2 text-emerald-400 font-semibold text-sm group-hover:text-emerald-300 transition-colors duration-300"
                 >
                   Explore Projects
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
                 </Link>
-
               </div>
 
             </motion.div>
@@ -104,3 +112,6 @@ export default function Projects() {
     </section>
   );
 }
+
+
+

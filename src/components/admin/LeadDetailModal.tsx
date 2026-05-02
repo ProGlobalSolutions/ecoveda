@@ -123,3 +123,7 @@ export default function LeadDetailModal({ isOpen, onClose, lead }: LeadDetailMod
     </div>
   );
 }
+
+
+
+

@@ -29,7 +29,7 @@ export default function GovtNgo() {
       </section>
 
       {/* INTRO */}
-      <section className="py-24 bg-stone-50 text-center">
+      <section className="py-10 bg-stone-50 text-center">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl font-bold mb-6 text-slate-800">
             Scaling Climate Solutions Through Partnerships
@@ -43,7 +43,7 @@ export default function GovtNgo() {
       </section>
 
       {/* SECTION 1 */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-10 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           
           <div>
@@ -73,7 +73,7 @@ export default function GovtNgo() {
       </section>
 
       {/* SECTION 2 */}
-      <section className="py-24 bg-emerald-50">
+      <section className="py-10 bg-emerald-50">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
           <div className="h-[350px] rounded-xl overflow-hidden order-2 md:order-1">
@@ -104,7 +104,7 @@ export default function GovtNgo() {
       </section>
 
       {/* SECTION 3 */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-10 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
           <div>
@@ -135,7 +135,7 @@ export default function GovtNgo() {
       </section>
 
       {/* SECTION 4 */}
-      <section className="py-24 bg-stone-50">
+      <section className="py-10 bg-stone-50">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
           <div className="h-[350px] rounded-xl overflow-hidden order-2 md:order-1">
@@ -166,20 +166,20 @@ export default function GovtNgo() {
       </section>
 
       {/* WORKING WITH US FROM SUSTAINABILITY */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-10 bg-slate-50">
         <div className="max-w-5xl mx-auto px-6 text-center">
 
           <h2 className="text-4xl font-extrabold mb-6 text-slate-800">
             A Partnership Engineered for Lasting Impact
           </h2>
 
-          <p className="text-slate-600 leading-relaxed mb-8">
+          <p className="text-slate-600 leading-relaxed mb-5">
             Climate and sustainability advisory is not a transaction, it is a
             multi-year commitment requiring technical depth and regulatory foresight.
             We operate at the intersection of science, policy and market design.
           </p>
 
-          <p className="text-slate-600 leading-relaxed mb-12">
+          <p className="text-slate-600 leading-relaxed mb-6">
             We do not deliver reports that sit on shelves. Every engagement is
             designed around measurable milestones, embedded governance structures
             and knowledge transfer that leaves your organisation stronger.
@@ -219,7 +219,7 @@ export default function GovtNgo() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-black text-center text-white">
+      <section className="py-10 bg-black text-center text-white">
         <h2 className="text-4xl font-bold mb-6">
           Build Impact With Us
         </h2>
@@ -245,3 +245,6 @@ export default function GovtNgo() {
     </div>
   );
 }
+
+
+

@@ -36,10 +36,10 @@ const Admin = React.lazy(() => import('./pages/Admin'));
 
 // Temporary stub pages
 const VerticalPage = ({ title }: { title: string }) => (
-  <div className="pt-40 pb-24 text-center">
+  <div className="pt-20 pb-24 text-center">
     <div className="max-w-4xl mx-auto px-4">
       <h1 className="text-5xl font-serif font-bold mb-6 text-gray-900">{title}</h1>
-      <p className="text-xl text-gray-600 mb-12">
+      <p className="text-xl text-gray-600 mb-6">
         Detailed insights and solutions for {title} coming soon.
       </p>
       <div className="bg-emerald-50 p-12 rounded-[2.5rem] border border-emerald-100">
@@ -123,7 +123,7 @@ export default function App() {
               <Route
                 path="*"
                 element={
-                  <div className="pt-40 text-center text-2xl">
+                  <div className="pt-20 text-center text-2xl">
                     Page Not Found
                   </div>
                 }
@@ -138,3 +138,6 @@ export default function App() {
     </Router>
   );
 }
+
+
+

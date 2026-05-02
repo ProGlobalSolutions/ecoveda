@@ -104,7 +104,7 @@ export default function Advisory() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl font-medium text-white/80 max-w-2xl mx-auto uppercase tracking-wide mb-10"
+            className="text-lg md:text-xl font-medium text-white/80 max-w-2xl mx-auto uppercase tracking-wide mb-6"
           >
             Strategic guidance across carbon markets, climate finance and project development
           </motion.p>
@@ -131,7 +131,7 @@ export default function Advisory() {
       </section>
 
       {/* Intro Section */}
-      <section className="py-24 bg-white">
+      <section className="py-10 bg-white">
         <div className="max-w-4xl mx-auto px-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -139,7 +139,7 @@ export default function Advisory() {
             viewport={{ once: true }}
           >
             <span className="text-primary font-bold tracking-[1.5px] uppercase text-[12px] mb-4 block">Strategic Depth</span>
-            <h2 className="text-4xl font-sans font-extrabold text-slate-800 mb-8">Advisory That Moves Projects Forward</h2>
+            <h2 className="text-4xl font-sans font-extrabold text-slate-800 mb-5">Advisory That Moves Projects Forward</h2>
             <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
               <p>
                 Ecoveda Climate provides end-to-end advisory services across the carbon market value chain, supporting organisations, developers and investors in navigating complex regulatory, technical and financial landscapes.
@@ -153,13 +153,13 @@ export default function Advisory() {
       </section>
 
       {/* Partners Section */}
-      <section className="py-24 bg-card-bg">
-        <div className="max-w-7xl mx-auto px-10 text-center mb-16">
+      <section className="py-10 bg-card-bg">
+        <div className="max-w-7xl mx-auto px-10 text-center mb-5">
           <span className="text-primary font-bold tracking-[1.5px] uppercase text-[12px] mb-4 block">Collaboration</span>
           <h2 className="text-4xl font-sans font-extrabold text-slate-800">Who We Work With</h2>
         </div>
         <div className="max-w-7xl mx-auto px-10">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {AUDIENCES.map((aud, idx) => (
               <motion.div
                 key={idx}
@@ -167,7 +167,7 @@ export default function Advisory() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all border border-border group text-center"
+                className="bg-white p-5 rounded-xl shadow-sm hover:shadow-xl transition-all border border-border group text-center"
               >
                 <div className="w-16 h-16 bg-slate-50 border border-border rounded-full flex items-center justify-center text-primary mx-auto mb-6 group-hover:bg-primary group-hover:text-white transition-all">
                   <aud.icon className="w-8 h-8" />
@@ -181,13 +181,13 @@ export default function Advisory() {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-10 mb-16">
+      <section className="py-10 bg-white">
+        <div className="max-w-7xl mx-auto px-10 mb-5">
           <span className="text-primary font-bold tracking-[1.5px] uppercase text-[12px] mb-4 block">Our Expertise</span>
           <h2 className="text-4xl font-sans font-extrabold text-slate-800">Our Advisory Services</h2>
         </div>
         <div className="max-w-7xl mx-auto px-10">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {SERVICES.map((service, idx) => (
               <motion.div
                 key={idx}
@@ -197,7 +197,7 @@ export default function Advisory() {
                 transition={{ delay: idx * 0.1 }}
                 className="bg-slate-50 border border-border p-10 rounded-xl hover:shadow-2xl hover:bg-white hover:border-accent transition-all duration-300 flex flex-col"
               >
-                <h3 className="text-xl font-sans font-extrabold text-slate-800 mb-8 leading-tight">
+                <h3 className="text-xl font-sans font-extrabold text-slate-800 mb-5 leading-tight">
                   {service.title}
                 </h3>
                 <ul className="space-y-4 flex-grow">
@@ -217,7 +217,7 @@ export default function Advisory() {
       </section>
 
       {/* How We Work Section */}
-      <section className="py-24 bg-primary-dark">
+      <section className="py-10 bg-primary-dark">
         <div className="max-w-7xl mx-auto px-10 text-center mb-20">
           <span className="text-accent font-bold tracking-[1.5px] uppercase text-[12px] mb-4 block">Methodology</span>
           <h2 className="text-4xl font-sans font-extrabold text-white">How We Work</h2>
@@ -248,15 +248,15 @@ export default function Advisory() {
       </section>
 
       {/* Why Ecoveda Section */}
-      <section className="py-24 bg-card-bg">
-        <div className="max-w-7xl mx-auto px-10 text-center mb-16">
+      <section className="py-10 bg-card-bg">
+        <div className="max-w-7xl mx-auto px-10 text-center mb-5">
           <span className="text-primary font-bold tracking-[1.5px] uppercase text-[12px] mb-4 block">Advantages</span>
           <h2 className="text-4xl font-sans font-extrabold text-slate-800">Why Ecoveda</h2>
         </div>
         <div className="max-w-7xl mx-auto px-10">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {HIGHLIGHTS.map((h, idx) => (
-              <div key={idx} className="p-8 border border-border rounded-xl bg-white hover:border-primary transition-all group">
+              <div key={idx} className="p-5 border border-border rounded-xl bg-white hover:border-primary transition-all group">
                 <div className="w-12 h-12 bg-slate-50 rounded-lg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
                   <h.icon className="w-6 h-6" />
                 </div>
@@ -269,9 +269,9 @@ export default function Advisory() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-white border-t border-slate-100">
+      <section className="py-10 bg-white border-t border-slate-100">
         <div className="max-w-5xl mx-auto px-10 text-center">
-          <h2 className="text-4xl font-sans font-extrabold text-slate-800 mb-10">Ready to Build a <br /> Climate Project?</h2>
+          <h2 className="text-4xl font-sans font-extrabold text-slate-800 mb-6">Ready to Build a <br /> Climate Project?</h2>
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
             <Link
               to="/contact"
@@ -292,3 +292,7 @@ export default function Advisory() {
     </div>
   );
 }
+
+
+
+

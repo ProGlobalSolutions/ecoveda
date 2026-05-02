@@ -49,7 +49,7 @@ export default function ProjectDetail() {
 
   if (!project) {
     return (
-      <div className="pt-40 pb-24 text-center">
+      <div className="pt-20 pb-24 text-center">
         <h1 className="text-3xl font-bold mb-4">Project Not Found</h1>
         <Link to="/verticals/project-development" className="text-primary hover:underline">Return to Portfolio</Link>
       </div>
@@ -103,13 +103,13 @@ export default function ProjectDetail() {
       
 
       {/* Main Content Area */}
-      <section className="py-24 max-w-7xl mx-auto px-10">
+      <section className="py-10 max-w-7xl mx-auto px-10">
         <div className="space-y-20">
           {/* Left: Content */}
           <div className="lg:col-span-2 space-y-20">
             {/* Primary Activity */}
             <div>
-              <h2 className={`text-sm font-bold uppercase tracking-[2px] mb-8 pb-4 border-b ${isCDR ? 'text-blue-400 border-white/10' : 'text-primary border-slate-100'}`}>
+              <h2 className={`text-sm font-bold uppercase tracking-[2px] mb-5 pb-4 border-b ${isCDR ? 'text-blue-400 border-white/10' : 'text-primary border-slate-100'}`}>
                 Primary Project Activity
               </h2>
               <p className={`text-xl lg:text-2xl font-medium leading-relaxed ${isCDR ? 'text-slate-300' : 'text-slate-700'}`}>
@@ -121,7 +121,7 @@ export default function ProjectDetail() {
 
 
             <div>
-  <h2 className="text-2xl font-bold mb-8">
+  <h2 className="text-2xl font-bold mb-5">
     Project Impact
   </h2>
 
@@ -140,7 +140,7 @@ export default function ProjectDetail() {
 </div>
          {project.secondaryActivities && project.secondaryActivities.length > 0 && (
   <div>
-    <h2 className={`text-sm font-bold uppercase tracking-[2px] mb-8 pb-4 border-b ${
+    <h2 className={`text-sm font-bold uppercase tracking-[2px] mb-5 pb-4 border-b ${
       isCDR ? 'text-blue-400 border-white/10' : 'text-primary border-slate-100'
     }`}>
       Ancillary Initiatives
@@ -168,7 +168,7 @@ export default function ProjectDetail() {
             
             {/* Map Section */}
             <div>
-              <h2 className={`text-sm font-bold uppercase tracking-[2px] mb-8 pb-4 border-b ${isCDR ? 'text-blue-400 border-white/10' : 'text-primary border-slate-100'}`}>
+              <h2 className={`text-sm font-bold uppercase tracking-[2px] mb-5 pb-4 border-b ${isCDR ? 'text-blue-400 border-white/10' : 'text-primary border-slate-100'}`}>
                 Project Location Context
               </h2>
               <div className="h-[400px] w-full rounded-2xl overflow-hidden bg-slate-800 relative shadow-2xl">
@@ -178,7 +178,7 @@ export default function ProjectDetail() {
                     alt="Map Context"
                     referrerPolicy="no-referrer"
                   loading="lazy" decoding="async" />
-                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
+                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-5">
                     <div className={`p-4 rounded-full mb-6 ${isCDR ? 'bg-blue-600' : 'bg-primary'}`}>
                       <MapPin className="w-8 h-8 text-white" />
                     </div>
@@ -196,10 +196,10 @@ export default function ProjectDetail() {
       {/* Investor CTA */}
       <section className={`py-32 px-10 text-center ${isCDR ? 'bg-slate-950 mt-20' : 'bg-slate-50 mt-20'}`}>
         <div className="max-w-4xl mx-auto">
-          <h2 className={`text-4xl font-sans font-extrabold mb-8 ${isCDR ? 'text-white' : 'text-slate-900'}`}>
+          <h2 className={`text-4xl font-sans font-extrabold mb-5 ${isCDR ? 'text-white' : 'text-slate-900'}`}>
             Ready to Invest?
           </h2>
-          <p className={`text-lg mb-12 max-w-2xl mx-auto ${isCDR ? 'text-slate-400' : 'text-slate-600'}`}>
+          <p className={`text-lg mb-6 max-w-2xl mx-auto ${isCDR ? 'text-slate-400' : 'text-slate-600'}`}>
             Access high-integrity carbon removal units from our verified project pipeline. Request a technical project deck or schedule a consultation with our development team.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -237,3 +237,7 @@ export default function ProjectDetail() {
     </div>
   );
 }
+
+
+
+

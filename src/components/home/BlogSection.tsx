@@ -28,11 +28,11 @@ const POSTS = [
 
 export default function BlogSection() {
   return (
-    <section className="py-24 bg-stone-50">
+    <section className="py-10 bg-stone-50">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* HEADER */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 text-center md:text-left">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-5 gap-6 text-center md:text-left">
 
           <div className="max-w-xl">
             <span className="text-emerald-600 font-semibold uppercase text-sm tracking-wider block mb-3">
@@ -60,7 +60,7 @@ export default function BlogSection() {
         </div>
 
         {/* GRID */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
 
           {POSTS.map((post, i) => (
             <motion.article
@@ -120,3 +120,6 @@ export default function BlogSection() {
     </section>
   );
 }
+
+
+

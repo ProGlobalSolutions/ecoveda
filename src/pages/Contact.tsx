@@ -79,7 +79,7 @@ export default function Contact() {
   return (
     <div className="pt-16">
       {/* HERO */}
-      <section className="relative py-24 text-center text-white overflow-hidden">
+      <section className="relative py-10 text-center text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-emerald-900/80 backdrop-blur-sm" />
 
@@ -94,11 +94,11 @@ export default function Contact() {
       </section>
 
       {/* CONTENT */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-10 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
           {/* LEFT INFO */}
-          <div className="lg:col-span-4 space-y-8 lg:sticky lg:top-32">
+          <div className="lg:col-span-4 space-y-5 lg:sticky lg:top-32">
             <div>
               <h2 className="text-3xl font-bold text-slate-900 mb-2">Get in Touch</h2>
               <p className="text-slate-600">Reach out directly through our contact details or fill out the enquiry form.</p>
@@ -140,14 +140,14 @@ export default function Contact() {
           </div>
 
           {/* RIGHT FORM */}
-          <div className="lg:col-span-8 bg-white p-8 md:p-12 rounded-3xl shadow-xl shadow-slate-200/40 border border-slate-100">
-            <div className="mb-10 border-b border-slate-100 pb-8">
+          <div className="lg:col-span-8 bg-white p-5 md:p-12 rounded-3xl shadow-xl shadow-slate-200/40 border border-slate-100">
+            <div className="mb-6 border-b border-slate-100 pb-8">
               <h3 className="text-sm font-bold text-slate-400 tracking-widest uppercase mb-2">ENQUIRY FORM</h3>
               <h4 className="text-3xl text-emerald-600 font-bold mb-4">Send Us a Message</h4>
               <p className="text-slate-500 text-sm md:text-base">Complete the form below and a member of our team will be in touch. Fields marked with <span className="text-red-500 font-bold">*</span> are required.</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-5">
               
               {/* ROW 1: Name */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -283,3 +283,6 @@ export default function Contact() {
     </div>
   );
 }
+
+
+

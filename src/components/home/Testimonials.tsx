@@ -2,11 +2,11 @@ import { motion } from 'motion/react';
 
 export default function Testimonials() {
   return (
-    <section className="py-24 bg-slate-50">
+    <section className="py-10 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* HEADER */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-5">
           <span className="text-emerald-600 font-semibold uppercase text-sm tracking-wider block mb-3">
             Clients & Partners
           </span>
@@ -49,3 +49,6 @@ export default function Testimonials() {
     </section>
   );
 }
+
+
+

@@ -35,11 +35,11 @@ const SERVICES = [
 
 export default function Verticals() {
   return (
-    <section className="py-24 bg-stone-50">
+    <section className="py-10 bg-stone-50">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* HEADER */}
-        <div className="mb-16 text-center">
+        <div className="mb-5 text-center">
           <span className="text-emerald-600 font-semibold uppercase text-sm tracking-wider block mb-3">
             Our Services
           </span>
@@ -54,7 +54,7 @@ export default function Verticals() {
         </div>
 
         {/* GRID */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
 
           {SERVICES.map((service, i) => (
             <motion.div
@@ -76,7 +76,7 @@ export default function Verticals() {
               <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition" />
 
               {/* CONTENT */}
-              <div className="relative z-10 p-8 text-white">
+              <div className="relative z-10 p-5 text-white">
 
                 {/* ICON */}
                 <div className="w-12 h-12 flex items-center justify-center bg-white/20 backdrop-blur text-white rounded-lg mb-6 group-hover:bg-emerald-500 transition">
@@ -113,3 +113,6 @@ export default function Verticals() {
     </section>
   );
 }
+
+
+

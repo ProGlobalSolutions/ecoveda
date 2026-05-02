@@ -5,7 +5,7 @@ export default function StakeholderConsultation() {
     <div className="pt-20">
 
       {/* HERO */}
-      <section className="py-24 bg-slate-900 text-white text-center">
+      <section className="py-10 bg-slate-900 text-white text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
           Stakeholder Consultation
         </h1>
@@ -16,7 +16,7 @@ export default function StakeholderConsultation() {
       </section>
 
       {/* INTRO */}
-      <section className="py-20">
+      <section className="py-8">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-slate-800 mb-6">
             Inclusive Engagement for Sustainable Impact
@@ -32,9 +32,9 @@ export default function StakeholderConsultation() {
       </section>
 
       {/* PROCESS */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-8 bg-slate-50">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center text-slate-800 mb-16">
+          <h2 className="text-3xl font-bold text-center text-slate-800 mb-5">
             Our Consultation Process
           </h2>
 
@@ -73,10 +73,10 @@ export default function StakeholderConsultation() {
       </section>
 
       {/* BENEFITS */}
-      <section className="py-20">
+      <section className="py-8">
         <div className="max-w-6xl mx-auto px-6">
 
-          <h2 className="text-3xl font-bold text-center text-slate-800 mb-12">
+          <h2 className="text-3xl font-bold text-center text-slate-800 mb-6">
             Why It Matters
           </h2>
 
@@ -103,12 +103,12 @@ export default function StakeholderConsultation() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-black text-white text-center">
+      <section className="py-10 bg-black text-white text-center">
         <h2 className="text-4xl font-bold mb-6">
           Engage With Us
         </h2>
 
-        <p className="text-slate-300 mb-8">
+        <p className="text-slate-300 mb-5">
           Partner with us to design inclusive and impactful climate projects.
         </p>
 
@@ -123,3 +123,6 @@ export default function StakeholderConsultation() {
     </div>
   );
 }
+
+
+

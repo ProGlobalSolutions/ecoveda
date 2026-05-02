@@ -24,11 +24,11 @@ const VALUES = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-24 bg-slate-50">
+    <section className="py-10 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* HEADER */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+        <div className="text-center mb-5 max-w-3xl mx-auto">
           <span className="text-emerald-600 font-semibold uppercase text-sm tracking-wider block mb-3">
             Our Values
           </span>
@@ -43,7 +43,7 @@ export default function WhyChooseUs() {
         </div>
 
         {/* GRID */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-5">
 
           {VALUES.map((value, i) => (
             <motion.div
@@ -52,7 +52,7 @@ export default function WhyChooseUs() {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white p-8 rounded-xl border border-gray-200 text-center hover:shadow-md transition"
+              className="bg-white p-5 rounded-xl border border-gray-200 text-center hover:shadow-md transition"
             >
 
               {/* ICON */}
@@ -79,3 +79,6 @@ export default function WhyChooseUs() {
     </section>
   );
 }
+
+
+

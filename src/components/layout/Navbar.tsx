@@ -85,7 +85,7 @@ export default function Navbar() {
         </Link>
 
         {/* DESKTOP NAV */}
-        <div className="hidden lg:flex items-start gap-8 xl:gap-10">
+        <div className="hidden lg:flex items-start gap-5 xl:gap-10">
 
           {NAV_ITEMS.map((link) => (
             <div
@@ -211,7 +211,7 @@ export default function Navbar() {
               </div>
 
               {/* Links - Centered */}
-              <div className="flex-1 overflow-y-auto flex flex-col items-center pt-12 pb-24 px-8 space-y-8">
+              <div className="flex-1 overflow-y-auto flex flex-col items-center pt-12 pb-24 px-8 space-y-5">
                 {NAV_ITEMS.map((link) => (
                   <div key={link.name} className="w-full flex flex-col items-center">
                     {link.dropdown ? (
@@ -304,3 +304,6 @@ export default function Navbar() {
     </>
   );
 }
+
+
+

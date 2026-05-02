@@ -70,7 +70,7 @@ export default function News() {
     <div className="pt-16">
 
       {/* HERO */}
-      <section className="py-24 bg-emerald-600 text-white text-center mt-10 md:mt-0">
+      <section className="py-10 bg-emerald-600 text-white text-center mt-10 md:mt-0">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight">
             News & Updates
@@ -82,7 +82,7 @@ export default function News() {
       </section>
 
       {/* NEWS GRID */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-8 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {NEWS_ITEMS.map((item) => (
@@ -100,7 +100,7 @@ export default function News() {
                 </div>
 
                 {/* CONTENT */}
-                <div className="p-8 flex flex-col flex-grow">
+                <div className="p-5 flex flex-col flex-grow">
                   <h2 className="text-xl font-bold text-violet-700 mb-4 leading-snug">
                     {item.title}
                   </h2>
@@ -117,3 +117,6 @@ export default function News() {
     </div>
   );
 }
+
+
+

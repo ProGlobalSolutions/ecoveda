@@ -22,7 +22,7 @@ export default function CarbonConsulting() {
       </section>
 
       {/* INTRO + IMAGE */}
-      <section className="py-20">
+      <section className="py-8">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
           <div className="h-[420px] rounded-xl overflow-hidden">
@@ -55,10 +55,10 @@ export default function CarbonConsulting() {
       </section>
 
       {/* CORE SERVICES GRID (NO IMAGE) */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-8 bg-slate-50">
         <div className="max-w-6xl mx-auto px-6">
 
-          <h2 className="text-3xl font-bold text-center mb-16 text-slate-800">
+          <h2 className="text-3xl font-bold text-center mb-5 text-slate-800">
             What We Deliver
           </h2>
 
@@ -105,14 +105,14 @@ export default function CarbonConsulting() {
       </section>
 
       {/* CAPABILITIES STRIP */}
-      <section className="py-20">
+      <section className="py-8">
         <div className="max-w-6xl mx-auto px-6 text-center">
 
-          <h2 className="text-3xl font-bold mb-12 text-slate-800">
+          <h2 className="text-3xl font-bold mb-6 text-slate-800">
             Our Capabilities
           </h2>
 
-          <div className="grid md:grid-cols-4 gap-8 text-slate-600 font-medium">
+          <div className="grid md:grid-cols-4 gap-5 text-slate-600 font-medium">
 
             <div>Carbon Strategy Design</div>
             <div>Project Structuring</div>
@@ -129,7 +129,7 @@ export default function CarbonConsulting() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-black text-white text-center">
+      <section className="py-10 bg-black text-white text-center">
         <h2 className="text-4xl font-bold mb-6">
           Build a Strong Carbon Strategy
         </h2>
@@ -155,3 +155,6 @@ export default function CarbonConsulting() {
     </div>
   );
 }
+
+
+

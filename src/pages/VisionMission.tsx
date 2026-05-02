@@ -101,7 +101,7 @@ export default function About() {
       </section>
 
       {/* MISSION + VISION */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-10 bg-slate-50">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10">
 
   {/* MISSION */}
@@ -134,7 +134,7 @@ export default function About() {
       </section>
 
       {/* STATS */}
-     <section className="py-16 md:py-24 bg-emerald-50">
+     <section className="py-16 md:py-10 bg-emerald-50">
   <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
 
     {/* LEFT CONTENT */}
@@ -172,18 +172,18 @@ export default function About() {
   </div>
 </section>
       {/* VALUES */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6 text-center mb-12">
+      <section className="py-10 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6 text-center mb-6">
           <h2 className="text-4xl font-bold text-slate-800">
             Our Values
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto px-6">
+        <div className="grid md:grid-cols-3 gap-5 max-w-7xl mx-auto px-6">
           {VALUES.map((val, i) => (
             <div
               key={i}
-              className="bg-white p-8 rounded-xl border hover:shadow-lg transition"
+              className="bg-white p-5 rounded-xl border hover:shadow-lg transition"
             >
               <val.icon className="mb-4 text-emerald-600" />
               <h3 className="font-bold text-lg mb-2">{val.title}</h3>
@@ -194,7 +194,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-emerald-600 text-white text-center">
+      <section className="py-8 bg-emerald-600 text-white text-center">
         <h2 className="text-3xl font-bold mb-6">
           Ready to Partner With Us?
         </h2>
@@ -209,3 +209,6 @@ export default function About() {
     </div>
   );
 }
+
+
+

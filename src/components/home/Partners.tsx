@@ -1,52 +1,131 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
-const PARTNERS = [
-  "Aarksee", "SK Forest", "CarboVerte", "Meta Materials Circular Markets",
-  "Sevenstar", "Cenergist", "Resources Future", "SKG Sangha",
-  "Thriveni", "ATOA", "ATR Carbon Solution", "Attero",
-  "Sembcorp", "Prana Climatech", "CO2 Cap Projects Africa", "Vision Green Tech",
-  "YadGreen", "Planet NetZero", "Al-Badhour Al-Hayya", "RM Agrico",
-  "Mahadesh Farms", "Goenvi Technologies", "Pineview Technology", "Lloyds Metals",
-  "Ruuris Innovations", "Govt. of Maharashtra", "AADB"
+import logo1  from '../../assets/1.webp';
+import logo2  from '../../assets/2.webp';
+import logo3  from '../../assets/3.webp';
+import logo4  from '../../assets/4.webp';
+import logo5  from '../../assets/5.webp';
+import logo6  from '../../assets/6.webp';
+import logo7  from '../../assets/7.webp';
+import logo8  from '../../assets/8.webp';
+import logo9  from '../../assets/9.svg';
+import logo10 from '../../assets/10.webp';
+import logo11 from '../../assets/11.webp';
+import logo12 from '../../assets/12.webp';
+import logo13 from '../../assets/13.webp';
+import logo14 from '../../assets/14.webp';
+import logo15 from '../../assets/15.webp';
+import logo16 from '../../assets/16.webp';
+import logo17 from '../../assets/17.webp';
+import logo18 from '../../assets/18.webp';
+import logo19 from '../../assets/19.webp';
+import logo20 from '../../assets/20.webp';
+import logo21 from '../../assets/21.webp';
+import logo22 from '../../assets/22.webp';
+import logo23 from '../../assets/23.webp';
+import logo24 from '../../assets/24.svg';
+import logo25 from '../../assets/25.webp';
+import logo26 from '../../assets/26.webp';
+import logo27 from '../../assets/27.webp';
+
+const ALL_LOGOS = [
+  { name: "Aarksee",                         logo: logo1  },
+  { name: "SK Forest",                        logo: logo2  },
+  { name: "CarboVerte",                       logo: logo3  },
+  { name: "Meta Materials Circular Markets",  logo: logo4  },
+  { name: "Sevenstar",                        logo: logo5  },
+  { name: "Cenergist",                        logo: logo6  },
+  { name: "Resources Future",                 logo: logo7  },
+  { name: "SKG Sangha",                       logo: logo8  },
+  { name: "Thriveni",                         logo: logo9  },
+  { name: "ATOA",                             logo: logo10 },
+  { name: "ATR Carbon Solution",              logo: logo11 },
+  { name: "Attero",                           logo: logo12 },
+  { name: "Sembcorp",                         logo: logo13 },
+  { name: "Prana Climatech",                  logo: logo14 },
+  { name: "CO2 Cap Projects Africa",          logo: logo15 },
+  { name: "Vision Green Tech",                logo: logo16 },
+  { name: "YadGreen",                         logo: logo17 },
+  { name: "Planet NetZero",                   logo: logo18 },
+  { name: "Al-Badhour Al-Hayya",              logo: logo19 },
+  { name: "RM Agrico",                        logo: logo20 },
+  { name: "Mahadesh Farms",                   logo: logo21 },
+  { name: "Goenvi Technologies",              logo: logo22 },
+  { name: "Pineview Technology",              logo: logo23 },
+  { name: "Lloyds Metals",                    logo: logo24 },
+  { name: "Ruuris Innovations",               logo: logo25 },
+  { name: "Govt. of Maharashtra",             logo: logo26 },
+  { name: "AADB",                             logo: logo27 },
 ];
+
+// Split 27 logos into 3 rows of 9
+const ROW1 = ALL_LOGOS.slice(0,  9);
+const ROW2 = ALL_LOGOS.slice(9,  18);
+const ROW3 = ALL_LOGOS.slice(18, 27);
+
+// Single logo — image only, no card box
+function LogoCard({ partner }: { partner: (typeof ALL_LOGOS)[0] }) {
+  return (
+    <div className="group flex-shrink-0 mx-8 flex items-center justify-center cursor-pointer">
+      <img
+        src={partner.logo}
+        alt={partner.name}
+        title={partner.name}
+        className="h-12 w-auto max-w-[130px] object-contain transition-all duration-400 ease-in-out group-hover:scale-110"
+        style={{
+          filter: 'grayscale(30%) opacity(0.9)',
+          transition: 'filter 0.4s ease, transform 0.4s ease',
+        }}
+        onMouseEnter={e => (e.currentTarget.style.filter = 'grayscale(0%) opacity(1)')}
+        onMouseLeave={e => (e.currentTarget.style.filter = 'grayscale(30%) opacity(0.9)')}
+        loading="lazy"
+      />
+    </div>
+  );
+}
+
+
+// One scrolling marquee row — direction: 'left' | 'right'
+function MarqueeRow({ logos, direction }: { logos: typeof ROW1; direction: 'left' | 'right' }) {
+  const doubled    = [...logos, ...logos];
+  const trackClass = direction === 'left' ? 'marquee-track-left' : 'marquee-track-right';
+
+  return (
+    <div className="marquee-row overflow-hidden w-full py-3">
+      <div className={trackClass}>
+        {doubled.map((partner, i) => (
+          <LogoCard key={`${partner.name}-${i}`} partner={partner} />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Partners() {
   return (
-    <section className="py-24 bg-stone-50">
-      <div className="max-w-7xl mx-auto px-6">
-        
+    <section className="py-10 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 mb-6">
         {/* HEADER */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto">
           <span className="text-emerald-600 font-semibold uppercase text-sm tracking-wider block mb-3">
             Our Clients and Partners
           </span>
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-6 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
             Trusted by Innovators Across the Climate Economy
           </h2>
-          <p className="text-slate-600 text-lg leading-relaxed">
-            From governments and multilateral agencies to pioneering climate technology start-ups, Ecoveda Climate partners with organisations that share our commitment to high-integrity carbon markets and measurable climate impact.
+          <p className="text-slate-600 text-base leading-relaxed">
+            From governments and multilateral agencies to pioneering climate technology start-ups,
+            Ecoveda Climate partners with organisations that share our commitment to high-integrity
+            carbon markets and measurable climate impact.
           </p>
         </div>
+      </div>
 
-        {/* LOGO GRID */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-          {PARTNERS.map((partner, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="aspect-[3/2] md:aspect-square bg-white border border-stone-200/60 rounded-2xl p-6 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md hover:border-emerald-200 transition-all duration-300 group"
-            >
-              <h3 className="font-heading font-bold text-slate-800 text-lg md:text-xl tracking-tight group-hover:text-emerald-700 transition-colors">
-                {partner}
-              </h3>
-            </motion.div>
-          ))}
-        </div>
-
+      {/* MARQUEE ROWS — full width */}
+      <div className="flex flex-col gap-5">
+        <MarqueeRow logos={ROW1} direction="left"  />
+        <MarqueeRow logos={ROW2} direction="right" />
+        <MarqueeRow logos={ROW3} direction="left"  />
       </div>
     </section>
   );

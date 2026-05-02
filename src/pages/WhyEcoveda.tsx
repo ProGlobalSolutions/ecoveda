@@ -20,11 +20,11 @@ export default function WhyEcoveda() {
     <div className="pt-16">
 
       {/* 🔥 WHY SECTION */}
-      <section className="py-12 md:py-20 bg-stone-50">
+      <section className="py-8 md:py-8 bg-stone-50">
         <div className="max-w-7xl mx-auto px-6">
 
           {/* HEADING */}
-          <div className="mb-10 md:mb-14">
+          <div className="mb-6 md:mb-14">
             <p className="text-xs font-semibold tracking-widest text-emerald-600 uppercase mb-2">
               Why Ecoveda
             </p>
@@ -35,7 +35,7 @@ export default function WhyEcoveda() {
           </div>
 
           {/* CONTENT */}
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-5 md:gap-16 items-center">
 
             {/* TEXT */}
             <div className="text-slate-600 text-sm md:text-base leading-relaxed space-y-4">
@@ -79,8 +79,8 @@ export default function WhyEcoveda() {
       </section>
 
       {/* 🔥 REGISTRIES / STANDARDS */}
-      <section className="py-12 md:py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6 text-center mb-10">
+      <section className="py-8 md:py-8 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6 text-center mb-6">
           <h2 className="text-2xl md:text-5xl font-bold">
             Registries / Standards
           </h2>
@@ -113,3 +113,6 @@ export default function WhyEcoveda() {
     </div>
   );
 }
+
+
+

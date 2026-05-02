@@ -6,7 +6,7 @@ export default function Blogs() {
     <div className="pt-16">
 
       {/* HERO */}
-      <section className="py-24 bg-emerald-600 text-white text-center mt-10 md:mt-0">
+      <section className="py-10 bg-emerald-600 text-white text-center mt-10 md:mt-0">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight">
             Blogs
@@ -18,7 +18,7 @@ export default function Blogs() {
       </section>
 
       {/* BLOG GRID */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-8 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -40,7 +40,7 @@ export default function Blogs() {
                   </div>
 
                   {/* CONTENT */}
-                  <div className="p-8 flex flex-col flex-grow">
+                  <div className="p-5 flex flex-col flex-grow">
                     <p className="text-sm text-emerald-600 font-bold uppercase tracking-wider mb-3">
                       {blog.category}
                     </p>
@@ -65,7 +65,7 @@ export default function Blogs() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-stone-50 text-center">
+      <section className="py-8 bg-stone-50 text-center">
         <h2 className="text-2xl font-bold mb-4">
           Want to Learn More?
         </h2>
@@ -85,3 +85,6 @@ export default function Blogs() {
     </div>
   );
 }
+
+
+

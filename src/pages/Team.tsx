@@ -7,7 +7,7 @@ export default function Team() {
     <div className="pt-16">
 
       {/* 🔥 HERO */}
-<section className="py-12 md:py-20 text-center bg-stone-50">
+<section className="py-8 md:py-8 text-center bg-stone-50">
         <div className="max-w-5xl mx-auto px-6">
 
           <p className="text-xs font-semibold tracking-widest text-emerald-600 uppercase mb-2">
@@ -27,7 +27,7 @@ export default function Team() {
       </section>
 
       {/* 🔥 LEADERSHIP */}
-      <section className="py-12 md:py-20 bg-slate-50">
+      <section className="py-8 md:py-8 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
 
           {/* TEXT */}
@@ -72,7 +72,7 @@ export default function Team() {
       </section>
 
       {/* 🔥 TEAM CULTURE */}
-      <section className="py-12 md:py-20 bg-emerald-50">
+      <section className="py-8 md:py-8 bg-emerald-50">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
 
           {/* IMAGE */}
@@ -114,7 +114,7 @@ export default function Team() {
         </div>
       </section>
 
-      <section className="py-12 md:py-20 bg-slate-50">
+      <section className="py-8 md:py-8 bg-slate-50">
   <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
 
     {/* TEXT */}
@@ -151,7 +151,7 @@ export default function Team() {
   </div>
 </section>
 
-<section className="py-12 md:py-20 bg-stone-50">
+<section className="py-8 md:py-8 bg-stone-50">
   <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
 
     {/* IMAGE */}
@@ -191,3 +191,6 @@ export default function Team() {
     </div>
   );
 }
+
+
+

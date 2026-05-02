@@ -20,7 +20,7 @@ export default function ClimateServices() {
           <p className="text-xl md:text-2xl font-semibold text-emerald-700 mb-6">
             Where science meets action. Where ambition meets accountability.
           </p>
-          <p className="text-lg text-slate-600 mb-10 leading-relaxed max-w-4xl mx-auto">
+          <p className="text-lg text-slate-600 mb-6 leading-relaxed max-w-4xl mx-auto">
             The climate emergency demands more than pledges: it demands projects. Real, verified, measurable reductions in emissions. At Ecoveda Climate, we design, develop and deliver high-integrity climate projects that generate durable environmental outcomes and credible carbon assets. From the first idea to the last credit, we are with you at every step of the journey.
             <br/><br/>
             Our work spans continents, ecosystems and methodologies. We bring together ecological science, financial structuring, regulatory expertise and carbon market intelligence to turn climate ambition into certified, tradeable results.
@@ -29,9 +29,9 @@ export default function ClimateServices() {
       </section>
 
       {/* WORKING WITH US */}
-      <section className="py-24 border-t border-slate-200">
+      <section className="py-10 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-5">
             <span className="text-emerald-600 font-bold tracking-wider uppercase text-sm mb-2 block">Working With Us</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900">A Partner Built for the Long Game</h2>
             <p className="mt-6 text-slate-600 max-w-3xl mx-auto leading-relaxed">
@@ -39,20 +39,20 @@ export default function ClimateServices() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-8 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition">
+          <div className="grid md:grid-cols-3 gap-5">
+            <div className="p-5 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition">
               <h3 className="text-xl font-bold mb-4 text-emerald-700">End-to-End Expertise</h3>
               <p className="text-slate-600 leading-relaxed text-sm md:text-base">
                 From project identification and feasibility through validation, MRV and carbon credit sales, we cover the full cycle so you never need to piece together multiple advisors.
               </p>
             </div>
-            <div className="p-8 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition">
+            <div className="p-5 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition">
               <h3 className="text-xl font-bold mb-4 text-emerald-700">Market-Grade Rigour</h3>
               <p className="text-slate-600 leading-relaxed text-sm md:text-base">
                 Every project we touch is built to the highest integrity standards. Our team combines field science with financial discipline to create assets that earn and sustain buyer trust.
               </p>
             </div>
-            <div className="p-8 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition">
+            <div className="p-5 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition">
               <h3 className="text-xl font-bold mb-4 text-emerald-700">Aligned Incentives</h3>
               <p className="text-slate-600 leading-relaxed text-sm md:text-base">
                 We succeed when your project succeeds. Our engagement models are designed to align our interests with yours, whether you are a first-time developer or a seasoned operator scaling a portfolio.
@@ -63,9 +63,9 @@ export default function ClimateServices() {
       </section>
 
       {/* FIVE-PHASE FRAMEWORK */}
-      <section className="py-24 border-t border-slate-200 bg-slate-100/50">
+      <section className="py-10 border-t border-slate-200 bg-slate-100/50">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-5">
             <span className="text-emerald-600 font-bold tracking-wider uppercase text-sm mb-2 block">Developing Climate Projects</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Our Five-Phase Project Development Framework</h2>
             <p className="mt-6 text-slate-600 max-w-3xl mx-auto leading-relaxed">
@@ -101,7 +101,7 @@ export default function ClimateServices() {
                 points: ["Long-term offtake agreements", "Carbon credit sales and marketing", "Buyer matching and negotiation", "Portfolio optimisation"]
               }
             ].map((phase, idx) => (
-              <div key={idx} className="flex flex-col md:flex-row gap-6 p-6 md:p-8 border border-slate-200 rounded-xl bg-white shadow-sm hover:border-emerald-300 transition">
+              <div key={idx} className="flex flex-col md:flex-row gap-6 p-6 md:p-5 border border-slate-200 rounded-xl bg-white shadow-sm hover:border-emerald-300 transition">
                 <div className="md:w-1/3 xl:w-1/4">
                   <div className="text-5xl font-extrabold text-slate-200 mb-2">{phase.num}</div>
                   <h3 className="text-xl font-bold text-emerald-700 leading-snug">{phase.title.split(':')[0]}</h3>
@@ -124,9 +124,9 @@ export default function ClimateServices() {
       </section>
 
       {/* TYPES OF PROJECTS */}
-      <section className="py-24 border-t border-slate-200 bg-slate-50">
+      <section className="py-10 border-t border-slate-200 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-5">
             <span className="text-emerald-600 font-bold tracking-wider uppercase text-sm mb-2 block">Types of Projects</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Where We Work Across the Carbon Landscape</h2>
             <p className="mt-6 text-slate-600 max-w-3xl mx-auto leading-relaxed">
@@ -134,9 +134,9 @@ export default function ClimateServices() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-5">
             {/* NCS */}
-            <div className="relative p-8 rounded-xl overflow-hidden group hover:shadow-xl transition duration-300">
+            <div className="relative p-5 rounded-xl overflow-hidden group hover:shadow-xl transition duration-300">
               <img
                 src="https://images.unsplash.com/photo-1511497584788-876760111969"
                 alt="Natural Climate Solutions"
@@ -161,7 +161,7 @@ export default function ClimateServices() {
             </div>
 
             {/* CDR */}
-            <div className="relative p-8 rounded-xl overflow-hidden group hover:shadow-xl transition duration-300">
+            <div className="relative p-5 rounded-xl overflow-hidden group hover:shadow-xl transition duration-300">
               <img
                 src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
                 alt="Carbon Dioxide Removal"
@@ -184,7 +184,7 @@ export default function ClimateServices() {
             </div>
 
             {/* Energy */}
-            <div className="relative p-8 rounded-xl overflow-hidden group hover:shadow-xl transition duration-300">
+            <div className="relative p-5 rounded-xl overflow-hidden group hover:shadow-xl transition duration-300">
               <img
                 src="https://images.unsplash.com/photo-1509391366360-2e959784a276"
                 alt="Energy and Industry"
@@ -211,9 +211,9 @@ export default function ClimateServices() {
       </section>
 
       {/* REGISTRIES */}
-      <section className="py-24 border-t border-slate-200 bg-gradient-to-b from-slate-100 to-slate-50">
+      <section className="py-10 border-t border-slate-200 bg-gradient-to-b from-slate-100 to-slate-50">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-12">
+          <div className="text-center mb-6">
             <span className="text-emerald-600 font-bold tracking-wider uppercase text-sm mb-2 block">05 · Registries We Work With</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Credibility Starts With the Right Standard</h2>
             <p className="mt-4 text-slate-600 leading-relaxed text-lg">
@@ -269,9 +269,9 @@ export default function ClimateServices() {
       </section>
 
       {/* HIGH INTEGRITY FRAMEWORK */}
-      <section className="py-24 border-t border-slate-200 bg-slate-50">
+      <section className="py-10 border-t border-slate-200 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-5">
             <span className="text-emerald-600 font-bold tracking-wider uppercase text-sm mb-2 block">Ecoveda Climate's High Integrity Framework</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Integrity Is Not a Feature. It Is the Foundation.</h2>
             <p className="mt-6 text-slate-600 max-w-4xl mx-auto leading-relaxed text-lg">
@@ -279,8 +279,8 @@ export default function ClimateServices() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="p-8 bg-white border border-slate-200 rounded-xl hover:border-emerald-400 hover:shadow-md transition">
+          <div className="grid md:grid-cols-2 gap-5 mb-6">
+            <div className="p-5 bg-white border border-slate-200 rounded-xl hover:border-emerald-400 hover:shadow-md transition">
               <BarChart3 className="w-10 h-10 text-emerald-600 mb-6" />
               <h3 className="text-xl font-bold mb-6 text-slate-900">Scientific Rigour</h3>
               <ul className="space-y-4 text-slate-600 text-sm md:text-base">
@@ -290,7 +290,7 @@ export default function ClimateServices() {
                 <li className="flex gap-3"><span className="text-emerald-600">›</span> Permanence and leakage accounted for in every model</li>
               </ul>
             </div>
-            <div className="p-8 bg-white border border-slate-200 rounded-xl hover:border-emerald-400 hover:shadow-md transition">
+            <div className="p-5 bg-white border border-slate-200 rounded-xl hover:border-emerald-400 hover:shadow-md transition">
               <Users className="w-10 h-10 text-emerald-600 mb-6" />
               <h3 className="text-xl font-bold mb-6 text-slate-900">Social Equity</h3>
               <ul className="space-y-4 text-slate-600 text-sm md:text-base">
@@ -300,7 +300,7 @@ export default function ClimateServices() {
                 <li className="flex gap-3"><span className="text-emerald-600">›</span> Protection of indigenous rights and tenure</li>
               </ul>
             </div>
-            <div className="p-8 bg-white border border-slate-200 rounded-xl hover:border-emerald-400 hover:shadow-md transition">
+            <div className="p-5 bg-white border border-slate-200 rounded-xl hover:border-emerald-400 hover:shadow-md transition">
               <Scale className="w-10 h-10 text-emerald-600 mb-6" />
               <h3 className="text-xl font-bold mb-6 text-slate-900">Transparent Governance</h3>
               <ul className="space-y-4 text-slate-600 text-sm md:text-base">
@@ -310,7 +310,7 @@ export default function ClimateServices() {
                 <li className="flex gap-3"><span className="text-emerald-600">›</span> Zero tolerance for double-counting or double-claiming</li>
               </ul>
             </div>
-            <div className="p-8 bg-white border border-slate-200 rounded-xl hover:border-emerald-400 hover:shadow-md transition">
+            <div className="p-5 bg-white border border-slate-200 rounded-xl hover:border-emerald-400 hover:shadow-md transition">
               <FileText className="w-10 h-10 text-emerald-600 mb-6" />
               <h3 className="text-xl font-bold mb-6 text-slate-900">Market Alignment</h3>
               <ul className="space-y-4 text-slate-600 text-sm md:text-base">
@@ -322,7 +322,7 @@ export default function ClimateServices() {
             </div>
           </div>
 
-          <div className="text-center p-8 border border-emerald-200 rounded-xl bg-emerald-50 text-emerald-900 max-w-4xl mx-auto font-medium text-lg">
+          <div className="text-center p-5 border border-emerald-200 rounded-xl bg-emerald-50 text-emerald-900 max-w-4xl mx-auto font-medium text-lg">
             The High Integrity Framework is not a marketing statement. It is an operational commitment embedded in our due diligence checklists, our project agreements and our team’s day-to-day decisions.
           </div>
         </div>
@@ -331,25 +331,25 @@ export default function ClimateServices() {
       {/* CTA */}
       <section className="py-32 text-center border-t border-slate-200 bg-slate-100">
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-8 text-slate-900">Ready to Build Something That Lasts?</h2>
-          <p className="text-slate-700 mb-12 leading-relaxed text-lg max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-5 text-slate-900">Ready to Build Something That Lasts?</h2>
+          <p className="text-slate-700 mb-6 leading-relaxed text-lg max-w-3xl mx-auto">
             Whether you are a landowner exploring your first NCS project, a corporation building a credible carbon procurement strategy, a government designing Article 6 frameworks or an investor seeking high-integrity climate assets, we want to hear from you.
             <br/><br/>
             Climate action at the scale the planet needs requires collaboration between science, finance, policy, and communities. Ecoveda Climate exists at the intersection of all four.
           </p>
 
-          <div className="flex flex-col md:flex-row justify-center gap-8">
-            <div className="text-left bg-white p-8 rounded-2xl border border-slate-200 shadow-sm md:w-1/2 hover:shadow-md transition group">
+          <div className="flex flex-col md:flex-row justify-center gap-5">
+            <div className="text-left bg-white p-5 rounded-2xl border border-slate-200 shadow-sm md:w-1/2 hover:shadow-md transition group">
               <h3 className="font-bold text-2xl mb-3 text-emerald-700">Start a Conversation</h3>
-              <p className="text-base text-slate-600 mb-8">Tell us about your project idea, your organisation’s climate goals or the challenge you are trying to solve. Our team will respond within 48 hours.</p>
+              <p className="text-base text-slate-600 mb-5">Tell us about your project idea, your organisation’s climate goals or the challenge you are trying to solve. Our team will respond within 48 hours.</p>
               <Link to="/contact" className="inline-block px-8 py-3 bg-emerald-600 rounded-lg text-base font-bold hover:bg-emerald-700 transition w-full text-center text-white shadow-md">
                 Send Us a Message
               </Link>
             </div>
             
-            <div className="text-left bg-white p-8 rounded-2xl border border-slate-200 shadow-sm md:w-1/2 hover:shadow-md transition group">
+            <div className="text-left bg-white p-5 rounded-2xl border border-slate-200 shadow-sm md:w-1/2 hover:shadow-md transition group">
               <h3 className="font-bold text-2xl mb-3 text-emerald-700">Request a Project Assessment</h3>
-              <p className="text-base text-slate-600 mb-8">Have a specific site or project in mind? Request a no-obligation preliminary assessment from our technical team. We will evaluate the potential.</p>
+              <p className="text-base text-slate-600 mb-5">Have a specific site or project in mind? Request a no-obligation preliminary assessment from our technical team. We will evaluate the potential.</p>
               <Link to="/contact" className="inline-block px-8 py-3 border border-emerald-600 text-emerald-700 rounded-lg text-base font-bold hover:bg-emerald-50 transition w-full text-center">
                 Request Assessment
               </Link>
@@ -361,3 +361,6 @@ export default function ClimateServices() {
     </div>
   );
 }
+
+
+

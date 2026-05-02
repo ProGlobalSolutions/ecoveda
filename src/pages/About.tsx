@@ -148,7 +148,7 @@ export default function About() {
       </section>
 
       {/* ABOUT */}
-      <section className="py-24 bg-stone-50">
+      <section className="py-10 bg-stone-50">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
 
           <div>
@@ -180,16 +180,16 @@ export default function About() {
       </section>
 
       {/* VALUES */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6 text-center mb-12">
+      <section className="py-10 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6 text-center mb-6">
           <h2 className="text-4xl font-bold text-slate-800">
             Our Values
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto px-6">
+        <div className="grid md:grid-cols-3 gap-5 max-w-7xl mx-auto px-6">
           {VALUES.map((val, i) => (
-            <div key={i} className="relative p-8 rounded-xl border border-transparent overflow-hidden group min-h-[300px] flex flex-col justify-start bg-black transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
+            <div key={i} className="relative p-5 rounded-xl border border-transparent overflow-hidden group min-h-[300px] flex flex-col justify-start bg-black transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                 style={{ backgroundImage: `url(${val.bgImage})` }}
@@ -209,16 +209,16 @@ export default function About() {
       </section>
 
       {/* EXPERTISE */}
-      <section className="py-24 bg-emerald-50">
-        <div className="max-w-7xl mx-auto px-6 text-center mb-12">
+      <section className="py-10 bg-emerald-50">
+        <div className="max-w-7xl mx-auto px-6 text-center mb-6">
           <h2 className="text-4xl font-bold text-slate-800">
             Our Expertise
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-7xl mx-auto px-6">
           {EXPERTISE_CARDS.map((card, i) => (
-            <div key={i} className="relative p-8 rounded-xl border border-transparent overflow-hidden group min-h-[350px] bg-black transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
+            <div key={i} className="relative p-5 rounded-xl border border-transparent overflow-hidden group min-h-[350px] bg-black transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                 style={{ backgroundImage: `url(${card.bgImage})` }}
@@ -242,7 +242,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-emerald-600 text-white text-center">
+      <section className="py-8 bg-emerald-600 text-white text-center">
         <h2 className="text-3xl font-bold mb-6">
           Ready to Partner With Us?
         </h2>
@@ -257,3 +257,6 @@ export default function About() {
     </div>
   );
 }
+
+
+

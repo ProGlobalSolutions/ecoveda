@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { PROJECTS } from '../constants/projects';
 import { Link } from 'react-router-dom';
-import portfolio2 from "../assets/portfolio2.webp";
+
 import pd1 from "../assets/projectdetail1.webp"
 import pd2 from "../assets/projectdetail2.webp"
 import pd3 from "../assets/projectdetail3.webp"
@@ -24,29 +24,22 @@ export default function Portfolio() {
       <div className="flex-grow">
 
         {/* HERO SECTION */}
-        <section className="relative h-[60vh] flex items-center justify-center overflow-hidden mb-10">
-          <div
-            className="absolute inset-0 bg-cover bg-center animate-slow-zoom"
-            style={{
-              backgroundImage: `url(${portfolio2})`,
-            }}
-          />
-          <div className="absolute inset-0 bg-primary-dark/80 backdrop-blur-[2px]" />
-
-          <div className="relative z-10 text-center text-white px-4">
-            <motion.h1 className="text-5xl md:text-7xl font-extrabold mb-4">
-              Our Portfolio
-            </motion.h1>
-            <motion.p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
-              Real projects. Real places. Real impact.
-            </motion.p>
-          </div>
+        <section className="bg-gradient-to-br from-stone-50 via-emerald-50/40 to-slate-50 py-16 text-center mb-6 border-b border-stone-200">
+          <span className="text-emerald-600 font-semibold uppercase text-sm tracking-wider block mb-3">
+            Our Work
+          </span>
+          <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-4">
+            Our Portfolio
+          </h1>
+          <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto">
+            Real projects. Real places. Real impact.
+          </p>
         </section>
 
         {/* PROJECT GRID */}
         <section className="pt-10 pb-16 bg-stone-50">
           <div className="max-w-7xl mx-auto px-10">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {filteredProjects.map((project) => (
                 <motion.div key={project.id} className="group relative h-[450px] rounded-xl overflow-hidden shadow-md">
 
@@ -76,7 +69,7 @@ export default function Portfolio() {
         <section className="py-16 bg-slate-50">
           <div className="max-w-7xl mx-auto px-10">
 
-            <h2 className="text-4xl font-extrabold text-center text-slate-800 mb-10">
+            <h2 className="text-4xl font-extrabold text-center text-slate-800 mb-6">
               On-Ground Implementation & Monitoring
             </h2>
 
@@ -139,3 +132,6 @@ export default function Portfolio() {
     </div>
   );
 }
+
+
+

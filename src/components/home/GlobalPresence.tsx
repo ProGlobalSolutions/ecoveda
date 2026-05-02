@@ -1,119 +1,146 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { geoNaturalEarth1, geoPath } from 'd3-geo';
+// @ts-ignore
+import { feature } from 'topojson-client';
+import worldData from '../../assets/countries-110m.json';
 
+const WIDTH  = 960;
+const HEIGHT = 500;
+
+const projection = geoNaturalEarth1()
+  .scale(190)
+  .translate([WIDTH / 2 - 30, HEIGHT / 2 + 20]);
+
+const pathGenerator = geoPath(projection);
+
+// Convert TopoJSON → GeoJSON
+// @ts-ignore
+const countries = feature(worldData, worldData.objects.countries);
+
+/* ──────────────────────────────────────────────────
+   LOCATIONS — same as before, now in SVG coordinate space
+   top/left as % of the SVG viewport (960×500)
+   ────────────────────────────────────────────────── */
 const LOCATIONS = [
-  // GREEN (HQ/Offices)
-  { id: 'delhi', name: 'New Delhi, India (HQ)', top: '42%', left: '69%', color: 'bg-emerald-500' },
-  { id: 'guwahati', name: 'Guwahati, India', top: '44%', left: '72%', color: 'bg-emerald-500' },
-  
-  // TEAL (Active Projects)
-  { id: 'pakistan', name: 'Pakistan', top: '40%', left: '66%', color: 'bg-teal-400' },
-  { id: 'indonesia', name: 'Indonesia', top: '62%', left: '80%', color: 'bg-teal-400' },
-  { id: 'timor', name: 'Timor-Leste', top: '65%', left: '84%', color: 'bg-teal-400' },
-  { id: 'saudi', name: 'Saudi Arabia', top: '45%', left: '60%', color: 'bg-teal-400' },
-  { id: 'cambodia', name: 'Cambodia', top: '52%', left: '78%', color: 'bg-teal-400' },
-  { id: 'malawi', name: 'Malawi', top: '68%', left: '55%', color: 'bg-teal-400' },
-  { id: 'rwanda', name: 'Rwanda', top: '60%', left: '53%', color: 'bg-teal-400' },
-  { id: 'nigeria', name: 'Nigeria', top: '55%', left: '48%', color: 'bg-teal-400' },
-  { id: 'mongolia', name: 'Mongolia', top: '30%', left: '75%', color: 'bg-teal-400' },
-  
-  // GOLD (Representatives)
-  { id: 'zambia', name: 'Zambia', top: '65%', left: '53%', color: 'bg-amber-400' },
-  { id: 'mexico', name: 'Mexico City', top: '45%', left: '20%', color: 'bg-amber-400' },
+  { id: 'delhi',     name: 'New Delhi, India (HQ)',  lon: 77.2,  lat: 28.6,  color: '#ffffff', glow: 'rgba(255,255,255,0.45)' },
+  { id: 'guwahati',  name: 'Guwahati, India',         lon: 91.7,  lat: 26.1,  color: '#ffffff', glow: 'rgba(255,255,255,0.35)' },
+  { id: 'pakistan',  name: 'Pakistan',                lon: 67.0,  lat: 30.0,  color: '#ffffff', glow: 'rgba(255,255,255,0.30)' },
+  { id: 'indonesia', name: 'Indonesia',               lon: 113.9, lat: -0.8,  color: '#ffffff', glow: 'rgba(255,255,255,0.30)' },
+  { id: 'timor',     name: 'Timor-Leste',             lon: 125.7, lat: -8.9,  color: '#ffffff', glow: 'rgba(255,255,255,0.30)' },
+  { id: 'saudi',     name: 'Saudi Arabia',            lon: 45.1,  lat: 23.9,  color: '#ffffff', glow: 'rgba(255,255,255,0.30)' },
+  { id: 'cambodia',  name: 'Cambodia',                lon: 104.9, lat: 12.6,  color: '#ffffff', glow: 'rgba(255,255,255,0.30)' },
+  { id: 'malawi',    name: 'Malawi',                  lon: 34.3,  lat: -13.3, color: '#ffffff', glow: 'rgba(255,255,255,0.30)' },
+  { id: 'rwanda',    name: 'Rwanda',                  lon: 29.9,  lat: -1.9,  color: '#ffffff', glow: 'rgba(255,255,255,0.30)' },
+  { id: 'nigeria',   name: 'Nigeria',                 lon: 8.7,   lat: 9.1,   color: '#ffffff', glow: 'rgba(255,255,255,0.30)' },
+  { id: 'mongolia',  name: 'Mongolia',                lon: 103.8, lat: 46.9,  color: '#ffffff', glow: 'rgba(255,255,255,0.30)' },
+  { id: 'zambia',    name: 'Zambia',                  lon: 27.8,  lat: -13.1, color: '#f59e0b', glow: 'rgba(245,158,11,0.50)' },
+  { id: 'mexico',    name: 'Mexico City',             lon: -99.1, lat: 19.4,  color: '#f59e0b', glow: 'rgba(245,158,11,0.50)' },
 ];
 
 export default function GlobalPresence() {
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-10 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        
+
         {/* HEADER */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-5">
           <span className="text-emerald-600 font-semibold uppercase text-sm tracking-wider block mb-3">
             Global Presence
           </span>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-slate-900 mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 leading-tight">
             Where We Work
           </h2>
-          <p className="text-slate-600 text-lg leading-relaxed">
+          <p className="text-slate-600 text-base leading-relaxed">
             From our headquarters in New Delhi, Ecoveda Climate operates a growing international network, with a regional office in Guwahati and representatives in Zambia and Mexico City, enabling us to deliver on-the-ground climate impact across Asia, Africa, the Middle East and Latin America.
           </p>
         </div>
 
         {/* MAP CONTAINER */}
-        <div className="relative w-full rounded-3xl bg-stone-50 border border-stone-200 p-4 md:p-8 mb-12">
-          <div className="overflow-auto touch-pan-x touch-pan-y w-full scrollbar-hide rounded-2xl">
-            <div className="min-w-[800px] relative">
-              
-              {/* WORLD MAP SVG */}
-              <svg viewBox="0 0 1008 643" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto text-stone-200">
-                <path d="M495.8 116.8c... (Placeholder for actual map SVG data)..." fill="currentColor"/>
-                {/* Simplified SVG Path for World Map just to render an outline */}
-                <path d="M100 100 L900 100 L900 500 L100 500 Z" fill="transparent" stroke="transparent"/> 
-                {/* Due to SVG length, using a background image is typically better for detailed maps unless imported. I will use a stylized placeholder or simple shapes if no asset exists, or rely on the pins. */}
-                {/* Wait, I can use a generic World Map background image! */}
-              </svg>
-              
-              {/* Fallback to CSS Background Map if SVG is too large */}
-              <div className="absolute inset-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg')] bg-no-repeat bg-contain bg-center opacity-20" />
+        <div className="relative w-full rounded-3xl overflow-hidden mb-6" style={{ backgroundColor: '#0d2e2a' }}>
+          <div className="w-full overflow-auto scrollbar-hide">
+            <svg
+              viewBox="80 10 800 460"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-full h-auto block"
+              style={{ minWidth: '600px' }}
+            >
+              {/* Background */}
+              <rect width={WIDTH} height={HEIGHT} fill="#0d2e2a" />
 
-              {/* PINS */}
-              {LOCATIONS.map((loc) => (
-                <div 
-                  key={loc.id}
-                  className="absolute group z-10"
-                  style={{ top: loc.top, left: loc.left }}
-                >
-                  <div className={`w-4 h-4 rounded-full ${loc.color} shadow-lg ring-4 ring-white relative z-10 cursor-pointer hover:scale-125 transition-transform`} />
-                  <div className={`absolute -inset-2 rounded-full ${loc.color} opacity-20 animate-ping`} />
-                  
-                  {/* TOOLTIP */}
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 bg-slate-900 text-white text-xs font-semibold rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                    {loc.name}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900" />
-                  </div>
-                </div>
+              {/* Country paths */}
+              {/* @ts-ignore */}
+              {countries.features.map((feat: any, i: number) => (
+                <path
+                  key={i}
+                  d={pathGenerator(feat) || ''}
+                  fill="#1a4a40"
+                  stroke="#0d2e2a"
+                  strokeWidth={0.5}
+                />
               ))}
 
-            </div>
+              {/* LOCATION PINS */}
+              {LOCATIONS.map((loc) => {
+                const coords = projection([loc.lon, loc.lat]);
+                if (!coords) return null;
+                const [x, y] = coords;
+                return (
+                  <g key={loc.id} transform={`translate(${x},${y})`} className="group">
+                    {/* Outer pulse ring */}
+                    <circle r={8} fill={loc.glow} opacity={0.4}>
+                      <animate attributeName="r" values="6;12;6" dur="2.5s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0.5;0;0.5" dur="2.5s" repeatCount="indefinite" />
+                    </circle>
+                    {/* Dot */}
+                    <circle
+                      r={4}
+                      fill={loc.color}
+                      style={{ filter: `drop-shadow(0 0 4px ${loc.glow})` }}
+                    />
+                    {/* Label on hover via title */}
+                    <title>{loc.name}</title>
+                  </g>
+                );
+              })}
+            </svg>
           </div>
-          
+
           {/* LEGEND */}
-          <div className="flex flex-wrap justify-center gap-6 mt-8 pt-6 border-t border-stone-200">
+          <div className="flex flex-wrap justify-center gap-6 px-6 py-4 border-t border-white/10">
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-emerald-500 ring-2 ring-emerald-500/30" />
-              <span className="text-sm font-medium text-slate-700">HQ & Regional Offices</span>
+              <div className="w-3 h-3 rounded-full bg-white shadow-[0_0_6px_2px_rgba(255,255,255,0.5)]" />
+              <span className="text-sm font-medium text-white/80">HQ &amp; Regional Offices</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-teal-400 ring-2 ring-teal-400/30" />
-              <span className="text-sm font-medium text-slate-700">Active Projects & Advisory</span>
+              <div className="w-3 h-3 rounded-full bg-white/60 shadow-[0_0_6px_2px_rgba(255,255,255,0.3)]" />
+              <span className="text-sm font-medium text-white/80">Active Projects &amp; Advisory</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-amber-400 ring-2 ring-amber-400/30" />
-              <span className="text-sm font-medium text-slate-700">Representatives</span>
+              <div className="w-3 h-3 rounded-full bg-amber-400 shadow-[0_0_6px_2px_rgba(245,158,11,0.5)]" />
+              <span className="text-sm font-medium text-white/80">Representatives</span>
             </div>
           </div>
         </div>
 
         {/* DETAILS GRID */}
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-stone-50 p-8 rounded-2xl border border-stone-100">
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="bg-stone-50 p-6 rounded-2xl border border-stone-100">
             <h3 className="font-bold text-slate-900 mb-2">Headquarters</h3>
-            <p className="text-slate-600 mb-4">New Delhi, India</p>
+            <p className="text-slate-600 mb-3">New Delhi, India</p>
             <p className="text-sm text-slate-500 leading-relaxed">
               DGL 019, Ground Floor, DLF Galleria, Mayur Vihar, New Delhi 110091
             </p>
           </div>
-          <div className="bg-stone-50 p-8 rounded-2xl border border-stone-100">
+          <div className="bg-stone-50 p-6 rounded-2xl border border-stone-100">
             <h3 className="font-bold text-slate-900 mb-2">Regional Office</h3>
-            <p className="text-slate-600 mb-4">Guwahati, India</p>
+            <p className="text-slate-600 mb-3">Guwahati, India</p>
             <p className="text-sm text-slate-500 leading-relaxed">
               Supporting operations across North-East India and South-East Asian markets
             </p>
           </div>
-          <div className="bg-stone-50 p-8 rounded-2xl border border-stone-100">
+          <div className="bg-stone-50 p-6 rounded-2xl border border-stone-100">
             <h3 className="font-bold text-slate-900 mb-2">International</h3>
-            <p className="text-slate-600 mb-4">Zambia and Mexico City</p>
+            <p className="text-slate-600 mb-3">Zambia and Mexico City</p>
             <p className="text-sm text-slate-500 leading-relaxed">
               Regional representatives driving climate projects across Africa and Latin America
             </p>

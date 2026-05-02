@@ -21,7 +21,7 @@ export default function SolarEPC() {
       </section>
 
       {/* INTRO + IMAGE */}
-      <section className="py-20 bg-emerald-50">
+      <section className="py-8 bg-emerald-50">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
           <div className="h-[420px] rounded-xl overflow-hidden">
@@ -55,10 +55,10 @@ export default function SolarEPC() {
       </section>
 
       {/* EPC SCOPE */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-8 bg-slate-50">
         <div className="max-w-6xl mx-auto px-6 text-center">
 
-          <h2 className="text-3xl font-bold mb-12 text-slate-800">
+          <h2 className="text-3xl font-bold mb-6 text-slate-800">
             EPC Scope
           </h2>
 
@@ -94,14 +94,14 @@ export default function SolarEPC() {
       </section>
 
       {/* SYSTEM TYPES */}
-      <section className="py-20 bg-stone-50">
+      <section className="py-8 bg-stone-50">
         <div className="max-w-6xl mx-auto px-6 text-center">
 
-          <h2 className="text-3xl font-bold mb-12 text-slate-800">
+          <h2 className="text-3xl font-bold mb-6 text-slate-800">
             Solar Solutions We Deliver
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-8 text-slate-600 font-medium">
+          <div className="grid md:grid-cols-3 gap-5 text-slate-600 font-medium">
 
             <div>Rooftop Solar Systems</div>
             <div>Utility-Scale Solar Plants</div>
@@ -116,14 +116,14 @@ export default function SolarEPC() {
       </section>
 
       {/* CAPABILITIES */}
-      <section className="py-20 bg-slate-50 text-center">
+      <section className="py-8 bg-slate-50 text-center">
         <div className="max-w-6xl mx-auto px-6">
 
-          <h2 className="text-3xl font-bold mb-12 text-slate-800">
+          <h2 className="text-3xl font-bold mb-6 text-slate-800">
             Our Capabilities
           </h2>
 
-          <div className="grid md:grid-cols-4 gap-8 text-slate-600">
+          <div className="grid md:grid-cols-4 gap-5 text-slate-600">
 
             <div>Project Planning</div>
             <div>Technical Design</div>
@@ -140,7 +140,7 @@ export default function SolarEPC() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-black text-white text-center">
+      <section className="py-10 bg-black text-white text-center">
         <h2 className="text-4xl font-bold mb-6">
           Power Your Operations With Solar Energy
         </h2>
@@ -166,3 +166,6 @@ export default function SolarEPC() {
     </div>
   );
 }
+
+
+

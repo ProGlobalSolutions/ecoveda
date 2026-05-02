@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import bioImg from '../../assets/bio.webp';
 import manImg from '../../assets/man.webp';
 import solImg from '../../assets/sol.webp';
+import rwandaImg from '../../assets/rwanda.webp';
 
 const PROJECTS = [
   {
@@ -12,7 +13,7 @@ const PROJECTS = [
     registry: 'Gold Standard',
     status: 'Ongoing',
     statusColor: 'teal',
-    bgImage: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=800',
+    bgImage: rwandaImg,
   },
   {
     id: 2,
@@ -71,11 +72,11 @@ export default function TrackRecord() {
   );
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-10 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* HEADER */}
-        <div className="mb-12">
+        <div className="mb-6">
           <span className="text-emerald-600 font-semibold uppercase text-sm tracking-wider block mb-3">
             Track Record
           </span>
@@ -88,7 +89,7 @@ export default function TrackRecord() {
         </div>
 
         {/* FILTERS */}
-        <div className="flex flex-wrap items-center gap-3 mb-12">
+        <div className="flex flex-wrap items-center gap-3 mb-6">
           {CATEGORIES.map((cat) => {
             const count = cat === 'All' ? PROJECTS.length : PROJECTS.filter(p => p.category === cat).length;
             return (
@@ -123,7 +124,7 @@ export default function TrackRecord() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
-                className={`aspect-square rounded-2xl p-8 shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-xl transition-all duration-300 cursor-pointer`}
+                className={`aspect-square rounded-2xl p-5 shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-xl transition-all duration-300 cursor-pointer`}
               >
                 {/* BACKGROUND IMAGE */}
                 <div 
@@ -158,3 +159,7 @@ export default function TrackRecord() {
     </section>
   );
 }
+
+
+
+

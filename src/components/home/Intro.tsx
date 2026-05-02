@@ -25,7 +25,7 @@ export default function Intro() {
   ];
 
   return (
-    <section className="py-24 bg-stone-50">
+    <section className="py-10 bg-stone-50">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -46,14 +46,14 @@ export default function Intro() {
               Building Scalable Climate Solutions for a Low-Carbon Future
             </h2>
 
-            <p className="text-slate-600 text-lg leading-relaxed mb-8">
+            <p className="text-slate-600 text-lg leading-relaxed mb-5">
               Ecoveda Climate is a global climate solutions provider focused on developing
               high-integrity carbon projects and sustainability initiatives. We operate at
               the intersection of environmental science, financial structuring and regulatory
               strategy to deliver measurable climate impact.
             </p>
 
-            <p className="text-slate-600 text-lg leading-relaxed mb-10">
+            <p className="text-slate-600 text-lg leading-relaxed mb-6">
               Our mission is to accelerate ecological preservation and climate resilience by
               leveraging carbon finance and collective action — with an ambition to impact
               over <span className="font-semibold text-slate-800">100 million people</span> and generate
@@ -125,3 +125,6 @@ export default function Intro() {
     </section>
   );
 }
+
+
+

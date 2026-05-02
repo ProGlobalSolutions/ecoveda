@@ -36,7 +36,7 @@ export default function Region() {
   return (
     <div className="pt-24 pb-24 bg-stone-50 min-h-screen">
       {/* HERO SECTION */}
-      <section className="relative pt-16 pb-20 overflow-hidden bg-gradient-to-b from-emerald-50/60 to-stone-50 border-b border-stone-200/50 mb-16">
+      <section className="relative pt-16 pb-20 overflow-hidden bg-gradient-to-b from-emerald-50/60 to-stone-50 border-b border-stone-200/50 mb-5">
         <div 
           className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none mix-blend-multiply bg-right-bottom bg-no-repeat"
           style={{ 
@@ -63,13 +63,13 @@ export default function Region() {
           
           {/* LEFT COLUMN: Content & Accordion */}
           <div className="lg:col-span-7 xl:col-span-8">
-            <div className="prose prose-lg text-slate-600 mb-16 max-w-none">
+            <div className="prose prose-lg text-slate-600 mb-5 max-w-none">
               <p className="text-lg leading-relaxed font-medium">
                 Ecoveda Climate delivers carbon credit development, commercialisation, and consulting services to clients across Latin America through its regional presence in Mexico City. The region’s vast population, natural resources, and industrial base present extraordinary potential for greenhouse gas mitigation — complemented by its export linkages to North America and Europe that amplify supply chain abatement opportunities.
               </p>
             </div>
 
-            <h2 className="text-[28px] font-serif font-bold text-slate-900 mb-8 border-b border-stone-200 pb-4">
+            <h2 className="text-[28px] font-serif font-bold text-slate-900 mb-5 border-b border-stone-200 pb-4">
               Our Services for Latin American Partners
             </h2>
 
@@ -116,18 +116,18 @@ export default function Region() {
 
           {/* RIGHT COLUMN: Sticky Contact Card & Map */}
           <div className="lg:col-span-5 xl:col-span-4">
-            <div className="sticky top-32 space-y-8">
+            <div className="sticky top-32 space-y-5">
               
               {/* CONTACT CARD */}
-              <div className="bg-white rounded-[32px] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-stone-100">
-                <div className="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-700 font-semibold text-[13px] tracking-wider uppercase rounded-full mb-8">
+              <div className="bg-white rounded-[32px] p-5 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-stone-100">
+                <div className="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-700 font-semibold text-[13px] tracking-wider uppercase rounded-full mb-5">
                   Latin America Contact
                 </div>
                 
                 <h3 className="text-[26px] font-serif font-bold text-slate-900 mb-2">
                   Javier Lascurain
                 </h3>
-                <p className="text-slate-500 font-medium mb-10 text-lg">
+                <p className="text-slate-500 font-medium mb-6 text-lg">
                   LatAm Representative and Senior Consultant
                 </p>
                 
@@ -192,3 +192,7 @@ export default function Region() {
     </div>
   );
 }
+
+
+
+

@@ -22,7 +22,7 @@ export default function Footer() {
       <div className="absolute top-0 right-10 w-96 h-96 bg-accent/10 blur-[120px] rounded-full pointer-events-none"></div>
       <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-primary/30 blur-[120px] rounded-full pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10 md:gap-8">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10 md:gap-5">
 
         {/* 1. BRAND & ABOUT */}
         <div className="flex flex-col space-y-5 col-span-2 md:col-span-1">
@@ -150,3 +150,6 @@ export default function Footer() {
     </footer>
   );
 }
+
+
+
