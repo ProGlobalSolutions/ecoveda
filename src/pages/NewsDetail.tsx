@@ -1,144 +1,102 @@
 import { useParams, Link } from "react-router-dom";
-
-const NEWS = [
-  {
-    id: "1",
-    title: "Ecoveda Launches New ARR Project in Maharashtra",
-    date: "April 2026",
-    tag: "Project Launch",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
-    content: `Ecoveda Climate has officially launched a large-scale Afforestation, Reforestation and Revegetation (ARR) project in Maharashtra.
-
-This initiative focuses on restoring degraded land while generating verified carbon credits through sustainable land-use practices.
-
-The project aims to deliver long-term ecological and economic benefits by combining environmental restoration with community engagement.
-
-Key Highlights:
-• Large-scale land restoration across multiple districts  
-• Community-based implementation model  
-• Verified carbon credit generation  
-• Long-term biodiversity improvement  
-
-This marks a significant milestone in Ecoveda’s mission to scale climate impact globally.`,
-  },
-  {
-    id: "2",
-    title: "Partnership Announced with Global Climate Fund",
-    date: "March 2026",
-    tag: "Partnership",
-    image: "https://images.unsplash.com/photo-1492724441997-5dc865305da7",
-    content: `Ecoveda Climate has entered into a strategic partnership with a global climate fund to accelerate carbon project development.
-
-This collaboration will enable scaling of high-impact climate initiatives across multiple regions.
-
-The partnership strengthens financial structuring and project delivery capabilities.`,
-  },
-  {
-    id: "3",
-    title: "Expansion into Southeast Asia Markets",
-    date: "March 2026",
-    tag: "Expansion",
-    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e",
-    content: `Ecoveda Climate is expanding its operations into Southeast Asia to tap into emerging carbon markets.
-
-The region presents strong opportunities for nature-based and technology-driven climate solutions.
-
-This expansion aligns with our global growth strategy.`,
-  },
-  {
-    id: "4",
-    title: "New DMRV Platform Successfully Deployed",
-    date: "February 2026",
-    tag: "Technology",
-    image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f",
-    content: `Ecoveda Climate has successfully deployed its advanced DMRV platform across multiple pilot projects.
-
-The system enables real-time monitoring and high-integrity reporting using IoT and remote sensing.
-
-This strengthens transparency and trust in carbon markets.`,
-  },
-];
+import { NEWS_ITEMS } from "./News";
 
 export default function NewsDetail() {
   const { id } = useParams();
-  const news = NEWS.find((n) => n.id === id);
+  const news = NEWS_ITEMS.find((n) => n.id.toString() === id);
 
   if (!news) {
     return (
-      <div className="pt-20 text-center text-2xl">
-        News Not Found
+      <div className="pt-32 pb-24 text-center min-h-screen flex flex-col items-center justify-center">
+        <h1 className="text-3xl font-bold mb-4">News Not Found</h1>
+        <Link to="/news" className="text-emerald-600 font-semibold hover:underline">
+          Return to News
+        </Link>
       </div>
     );
   }
 
+  // Derive tag dynamically based on title (matching News.tsx filter logic)
+  let tag = "Projects";
+  const titleLower = news.title.toLowerCase();
+  if (titleLower.includes("market") || titleLower.includes("credit")) tag = "Market";
+  else if (titleLower.includes("blueprint") || titleLower.includes("policy")) tag = "Policy";
+  else if (titleLower.includes("family") || titleLower.includes("partner")) tag = "Partnerships";
+
+  // Derive date dynamically (matching News.tsx timeline logic)
+  const date = new Date(2025, 10 - (news.id % 12), 15 - (news.id % 15)).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
   return (
-    <div className="pt-16">
+    <div className="pt-16 min-h-screen bg-white">
 
       {/* HERO */}
-      <section className="relative h-[60vh] flex items-center">
+      <section className="relative h-[60vh] min-h-[400px] flex items-end pb-16">
 
         <img
           src={news.image}
           className="absolute inset-0 w-full h-full object-cover"
-         loading="lazy" decoding="async" />
+          loading="lazy" decoding="async" 
+        />
 
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-white">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-white w-full">
 
           <Link
             to="/news"
-            className="text-sm mb-6 inline-block opacity-80 hover:opacity-100"
+            className="text-sm mb-8 inline-flex items-center opacity-80 hover:opacity-100 transition-opacity font-medium tracking-wide"
           >
             ← Back to News
           </Link>
 
-          <span className="bg-emerald-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
-            {news.tag}
-          </span>
+          <div>
+            <span className="bg-emerald-500/20 border border-emerald-400/30 backdrop-blur-md text-emerald-100 px-4 py-1.5 rounded-full text-xs font-bold tracking-[2px] uppercase">
+              {tag}
+            </span>
+          </div>
 
-          <h1 className="text-3xl md:text-5xl font-bold mt-4 mb-3 leading-tight">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mt-6 mb-6 leading-tight tracking-tight">
             {news.title}
           </h1>
 
-          <p className="text-sm text-white/80">
-            {news.date}
+          <p className="text-sm font-medium text-emerald-300">
+            Published on {date}
           </p>
 
         </div>
       </section>
 
       {/* CONTENT */}
-      <section className="max-w-3xl mx-auto px-6 py-16">
+      <section className="max-w-3xl mx-auto px-6 py-20">
 
-        <div className="prose prose-lg max-w-none text-slate-700 leading-relaxed whitespace-pre-line">
+        <div className="prose prose-lg prose-emerald max-w-none text-slate-700 leading-relaxed whitespace-pre-line text-xl font-medium">
           {news.content}
         </div>
 
       </section>
 
       {/* CTA */}
-      <section className="py-8 bg-slate-50 text-center">
+      <section className="py-24 bg-slate-50 text-center border-t border-slate-100">
 
-        <h2 className="text-2xl font-bold mb-4">
+        <h2 className="text-3xl font-bold mb-6 text-slate-900 tracking-tight">
           Stay Updated with Our Work
         </h2>
 
-        <p className="text-slate-600 mb-6">
-          Explore more news or connect with our team.
+        <p className="text-slate-600 mb-10 max-w-lg mx-auto text-lg">
+          Explore more news, announcements, and global climate insights or connect with our team.
         </p>
 
-        <div className="flex justify-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 px-6">
           <Link
             to="/news"
-            className="px-6 py-3 bg-emerald-500 text-white rounded-md"
+            className="px-8 py-4 bg-emerald-600 text-white font-bold rounded-xl shadow-lg shadow-emerald-600/20 hover:-translate-y-1 hover:shadow-emerald-600/30 transition-all"
           >
             View All News
           </Link>
 
           <Link
             to="/contact"
-            className="px-6 py-3 border rounded-md"
+            className="px-8 py-4 bg-white border border-slate-200 text-slate-700 font-bold rounded-xl hover:bg-slate-50 transition-colors"
           >
             Contact Us
           </Link>

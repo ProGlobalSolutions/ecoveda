@@ -1,46 +1,49 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { PROJECTS } from '../constants/projects';
-import { MapPin, Calendar, Database, CheckCircle2, ArrowLeft, ArrowRight } from 'lucide-react';
+import { MapPin, Calendar, Database, CheckCircle2, ArrowLeft, Globe, Shield, Users, Leaf, Droplets, Zap } from 'lucide-react';
 
 const SDG_COLORS: Record<number, string> = {
-  1: 'bg-[#E5243B]',  // No Poverty
-  2: 'bg-[#DDA63A]',  // Zero Hunger
-  3: 'bg-[#4C9F38]',  // Good Health
-  4: 'bg-[#C5192D]',  // Quality Education
-  5: 'bg-[#FF3A21]',  // Gender Equality
-  6: 'bg-[#26BDE2]',  // Clean Water
-  7: 'bg-[#FCC30B]',  // Affordable Energy
-  8: 'bg-[#A21942]',  // Decent Work
-  9: 'bg-[#FD6925]',  // Industry & Innovation
-  10: 'bg-[#DD1367]', // Reduced Inequalities
-  11: 'bg-[#FD9D24]', // Sustainable Cities
-  12: 'bg-[#BF8B2E]', // Responsible Consumption
-  13: 'bg-[#3F7E44]', // Climate Action
-  14: 'bg-[#0A97D9]', // Life Below Water
-  15: 'bg-[#56C02B]', // Life on Land
-  16: 'bg-[#00689D]', // Peace & Justice
-  17: 'bg-[#19486A]', // Partnerships
+  1: 'bg-[#E5243B]',
+  2: 'bg-[#DDA63A]',
+  3: 'bg-[#4C9F38]',
+  4: 'bg-[#C5192D]',
+  5: 'bg-[#FF3A21]',
+  6: 'bg-[#26BDE2]',
+  7: 'bg-[#FCC30B]',
+  8: 'bg-[#A21942]',
+  9: 'bg-[#FD6925]',
+  10: 'bg-[#DD1367]',
+  11: 'bg-[#FD9D24]',
+  12: 'bg-[#BF8B2E]',
+  13: 'bg-[#3F7E44]',
+  14: 'bg-[#0A97D9]',
+  15: 'bg-[#56C02B]',
+  16: 'bg-[#00689D]',
+  17: 'bg-[#19486A]',
 };
 
-const SDG_NAMES: Record<number, string> = {
-  1: 'No Poverty',
-  2: 'Zero Hunger',
-  3: 'Good Health and Well-being',
-  4: 'Quality Education',
-  5: 'Gender Equality',
-  6: 'Clean Water and Sanitation',
-  7: 'Affordable and Clean Energy',
-  8: 'Decent Work and Economic Growth',
-  9: 'Industry, Innovation and Infrastructure',
-  10: 'Reduced Inequalities',
-  11: 'Sustainable Cities and Communities',
-  12: 'Responsible Consumption and Production',
-  13: 'Climate Action',
-  14: 'Life Below Water',
-  15: 'Life on Land',
-  16: 'Peace, Justice and Strong Institutions',
-  17: 'Partnerships for the Goals',
+const IMPACT_ICONS: Record<string, any> = {
+  'Carbon Sequestration': Zap,
+  'Emission Reduction': Shield,
+  'Biodiversity': Leaf,
+  'Community': Users,
+  'Soil Health': Leaf,
+  'Water Security': Droplets,
+  'Livelihoods': Users,
+  'Climate Resilience': Shield,
+  'Income Diversity': Users,
+  'Ecosystem Services': Leaf,
+  'Adaptation': Shield,
+  'Carbon Capture': Zap,
+  'Blue Carbon': Droplets,
+  'Coastal Shield': Shield,
+  'Fisheries': Users,
+  'Phytoremediation': Droplets,
+  'Permanent Removal': Shield,
+  'Soil Enrichment': Leaf,
+  'Agronomic Yield': Zap,
+  'Ocean Health': Droplets,
 };
 
 export default function ProjectDetail() {
@@ -49,9 +52,11 @@ export default function ProjectDetail() {
 
   if (!project) {
     return (
-      <div className="pt-20 pb-24 text-center">
+      <div className="pt-32 pb-24 text-center min-h-screen flex flex-col items-center justify-center">
         <h1 className="text-3xl font-bold mb-4">Project Not Found</h1>
-        <Link to="/verticals/project-development" className="text-primary hover:underline">Return to Portfolio</Link>
+        <Link to="/portfolio" className="text-emerald-600 font-semibold hover:underline">
+          Return to Portfolio
+        </Link>
       </div>
     );
   }
@@ -59,185 +64,216 @@ export default function ProjectDetail() {
   const isCDR = project.type === 'CDR';
 
   return (
-    <div className={`pt-16 min-h-screen ${isCDR ? 'bg-slate-900 text-white' : 'bg-stone-50 text-slate-900'}`}>
-      {/* Hero Section */}
-      <section className="relative h-[70vh] flex items-center">
+    <div className="min-h-screen bg-white text-slate-900">
+      {/* 1. HERO SECTION */}
+      <section className="relative h-[80vh] min-h-[600px] flex flex-col justify-end overflow-hidden">
+        {/* Background Image */}
+        <img
+          src={project.image}
+          alt={project.name}
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
-  {/* Background Image */}
-  <img
-    src={project.image}
-    className="absolute inset-0 w-full h-full object-cover"
-   loading="lazy" decoding="async" />
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-10 pb-16">
+          <Link
+            to="/portfolio"
+            className="inline-flex items-center text-sm font-medium text-white/70 hover:text-white mb-8 transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Portfolio
+          </Link>
 
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-black/50" />
+          <div className="flex items-center gap-4 mb-6">
+            <span className={`px-4 py-1.5 text-xs font-bold tracking-[2px] uppercase rounded-full backdrop-blur-md border ${
+              isCDR 
+                ? 'bg-blue-500/20 border-blue-400/30 text-blue-100' 
+                : 'bg-emerald-500/20 border-emerald-400/30 text-emerald-100'
+            }`}>
+              {project.type === 'NCS' ? 'Nature Based Solutions' : 'Carbon Dioxide Removal'}
+            </span>
+          </div>
 
-  {/* Content */}
-  <div className="relative z-10 max-w-7xl mx-auto px-6 text-white">
+          <h1 className="text-4xl md:text-7xl font-bold text-white mb-10 max-w-4xl tracking-tight leading-tight">
+            {project.name}
+          </h1>
 
-    <Link
-      to="/verticals/project-development"
-      className="text-sm mb-6 inline-block opacity-80 hover:opacity-100"
-    >
-      ← Back to Portfolio
-    </Link>
-
-    <h1 className="text-4xl md:text-6xl font-bold mb-4">
-      {project.name}
-    </h1>
-
-    <div className="flex flex-wrap gap-6 text-sm">
-      <span>📍 {project.location}</span>
-      <span>📊 {project.registry}</span>
-      <span>📅 {project.creditingPeriod}</span>
-    </div>
-
-  </div>
-</section>
-        {/* Subtle Gradient for CDR */}
-        {isCDR && (
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-purple-900/10 to-transparent pointer-events-none" />
-        )}
-        
-        
-      
-
-      {/* Main Content Area */}
-      <section className="py-10 max-w-7xl mx-auto px-10">
-        <div className="space-y-20">
-          {/* Left: Content */}
-          <div className="lg:col-span-2 space-y-20">
-            {/* Primary Activity */}
-            <div>
-              <h2 className={`text-sm font-bold uppercase tracking-[2px] mb-5 pb-4 border-b ${isCDR ? 'text-blue-400 border-white/10' : 'text-primary border-slate-100'}`}>
-                Primary Project Activity
-              </h2>
-              <p className={`text-xl lg:text-2xl font-medium leading-relaxed ${isCDR ? 'text-slate-300' : 'text-slate-700'}`}>
-                {project.primaryActivity}
+          {/* Stats Bar */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 px-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl">
+            <div className="space-y-1">
+              <span className="text-white/50 text-[10px] font-bold uppercase tracking-widest block">Registry</span>
+              <p className="text-white font-medium text-lg">{project.registry}</p>
+            </div>
+            <div className="space-y-1">
+              <span className="text-white/50 text-[10px] font-bold uppercase tracking-widest block">Location</span>
+              <p className="text-white font-medium text-lg">{project.location}</p>
+            </div>
+            <div className="space-y-1">
+              <span className="text-white/50 text-[10px] font-bold uppercase tracking-widest block">Period</span>
+              <p className="text-white font-medium text-lg">{project.creditingPeriod}</p>
+            </div>
+            <div className="space-y-1">
+              <span className="text-white/50 text-[10px] font-bold uppercase tracking-widest block">Status</span>
+              <p className="text-emerald-400 font-medium text-lg flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Active
               </p>
             </div>
-
-            {/* Secondary Activities */}
-
-
-            <div>
-  <h2 className="text-2xl font-bold mb-5">
-    Project Impact
-  </h2>
-
-  <div className="grid md:grid-cols-2 gap-6">
-    {project.impacts.map((impact, i) => (
-      <div key={i} className="p-6 border rounded-xl">
-        <h4 className="font-bold mb-2">
-          {impact.title}
-        </h4>
-        <p className="text-slate-600 text-sm">
-          {impact.description}
-        </p>
-      </div>
-    ))}
-  </div>
-</div>
-         {project.secondaryActivities && project.secondaryActivities.length > 0 && (
-  <div>
-    <h2 className={`text-sm font-bold uppercase tracking-[2px] mb-5 pb-4 border-b ${
-      isCDR ? 'text-blue-400 border-white/10' : 'text-primary border-slate-100'
-    }`}>
-      Ancillary Initiatives
-    </h2>
-
-    <div className="grid sm:grid-cols-2 gap-6">
-      {project.secondaryActivities.map((act, i) => (
-        <div
-          key={i}
-          className={`flex items-start gap-4 p-6 rounded-xl border transition-all ${
-            isCDR
-              ? 'bg-slate-800/50 border-white/5 hover:border-blue-500/30'
-              : 'bg-slate-50 border-slate-100 hover:border-accent'
-          }`}
-        >
-          <CheckCircle2 className={`w-5 h-5 mt-0.5 shrink-0 ${
-            isCDR ? 'text-blue-400' : 'text-accent'
-          }`} />
-          <span className="font-semibold text-sm leading-tight">{act}</span>
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-)}
-            
-            {/* Map Section */}
+      </section>
+
+      {/* 2. LOCATION MAP */}
+      <section className="py-24 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className={`text-sm font-bold uppercase tracking-[2px] mb-5 pb-4 border-b ${isCDR ? 'text-blue-400 border-white/10' : 'text-primary border-slate-100'}`}>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900 tracking-tight">
                 Project Location Context
               </h2>
-              <div className="h-[400px] w-full rounded-2xl overflow-hidden bg-slate-800 relative shadow-2xl">
-                 <img 
-                    src={project.image} 
-                    className="w-full h-full object-cover opacity-30 grayscale blur-[2px]" 
-                    alt="Map Context"
-                    referrerPolicy="no-referrer"
-                  loading="lazy" decoding="async" />
-                 <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-5">
-                    <div className={`p-4 rounded-full mb-6 ${isCDR ? 'bg-blue-600' : 'bg-primary'}`}>
-                      <MapPin className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-white text-xl font-bold mb-2">{project.location}</h3>
-                    <p className="text-white/60 text-sm max-w-sm">Geospatial verification active. High-resolution satellite monitoring enabled for this boundary area.</p>
-                 </div>
+              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                Situated in {project.location}, this project operates within a high-integrity boundary verified through geospatial intelligence and on-ground assessments.
+              </p>
+              <div className="flex items-center gap-4 text-emerald-700 font-semibold">
+                <MapPin className="w-6 h-6" />
+                <span>Geospatial Verification Active</span>
               </div>
             </div>
+            <div className="h-[450px] w-full rounded-3xl overflow-hidden shadow-2xl relative">
+              {/* Static Map Styling */}
+              <div className="absolute inset-0 bg-slate-200 flex items-center justify-center">
+                 <img 
+                    src={project.image} 
+                    className="w-full h-full object-cover opacity-20 grayscale brightness-50" 
+                    alt="Map Background"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 bg-emerald-600/20 rounded-full flex items-center justify-center animate-ping absolute"></div>
+                    <div className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center relative shadow-lg">
+                      <MapPin className="text-white w-6 h-6" />
+                    </div>
+                  </div>
+              </div>
+              {/* Overlay grid lines for tech look */}
+              <div className="absolute inset-0 pointer-events-none opacity-10" style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+            </div>
           </div>
-
-       
         </div>
       </section>
 
-      {/* Investor CTA */}
-      <section className={`py-32 px-10 text-center ${isCDR ? 'bg-slate-950 mt-20' : 'bg-slate-50 mt-20'}`}>
-        <div className="max-w-4xl mx-auto">
-          <h2 className={`text-4xl font-sans font-extrabold mb-5 ${isCDR ? 'text-white' : 'text-slate-900'}`}>
-            Ready to Invest?
+      {/* 3. PRIMARY ACTIVITY */}
+      <section className="py-24 border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="max-w-3xl">
+            <h2 className="text-sm font-bold uppercase tracking-[3px] text-emerald-600 mb-6">
+              Primary Project Activity
+            </h2>
+            <p className="text-2xl md:text-3xl font-medium text-slate-800 leading-[1.4]">
+              {project.primaryActivity}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. SECONDARY ACTIVITIES (Optional - Only ARR & Mangrove) */}
+      {(project.id.includes('arr') || project.id.includes('mangrove')) && project.secondaryActivities && project.secondaryActivities.length > 0 && (
+        <section className="py-24 bg-stone-50 border-b border-stone-100">
+          <div className="max-w-7xl mx-auto px-6 md:px-10">
+            <h2 className="text-sm font-bold uppercase tracking-[3px] text-slate-500 mb-12">
+              Ancillary Initiatives
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {project.secondaryActivities.map((activity, idx) => (
+                <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-stone-200 flex gap-4">
+                  <CheckCircle2 className="w-6 h-6 text-emerald-600 shrink-0" />
+                  <p className="font-semibold text-slate-800 leading-tight">{activity}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 5. OBJECTIVES & IMPACTS */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-16 text-slate-900 tracking-tight text-center">
+            Objectives & Environmental Impacts
           </h2>
-          <p className={`text-lg mb-6 max-w-2xl mx-auto ${isCDR ? 'text-slate-400' : 'text-slate-600'}`}>
-            Access high-integrity carbon removal units from our verified project pipeline. Request a technical project deck or schedule a consultation with our development team.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link
-              to="/contact"
-              className={`px-12 py-4 rounded-md font-bold text-sm uppercase tracking-wider shadow-2xl transition-all hover:-translate-y-1 block w-full sm:w-auto ${
-                isCDR ? 'bg-blue-600 hover:bg-blue-500 text-white' : 'bg-primary hover:bg-primary-dark text-white'
-              }`}
-            >
-              Request Project Deck
-            </Link>
-            <Link
-              to="/contact"
-              className={`px-12 py-4 border-2 rounded-md font-bold text-sm uppercase tracking-wider transition-all hover:bg-white hover:text-slate-900 block w-full sm:w-auto ${
-                 isCDR ? 'border-white/20 text-white hover:border-white' : 'border-slate-300 text-slate-600'
-              }`}
-            >
-              Schedule a Call
-            </Link>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {project.impacts.map((impact, idx) => {
+              const Icon = IMPACT_ICONS[impact.title] || Shield;
+              return (
+                <div key={idx} className="group p-8 rounded-3xl bg-slate-50 hover:bg-emerald-900 hover:text-white transition-all duration-500 border border-slate-100">
+                  <div className="w-14 h-14 rounded-2xl bg-white group-hover:bg-emerald-800 flex items-center justify-center mb-6 shadow-sm group-hover:shadow-none transition-colors">
+                    <Icon className="w-7 h-7 text-emerald-600 group-hover:text-emerald-100" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-4">{impact.title}</h3>
+                  <p className="text-slate-500 group-hover:text-emerald-100/70 text-sm leading-relaxed">
+                    {impact.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Floating Action Button (Optional but helps) */}
-      <div className="fixed bottom-10 right-10 z-30">
-        <Link 
-          to="/contact"
-          className={`flex items-center gap-3 px-6 py-4 rounded-full shadow-2xl text-white font-bold text-xs uppercase tracking-[2px] transition-all hover:scale-105 active:scale-95 ${
-            isCDR ? 'bg-gradient-to-r from-blue-600 to-purple-600' : 'bg-accent'
-          }`}
-        >
-          Partner with us <ArrowRight className="w-5 h-5" />
-        </Link>
-      </div>
+      {/* 6. SDG TILES */}
+      <section className="py-24 bg-slate-50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+          <div className="flex flex-col md:flex-row items-center justify-between mb-16 gap-8">
+            <h2 className="text-3xl font-bold tracking-tight">Sustainable Development Goals</h2>
+            <p className="text-slate-500 max-w-md text-center md:text-left">
+              This project contributes directly to several UN SDGs, ensuring holistic ecological and social progress.
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-4">
+            {project.sdgs.map((sdg) => (
+              <div
+                key={sdg}
+                className={`w-32 h-32 ${SDG_COLORS[sdg]} rounded-2xl shadow-lg flex flex-col items-center justify-center p-4 text-white hover:scale-105 transition-transform cursor-default group`}
+              >
+                <span className="text-3xl font-black mb-2 opacity-50 group-hover:opacity-100 transition-opacity">{sdg}</span>
+                <span className="text-[10px] font-bold text-center uppercase leading-tight">
+                  SDG {sdg}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. CTA */}
+      <section className="py-32 px-6 md:px-10 text-center">
+        <div className="max-w-4xl mx-auto bg-emerald-900 rounded-[3rem] p-12 md:p-24 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/50 to-transparent"></div>
+          <div className="relative z-10">
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">
+              Ready to Invest?
+            </h2>
+            <p className="text-xl text-emerald-100/70 mb-12 max-w-2xl mx-auto">
+              Access high-integrity carbon credits and contribute to verified climate solutions. Request a technical project deck today.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link
+                to="/contact"
+                className="px-10 py-5 bg-white text-emerald-900 rounded-xl font-bold text-lg hover:bg-emerald-50 transition-all shadow-xl hover:-translate-y-1"
+              >
+                Request Technical Deck
+              </Link>
+              <Link
+                to="/contact"
+                className="px-10 py-5 border-2 border-white/30 text-white rounded-xl font-bold text-lg hover:bg-white/10 transition-all"
+              >
+                Schedule Consultation
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
-
-
-
-
