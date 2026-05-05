@@ -33,7 +33,13 @@ export default function Verticals() {
     <div className="max-w-7xl mx-auto px-6">
 
         {/* HEADER */}
-        <div className="mb-5 text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-5 text-center"
+        >
           <span className="text-emerald-600 font-semibold uppercase text-sm tracking-wider block mb-3">
             Our Services
           </span>
@@ -45,7 +51,7 @@ export default function Verticals() {
           <p className="text-slate-600 max-w-2xl mx-auto text-lg">
             Delivering end-to-end services across carbon markets, sustainability strategy and climate technology.
           </p>
-        </div>
+        </motion.div>
 
         {/* GRID */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">

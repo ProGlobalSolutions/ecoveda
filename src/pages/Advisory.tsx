@@ -154,10 +154,16 @@ export default function Advisory() {
 
       {/* Partners Section */}
       <section className="py-10 bg-card-bg">
-        <div className="max-w-7xl mx-auto px-10 text-center mb-5">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-7xl mx-auto px-10 text-center mb-5"
+        >
           <span className="text-primary font-bold tracking-[1.5px] uppercase text-[12px] mb-4 block">Collaboration</span>
           <h2 className="text-4xl font-sans font-extrabold text-slate-800">Who We Work With</h2>
-        </div>
+        </motion.div>
         <div className="max-w-7xl mx-auto px-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {AUDIENCES.map((aud, idx) => (
@@ -182,10 +188,16 @@ export default function Advisory() {
 
       {/* Services Section */}
       <section className="py-10 bg-white">
-        <div className="max-w-7xl mx-auto px-10 mb-5">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-7xl mx-auto px-10 mb-5"
+        >
           <span className="text-primary font-bold tracking-[1.5px] uppercase text-[12px] mb-4 block">Our Expertise</span>
           <h2 className="text-4xl font-sans font-extrabold text-slate-800">Our Advisory Services</h2>
-        </div>
+        </motion.div>
         <div className="max-w-7xl mx-auto px-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {SERVICES.map((service, idx) => (
@@ -218,10 +230,16 @@ export default function Advisory() {
 
       {/* How We Work Section */}
       <section className="py-10 bg-primary-dark">
-        <div className="max-w-7xl mx-auto px-10 text-center mb-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-7xl mx-auto px-10 text-center mb-20"
+        >
           <span className="text-accent font-bold tracking-[1.5px] uppercase text-[12px] mb-4 block">Methodology</span>
           <h2 className="text-4xl font-sans font-extrabold text-white">How We Work</h2>
-        </div>
+        </motion.div>
         <div className="max-w-7xl mx-auto px-10 relative">
           {/* Connecting Line (Desktop) */}
           <div className="hidden lg:block absolute top-[60px] left-[50px] right-[50px] h-[1px] bg-white/10 z-0" />
@@ -249,10 +267,16 @@ export default function Advisory() {
 
       {/* Why Ecoveda Section */}
       <section className="py-10 bg-card-bg">
-        <div className="max-w-7xl mx-auto px-10 text-center mb-5">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-7xl mx-auto px-10 text-center mb-5"
+        >
           <span className="text-primary font-bold tracking-[1.5px] uppercase text-[12px] mb-4 block">Advantages</span>
           <h2 className="text-4xl font-sans font-extrabold text-slate-800">Why Ecoveda</h2>
-        </div>
+        </motion.div>
         <div className="max-w-7xl mx-auto px-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {HIGHLIGHTS.map((h, idx) => (

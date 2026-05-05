@@ -151,7 +151,12 @@ export default function About() {
       <section className="py-10 bg-stone-50">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
 
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-4xl font-bold mb-6 text-slate-800">
               About Ecoveda Climate
             </h2>
@@ -167,7 +172,7 @@ export default function About() {
             <p className="font-semibold text-slate-800">
               Our mission is to impact over 100 million people and generate 1 billion+ carbon credits by 2030.
             </p>
-          </div>
+          </motion.div>
 
           {/* ✅ FIXED RIGHT IMAGE */}
           <img
@@ -181,11 +186,17 @@ export default function About() {
 
       {/* VALUES */}
       <section className="py-10 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6 text-center mb-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-7xl mx-auto px-6 text-center mb-6"
+        >
           <h2 className="text-4xl font-bold text-slate-800">
             Our Values
           </h2>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-5 max-w-7xl mx-auto px-6">
           {VALUES.map((val, i) => (
@@ -210,11 +221,17 @@ export default function About() {
 
       {/* EXPERTISE */}
       <section className="py-10 bg-emerald-50">
-        <div className="max-w-7xl mx-auto px-6 text-center mb-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-7xl mx-auto px-6 text-center mb-6"
+        >
           <h2 className="text-4xl font-bold text-slate-800">
             Our Expertise
           </h2>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-7xl mx-auto px-6">
           {EXPERTISE_CARDS.map((card, i) => (

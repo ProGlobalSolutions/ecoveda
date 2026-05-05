@@ -6,7 +6,13 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-6">
 
         {/* HEADER */}
-        <div className="text-center max-w-3xl mx-auto mb-5">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-5"
+        >
           <span className="text-emerald-600 font-semibold uppercase text-sm tracking-wider block mb-3">
             Clients & Partners
           </span>
@@ -18,7 +24,7 @@ export default function Testimonials() {
           <p className="text-slate-600 text-lg">
             We work with governments, corporates, financial institutions and development organisations to deliver high-impact climate solutions globally.
           </p>
-        </div>
+        </motion.div>
 
         {/* LOGO GRID */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 items-center justify-items-center opacity-60 grayscale hover:grayscale-0 transition">

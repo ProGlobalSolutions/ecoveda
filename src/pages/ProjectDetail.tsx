@@ -126,42 +126,44 @@ export default function ProjectDetail() {
       </section>
 
       {/* 2. LOCATION MAP */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900 tracking-tight">
-                Project Location Context
-              </h2>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                Situated in {project.location}, this project operates within a high-integrity boundary verified through geospatial intelligence and on-ground assessments.
-              </p>
-              <div className="flex items-center gap-4 text-emerald-700 font-semibold">
-                <MapPin className="w-6 h-6" />
-                <span>Geospatial Verification Active</span>
+      {['maharashtra-arr', 'madhya-pradesh-arr', 'telangana-andhra-arr'].includes(project.id) && (
+        <section className="py-24 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-6 md:px-10">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900 tracking-tight">
+                  Project Location Context
+                </h2>
+                <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                  Situated in {project.location}, this project operates within a high-integrity boundary verified through geospatial intelligence and on-ground assessments.
+                </p>
+                <div className="flex items-center gap-4 text-emerald-700 font-semibold">
+                  <MapPin className="w-6 h-6" />
+                  <span>Geospatial Verification Active</span>
+                </div>
               </div>
-            </div>
-            <div className="h-[450px] w-full rounded-3xl overflow-hidden shadow-2xl relative">
-              {/* Static Map Styling */}
-              <div className="absolute inset-0 bg-slate-200 flex items-center justify-center">
-                 <img 
-                    src={project.image} 
-                    className="w-full h-full object-cover opacity-20 grayscale brightness-50" 
-                    alt="Map Background"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 bg-emerald-600/20 rounded-full flex items-center justify-center animate-ping absolute"></div>
-                    <div className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center relative shadow-lg">
-                      <MapPin className="text-white w-6 h-6" />
+              <div className="h-[450px] w-full rounded-3xl overflow-hidden shadow-2xl relative">
+                {/* Static Map Styling */}
+                <div className="absolute inset-0 bg-slate-200 flex items-center justify-center">
+                   <img 
+                      src={project.image} 
+                      className="w-full h-full object-cover opacity-20 grayscale brightness-50" 
+                      alt="Map Background"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-20 h-20 bg-emerald-600/20 rounded-full flex items-center justify-center animate-ping absolute"></div>
+                      <div className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center relative shadow-lg">
+                        <MapPin className="text-white w-6 h-6" />
+                      </div>
                     </div>
-                  </div>
+                </div>
+                {/* Overlay grid lines for tech look */}
+                <div className="absolute inset-0 pointer-events-none opacity-10" style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
               </div>
-              {/* Overlay grid lines for tech look */}
-              <div className="absolute inset-0 pointer-events-none opacity-10" style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* 3. PRIMARY ACTIVITY */}
       <section className="py-24 border-b border-slate-100">
