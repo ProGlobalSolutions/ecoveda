@@ -63,43 +63,43 @@ export default function Verticals() {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-            className="group relative w-full max-w-sm mx-auto rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition"
+              className="group relative w-full max-w-sm mx-auto rounded-xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-500 bg-white"
             >
 
               {/* BACKGROUND IMAGE */}
               <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                className="absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-110 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 group-hover:brightness-110"
                 style={{ backgroundImage: `url(${service.bg})` }}
               />
 
               {/* OVERLAY */}
-              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition" />
+              <div className="absolute inset-0 bg-black/60 lg:bg-transparent lg:group-hover:bg-black/50 transition-colors duration-500" />
 
               {/* CONTENT */}
-              <div className="relative z-10 p-5 text-white">
+              <div className="relative z-10 p-6">
 
                 {/* ICON */}
-                <div className="w-12 h-12 flex items-center justify-center bg-white/20 backdrop-blur text-white rounded-lg mb-6 group-hover:bg-emerald-500 transition">
+                <div className="w-12 h-12 flex items-center justify-center rounded-lg mb-6 transition-colors duration-500 bg-white/20 text-white lg:bg-emerald-50 lg:text-emerald-600 lg:group-hover:bg-emerald-500 lg:group-hover:text-white">
                   <service.icon className="w-6 h-6" />
                 </div>
 
                 {/* TITLE */}
-                <h3 className="text-lg font-bold mb-3">
+                <h3 className="text-xl font-bold mb-3 transition-colors duration-500 text-white lg:text-slate-900 lg:group-hover:text-white">
                   {service.title}
                 </h3>
 
                 {/* DESC */}
-                <p className="text-sm text-white/90 leading-relaxed mb-6">
+                <p className="text-sm leading-relaxed mb-6 transition-colors duration-500 text-white/90 lg:text-slate-600 lg:group-hover:text-white/90">
                   {service.description}
                 </p>
 
                 {/* LINK */}
                 <Link
                   to={service.link}
-                  className="inline-flex items-center gap-2 text-emerald-300 font-semibold text-sm"
+                  className="inline-flex items-center gap-2 font-semibold text-sm transition-colors duration-500 text-emerald-300 lg:text-emerald-600 lg:group-hover:text-emerald-300"
                 >
                   Explore
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
 
               </div>

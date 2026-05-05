@@ -134,18 +134,10 @@ export default function StakeholderConsultation() {
             Stakeholder Resources
           </h2>
           <p className="text-stone-400 text-lg mb-12 max-w-2xl mx-auto">
-            We operate a formalized Grievance Redressal Mechanism. If you have any concerns or feedback regarding our projects, please download the form or submit it directly online.
+            We operate a formalized Grievance Redressal Mechanism. If you have any concerns or feedback regarding our projects, please submit it directly online.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            {/* Download PDF Form */}
-            <a 
-              href="/grievance-form.pdf" 
-              className="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl font-bold flex items-center justify-center gap-3 transition-colors"
-            >
-              <Download className="w-5 h-5" />
-              Download Grievance Form (PDF)
-            </a>
 
             {/* Direct Contact Link */}
             <Link
