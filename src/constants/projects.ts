@@ -1,8 +1,11 @@
 import maharashtra from "../assets/maharashtra.webp"
+import maharashtraHero from "../assets/maharashtra_hero.png"
 import madhya from "../assets/madhya.webp"
 import mangrove from "../assets/mangrove.webp"
+import mangrovePort from "../assets/mangroveport.webp"
 import rainbow from "../assets/rainbow.webp"
 import telangana from "../assets/telangana.webp"
+import rock from "../assets/rock.webp"
 
 export interface Project {
   id: string;
@@ -16,6 +19,7 @@ export interface Project {
   secondaryActivities?: string[];
   impacts: { title: string; description: string }[];
   sdgs: number[];
+  activityImage?: string;
 }
 
 export const PROJECTS: Project[] = [
@@ -23,7 +27,7 @@ export const PROJECTS: Project[] = [
     id: 'maharashtra-arr',
     name: 'Maharashtra ARR Project',
     type: 'NCS',
-    image: maharashtra,
+    image: maharashtraHero,
     registry: 'Verra / VCS',
     location: 'Maharashtra, India',
     creditingPeriod: '20 Years',
@@ -85,7 +89,7 @@ export const PROJECTS: Project[] = [
     id: 'india-mangrove-restoration',
     name: 'India Mangrove Restoration Project',
     type: 'NCS',
-    image: mangrove,
+    image: mangrovePort,
     registry: 'Verra / Blue Carbon',
     location: 'Coastal India',
     creditingPeriod: '25 Years',
@@ -123,6 +127,7 @@ export const PROJECTS: Project[] = [
       { title: 'Agronomic Yield', description: 'Potential increase in crop productivity due to improved soil health.' },
       { title: 'Ocean Health', description: 'Bicarbonates eventually flow to oceans, helping combat acidification.' }
     ],
-    sdgs: [2, 9, 13, 14]
+    sdgs: [2, 9, 13, 14],
+    activityImage: rock
   }
 ];

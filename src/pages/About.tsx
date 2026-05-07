@@ -13,6 +13,7 @@ import renewImg from '../assets/renew.webp';
 import wasteImg from '../assets/waste_to_energy.png';
 import hardToAbateImg from '../assets/hard_to_abate.png';
 import dmrvImg from '../assets/dmrv.webp';
+import inteImg from '../assets/inte.webp';
 
 const VALUES = [
   {
@@ -20,7 +21,7 @@ const VALUES = [
     title: 'Integrity',
     description:
       'We ensure adherence to ethical principles and rigorous standards, safeguarding the credibility and effectiveness of every emission reduction effort we undertake.',
-    bgImage: impactImg,
+    bgImage: inteImg,
   },
   {
     icon: Award,

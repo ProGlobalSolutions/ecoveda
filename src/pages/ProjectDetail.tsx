@@ -66,15 +66,10 @@ export default function ProjectDetail() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       {/* 1. HERO SECTION */}
-      <section className="relative h-[80vh] min-h-[600px] flex flex-col justify-end overflow-hidden">
-        {/* Background Image */}
-        <img
-          src={project.image}
-          alt={project.name}
-          className="absolute inset-0 w-full h-full object-cover"
-          loading="lazy"
-          decoding="async"
-        />
+      <section 
+        className="relative h-[80vh] min-h-[600px] flex flex-col justify-end overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: `url(${project.image})` }}
+      >
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
         <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-10 pb-16">
@@ -166,15 +161,35 @@ export default function ProjectDetail() {
       )}
 
       {/* 3. PRIMARY ACTIVITY */}
-      <section className="py-24 border-b border-slate-100">
+      <section className="py-24 border-b border-slate-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="max-w-3xl">
-            <h2 className="text-sm font-bold uppercase tracking-[3px] text-emerald-600 mb-6">
-              Primary Project Activity
-            </h2>
-            <p className="text-2xl md:text-3xl font-medium text-slate-800 leading-[1.4]">
-              {project.primaryActivity}
-            </p>
+          <div className={`grid lg:items-center gap-12 ${project.activityImage ? 'lg:grid-cols-2' : 'max-w-3xl'}`}>
+            <div className="order-2 lg:order-1">
+              <h2 className="text-sm font-bold uppercase tracking-[3px] text-emerald-600 mb-6">
+                Primary Project Activity
+              </h2>
+              <p className="text-2xl md:text-3xl font-medium text-slate-800 leading-[1.4]">
+                {project.primaryActivity}
+              </p>
+            </div>
+            
+            {project.activityImage && (
+              <div className="order-1 lg:order-2">
+                <motion.div 
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] group"
+                >
+                  <img 
+                    src={project.activityImage} 
+                    alt="Activity Illustration" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                </motion.div>
+              </div>
+            )}
           </div>
         </div>
       </section>
