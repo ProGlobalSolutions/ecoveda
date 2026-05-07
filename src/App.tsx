@@ -9,8 +9,6 @@ const Home = React.lazy(() => import('./pages/Home'));
 const About = React.lazy(() => import('./pages/About'));
 const Region = React.lazy(() => import('./pages/Region'));
 const Contact = React.lazy(() => import('./pages/Contact'));
-const Afolu = React.lazy(() => import('./pages/Afolu'));
-const NonAfolu = React.lazy(() => import('./pages/NonAfolu'));
 const Portfolio = React.lazy(() => import('./pages/Portfolio'));
 const ProjectDetail = React.lazy(() => import('./pages/ProjectDetail'));
 const Advisory = React.lazy(() => import('./pages/Advisory'));
@@ -88,9 +86,6 @@ export default function App() {
               <Route path="/verticals/decarbonisation" element={<Decarbonisation />} />
               <Route path="/verticals/climate-tech" element={<ClimateTechOld />} />
 
-              {/* PROJECTS */}
-              <Route path="/projects/afolu" element={<Afolu />} />
-              <Route path="/projects/non-afolu" element={<NonAfolu />} />
               <Route path="/portfolio/:id" element={<ProjectDetail />} />
 
               {/* EXTRA */}
