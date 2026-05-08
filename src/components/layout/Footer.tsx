@@ -67,6 +67,13 @@ export default function Footer() {
                 </Link>
               </li>
             ))}
+            {/* Mobile Call Us - Only shows on mobile under Contact */}
+            <li className="md:hidden pt-2">
+              <a href="tel:+919343770556" className="flex items-center text-[13px] text-white/70 hover:text-accent transition-colors duration-300">
+                <Phone className="w-3.5 h-3.5 mr-2 text-accent" />
+                +91 93437 70556
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -125,7 +132,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="flex items-start space-x-3 group py-2 -ml-2 rounded-xl hover:bg-white/5 transition-colors duration-300">
+            <div className="hidden md:flex items-start space-x-3 group py-2 -ml-2 rounded-xl hover:bg-white/5 transition-colors duration-300">
               <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:text-white transition-colors duration-300 text-accent">
                 <Phone className="w-4 h-4 md:w-5 md:h-5" />
               </div>

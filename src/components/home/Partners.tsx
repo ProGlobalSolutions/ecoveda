@@ -66,18 +66,12 @@ const ROW3 = ALL_LOGOS.slice(18, 27);
 // Single logo — image only, no card box
 function LogoCard({ partner }: { partner: (typeof ALL_LOGOS)[0] }) {
   return (
-    <div className="group flex-shrink-0 mx-8 flex items-center justify-center cursor-pointer">
+    <div className="group flex-shrink-0 mx-4 md:mx-8 flex items-center justify-center cursor-pointer">
       <img
         src={partner.logo}
         alt={partner.name}
         title={partner.name}
-        className="h-12 w-auto max-w-[130px] object-contain transition-all duration-400 ease-in-out group-hover:scale-110"
-        style={{
-          filter: 'grayscale(30%) opacity(0.9)',
-          transition: 'filter 0.4s ease, transform 0.4s ease',
-        }}
-        onMouseEnter={e => (e.currentTarget.style.filter = 'grayscale(0%) opacity(1)')}
-        onMouseLeave={e => (e.currentTarget.style.filter = 'grayscale(30%) opacity(0.9)')}
+        className="h-8 md:h-12 w-auto max-w-[100px] md:max-w-[130px] object-contain transition-all duration-400 ease-in-out group-hover:scale-110 grayscale-[30%] opacity-90 group-hover:grayscale-0 group-hover:opacity-100"
         loading="lazy"
       />
     </div>
@@ -87,12 +81,16 @@ function LogoCard({ partner }: { partner: (typeof ALL_LOGOS)[0] }) {
 
 // One scrolling marquee row — direction: 'left' | 'right'
 function MarqueeRow({ logos, direction }: { logos: typeof ROW1; direction: 'left' | 'right' }) {
-  const doubled    = [...logos, ...logos];
+  // Use more logos to ensure the track is long enough on all screens
+  const doubled = [...logos, ...logos, ...logos, ...logos];
+  
+  // On mobile, we can force left direction via CSS if we want, 
+  // but for now let's just use the prop.
   const trackClass = direction === 'left' ? 'marquee-track-left' : 'marquee-track-right';
 
   return (
-    <div className="marquee-row overflow-hidden w-full py-3">
-      <div className={trackClass}>
+    <div className="marquee-row overflow-hidden w-full py-2 md:py-4 flex items-center">
+      <div className={`${trackClass} flex`}>
         {doubled.map((partner, i) => (
           <LogoCard key={`${partner.name}-${i}`} partner={partner} />
         ))}
