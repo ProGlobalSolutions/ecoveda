@@ -68,11 +68,16 @@ export default function Footer() {
               </li>
             ))}
             {/* Mobile Call Us - Only shows on mobile under Contact */}
-            <li className="md:hidden pt-2">
-              <a href="tel:+919343770556" className="flex items-center text-[13px] text-white/70 hover:text-accent transition-colors duration-300">
-                <Phone className="w-3.5 h-3.5 mr-2 text-accent" />
-                +91 93437 70556
-              </a>
+            <li className="md:hidden pt-2 border-t border-white/5 mt-1">
+              <div className="flex items-start space-x-2 pt-1">
+                <Phone className="w-3.5 h-3.5 mt-1 text-accent flex-shrink-0" />
+                <div className="flex flex-col">
+                  <span className="text-[13px] font-semibold text-white">Call Us</span>
+                  <a href="tel:+919343770556" className="text-[12px] text-white/70 hover:text-accent transition-colors duration-300">
+                    +91 93437 70556
+                  </a>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
