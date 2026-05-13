@@ -1,7 +1,22 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { PROJECTS } from '../constants/projects';
-import { MapPin, Calendar, Database, CheckCircle2, ArrowLeft, Globe, Shield, Users, Leaf, Droplets, Zap } from 'lucide-react';
+import {
+  ArrowLeft,
+  ArrowRight,
+  Calendar,
+  CheckCircle2,
+  Droplets,
+  Globe,
+  Leaf,
+  MapPin,
+  Shield,
+  Sparkles,
+  Trees,
+  Users,
+  Waves,
+  Zap,
+} from 'lucide-react';
 
 const SDG_COLORS: Record<number, string> = {
   1: 'bg-[#E5243B]',
@@ -26,35 +41,35 @@ const SDG_COLORS: Record<number, string> = {
 const IMPACT_ICONS: Record<string, any> = {
   'Carbon Sequestration': Zap,
   'Emission Reduction': Shield,
-  'Biodiversity': Leaf,
-  'Community': Users,
-  'Soil Health': Leaf,
+  Biodiversity: Leaf,
+  Community: Users,
+  'Soil Health': Trees,
   'Water Security': Droplets,
-  'Livelihoods': Users,
+  Livelihoods: Users,
   'Climate Resilience': Shield,
   'Income Diversity': Users,
   'Ecosystem Services': Leaf,
-  'Adaptation': Shield,
+  Adaptation: Shield,
   'Carbon Capture': Zap,
-  'Blue Carbon': Droplets,
+  'Blue Carbon': Waves,
   'Coastal Shield': Shield,
-  'Fisheries': Users,
-  'Phytoremediation': Droplets,
+  Fisheries: Users,
+  Phytoremediation: Droplets,
   'Permanent Removal': Shield,
   'Soil Enrichment': Leaf,
   'Agronomic Yield': Zap,
-  'Ocean Health': Droplets,
+  'Ocean Health': Waves,
 };
 
 export default function ProjectDetail() {
   const { id } = useParams();
-  const project = PROJECTS.find((p) => p.id === id);
+  const project = PROJECTS.find((item) => item.id === id);
 
   if (!project) {
     return (
-      <div className="pt-32 pb-24 text-center min-h-screen flex flex-col items-center justify-center">
-        <h1 className="text-3xl font-bold mb-4">Project Not Found</h1>
-        <Link to="/portfolio" className="text-emerald-600 font-semibold hover:underline">
+      <div className="flex min-h-screen flex-col items-center justify-center px-6 pb-24 pt-32 text-center">
+        <h1 className="mb-4 text-3xl font-bold">Project Not Found</h1>
+        <Link to="/portfolio" className="font-semibold text-emerald-600 hover:underline">
           Return to Portfolio
         </Link>
       </div>
@@ -62,234 +77,438 @@ export default function ProjectDetail() {
   }
 
   const isCDR = project.type === 'CDR';
+  const accent = isCDR ? '#3b82f6' : '#10b981';
+  const projectLabel = isCDR ? 'Carbon Dioxide Removal' : 'Nature-Based Solutions';
+  const spotlightLabel = isCDR ? 'Engineered Durability' : 'Landscape Regeneration';
+  const spotlightCopy = isCDR
+    ? 'Built around measurable removal, robust quantification, and permanence-first project design.'
+    : 'Designed to restore ecosystems, generate durable carbon value, and strengthen local resilience.';
+
+  const statCards = [
+    { label: 'Registry', value: project.registry },
+    { label: 'Location', value: project.location },
+    { label: 'Crediting Period', value: project.creditingPeriod },
+    { label: 'Project Type', value: project.type },
+  ];
+
+  const overviewPoints = [
+    isCDR ? 'High-rigour carbon accounting and measurement strategy' : 'Ecological restoration integrated with local implementation capacity',
+    isCDR ? 'Permanence-oriented climate intervention with verification readiness' : 'Community-linked land stewardship and biodiversity upside',
+    isCDR ? 'Designed for premium market credibility and technical storytelling' : 'Strong nature-positive narrative with measurable carbon outcomes',
+  ];
 
   return (
-    <div className="min-h-screen bg-white text-slate-900">
-      {/* 1. HERO SECTION */}
-      <section 
-        className="relative h-[80vh] min-h-[600px] flex flex-col justify-end overflow-hidden bg-cover bg-center"
-        style={{ backgroundImage: `url(${project.image})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+    <div className="min-h-screen bg-stone-50 text-slate-900">
+      <section className="relative overflow-hidden bg-[#012A24]">
+        <div className="absolute inset-0">
+          <img src={project.image} alt={project.name} className="h-full w-full object-cover object-center opacity-35" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,42,36,0.4)_0%,rgba(1,42,36,0.72)_34%,rgba(1,42,36,0.96)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(52,211,153,0.22),transparent_28%),radial-gradient(circle_at_82%_18%,rgba(255,255,255,0.12),transparent_24%)]" />
+        </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-10 pb-16">
-          <Link
-            to="/portfolio"
-            className="inline-flex items-center text-sm font-medium text-white/70 hover:text-white mb-8 transition-colors"
+        <div className="relative mx-auto max-w-7xl px-6 pb-16 pt-32 md:px-10 lg:pb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65 }}
+            className="max-w-5xl"
           >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Portfolio
-          </Link>
+            <Link
+              to="/portfolio"
+              className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/8 px-4 py-2 text-sm font-medium text-white/72 backdrop-blur-md transition hover:border-white/25 hover:bg-white/12 hover:text-white"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to Portfolio
+            </Link>
 
-          <div className="flex items-center gap-4 mb-6">
-            <span className={`px-4 py-1.5 text-xs font-bold tracking-[2px] uppercase rounded-full backdrop-blur-md border ${
-              isCDR 
-                ? 'bg-blue-500/20 border-blue-400/30 text-blue-100' 
-                : 'bg-emerald-500/20 border-emerald-400/30 text-emerald-100'
-            }`}>
-              {project.type === 'NCS' ? 'Nature Based Solutions' : 'Carbon Dioxide Removal'}
-            </span>
-          </div>
+            <div className="mb-6 flex flex-wrap gap-3">
+              <span
+                className="rounded-full border border-white/12 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-lg backdrop-blur-md"
+                style={{ backgroundColor: isCDR ? 'rgba(59,130,246,0.22)' : 'rgba(16,185,129,0.22)' }}
+              >
+                {projectLabel}
+              </span>
+              <span className="rounded-full border border-white/12 bg-white/8 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-emerald-200 backdrop-blur-md">
+                {spotlightLabel}
+              </span>
+            </div>
 
-          <h1 className="text-4xl md:text-7xl font-bold text-white mb-10 max-w-4xl tracking-tight leading-tight">
-            {project.name}
-          </h1>
+            <h1 className="max-w-5xl text-4xl font-bold leading-[1.02] text-white md:text-6xl lg:text-7xl">
+              {project.name}
+            </h1>
 
-          {/* Stats Bar */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 px-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl">
-            <div className="space-y-1">
-              <span className="text-white/50 text-[10px] font-bold uppercase tracking-widest block">Registry</span>
-              <p className="text-white font-medium text-lg">{project.registry}</p>
-            </div>
-            <div className="space-y-1">
-              <span className="text-white/50 text-[10px] font-bold uppercase tracking-widest block">Location</span>
-              <p className="text-white font-medium text-lg">{project.location}</p>
-            </div>
-            <div className="space-y-1">
-              <span className="text-white/50 text-[10px] font-bold uppercase tracking-widest block">Period</span>
-              <p className="text-white font-medium text-lg">{project.creditingPeriod}</p>
-            </div>
-            <div className="space-y-1">
-              <span className="text-white/50 text-[10px] font-bold uppercase tracking-widest block">Status</span>
-              <p className="text-emerald-400 font-medium text-lg flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                Active
+            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-white/72 md:text-xl">
+              {spotlightCopy}
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.12 }}
+            className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4"
+          >
+            {statCards.map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-[28px] border border-white/10 bg-white/8 p-5 shadow-[0_20px_50px_rgba(0,0,0,0.14)] backdrop-blur-md"
+              >
+                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/45">{stat.label}</p>
+                <p className="mt-3 text-lg font-semibold text-white">{stat.value}</p>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="relative z-10 -mt-8 pb-12">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          <div className="grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_360px]">
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="rounded-[32px] border border-emerald-900/10 bg-white p-6 shadow-[0_30px_70px_rgba(15,23,42,0.08)] md:p-8"
+            >
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">
+                <Sparkles className="h-4 w-4" />
+                Project Overview
+              </div>
+              <h2 className="text-3xl font-bold text-slate-900 md:text-4xl">
+                High-integrity climate infrastructure with measurable ecological and social value.
+              </h2>
+              <p className="mt-6 text-lg leading-relaxed text-slate-600">
+                {project.primaryActivity}
               </p>
-            </div>
+
+              <div className="mt-8 grid gap-4 md:grid-cols-3">
+                {overviewPoints.map((point) => (
+                  <div key={point} className="rounded-2xl border border-stone-200 bg-stone-50 p-4">
+                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-white text-emerald-600 shadow-sm">
+                      <CheckCircle2 className="h-5 w-5" />
+                    </div>
+                    <p className="text-sm font-medium leading-relaxed text-slate-700">{point}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.aside
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.08 }}
+              className="rounded-[32px] bg-[#012A24] p-6 text-white shadow-[0_30px_70px_rgba(1,42,36,0.26)]"
+            >
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-200">Project Snapshot</p>
+              <div className="mt-6 space-y-5">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-emerald-300">
+                    <MapPin className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/45">Location</p>
+                    <p className="mt-2 text-base font-medium text-white">{project.location}</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-emerald-300">
+                    <Calendar className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/45">Crediting Period</p>
+                    <p className="mt-2 text-base font-medium text-white">{project.creditingPeriod}</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-emerald-300">
+                    <Globe className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/45">Registry</p>
+                    <p className="mt-2 text-base font-medium text-white">{project.registry}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 rounded-[28px] border border-white/10 bg-white/8 p-5">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/45">Positioning</p>
+                <p className="mt-3 text-sm leading-relaxed text-white/72">
+                  {isCDR
+                    ? 'Structured for technical credibility, premium removals storytelling, and long-horizon buyer confidence.'
+                    : 'Structured to restore landscapes, activate community value, and generate resilient carbon outcomes over time.'}
+                </p>
+              </div>
+            </motion.aside>
           </div>
         </div>
       </section>
 
-      {/* 2. LOCATION MAP */}
       {['maharashtra-arr', 'madhya-pradesh-arr', 'telangana-andhra-arr'].includes(project.id) && (
-        <section className="py-24 bg-slate-50">
-          <div className="max-w-7xl mx-auto px-6 md:px-10">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900 tracking-tight">
-                  Project Location Context
+        <section className="bg-stone-50 py-12 md:py-16">
+          <div className="mx-auto max-w-7xl px-6 md:px-10">
+            <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(340px,1.1fr)]">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Location Context</p>
+                <h2 className="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">
+                  Verified implementation geography with on-ground ecosystem relevance.
                 </h2>
-                <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                  Situated in {project.location}, this project operates within a high-integrity boundary verified through geospatial intelligence and on-ground assessments.
+                <p className="mt-5 text-lg leading-relaxed text-slate-600">
+                  Situated in {project.location}, this project is framed through geospatial intelligence, ecological planning, and local implementation alignment to support durable carbon outcomes and defensible project boundaries.
                 </p>
-                <div className="flex items-center gap-4 text-emerald-700 font-semibold">
-                  <MapPin className="w-6 h-6" />
-                  <span>Geospatial Verification Active</span>
-                </div>
-              </div>
-              <div className="h-[450px] w-full rounded-3xl overflow-hidden shadow-2xl relative">
-                {/* Static Map Styling */}
-                <div className="absolute inset-0 bg-slate-200 flex items-center justify-center">
-                   <img 
-                      src={project.image} 
-                      className="w-full h-full object-cover opacity-20 grayscale brightness-50" 
-                      alt="Map Background"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-20 h-20 bg-emerald-600/20 rounded-full flex items-center justify-center animate-ping absolute"></div>
-                      <div className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center relative shadow-lg">
-                        <MapPin className="text-white w-6 h-6" />
+
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  {[
+                    'Geospatial screening and site intelligence',
+                    'Restoration planning linked to local conditions',
+                    'Boundary clarity for monitoring and verification',
+                    'Implementation pathways designed for scale',
+                  ].map((item) => (
+                    <div key={item} className="rounded-2xl border border-stone-200 bg-white p-4 shadow-sm">
+                      <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                        <MapPin className="h-5 w-5" />
                       </div>
+                      <p className="text-sm font-medium leading-relaxed text-slate-700">{item}</p>
                     </div>
+                  ))}
                 </div>
-                {/* Overlay grid lines for tech look */}
-                <div className="absolute inset-0 pointer-events-none opacity-10" style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
-              </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.08 }}
+                className="relative overflow-hidden rounded-[34px] border border-emerald-900/10 bg-[#012A24] shadow-[0_26px_70px_rgba(1,42,36,0.18)]"
+              >
+                <img
+                  src={project.image}
+                  alt={`${project.name} location context`}
+                  className="h-[460px] w-full object-cover opacity-25"
+                />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(1,42,36,0.16)_0%,rgba(1,42,36,0.78)_100%)]" />
+                <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)', backgroundSize: '42px 42px' }} />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="absolute h-24 w-24 animate-ping rounded-full bg-emerald-400/18" />
+                  <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500 text-white shadow-[0_0_0_16px_rgba(16,185,129,0.12)]">
+                    <MapPin className="h-7 w-7" />
+                  </div>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white md:p-8">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-200">Geospatial Verification Active</p>
+                  <p className="mt-3 max-w-md text-sm leading-relaxed text-white/72">
+                    Project siting and implementation narrative designed to communicate credibility, locality, and ecological grounding.
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
       )}
 
-      {/* 3. PRIMARY ACTIVITY */}
-      <section className="py-24 border-b border-slate-100 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className={`grid lg:items-center gap-12 ${project.activityImage ? 'lg:grid-cols-2' : 'max-w-3xl'}`}>
-            <div className="order-2 lg:order-1">
-              <h2 className="text-sm font-bold uppercase tracking-[3px] text-emerald-600 mb-6">
-                Primary Project Activity
+      <section className="bg-white py-12 md:py-16">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          <div className={`grid gap-8 ${project.activityImage ? 'lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,1.05fr)] lg:items-center' : 'max-w-4xl'}`}>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="rounded-[32px] border border-stone-200 bg-stone-50 p-6 md:p-8"
+            >
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Primary Activity</p>
+              <h2 className="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">
+                Core implementation pathway
               </h2>
-              <p className="text-2xl md:text-3xl font-medium text-slate-800 leading-[1.4]">
+              <p className="mt-6 text-lg leading-relaxed text-slate-600">
                 {project.primaryActivity}
               </p>
-            </div>
-            
+            </motion.div>
+
             {project.activityImage && (
-              <div className="order-1 lg:order-2">
-                <motion.div 
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] group"
-                >
-                  <img 
-                    src={project.activityImage} 
-                    alt="Activity Illustration" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                </motion.div>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.08 }}
+                className="group relative overflow-hidden rounded-[34px] border border-emerald-900/10 shadow-[0_22px_60px_rgba(15,23,42,0.12)]"
+              >
+                <img
+                  src={project.activityImage}
+                  alt={`${project.name} activity`}
+                  className="aspect-[5/4] h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-slate-950/10 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white md:p-8">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-200">Visual Activity Layer</p>
+                  <p className="mt-3 max-w-md text-sm leading-relaxed text-white/72">
+                    Illustrating the physical intervention, operational context, and design logic behind the project model.
+                  </p>
+                </div>
+              </motion.div>
             )}
           </div>
         </div>
       </section>
 
-      {/* 4. SECONDARY ACTIVITIES (Optional - Only ARR & Mangrove) */}
-      {(project.id.includes('arr') || project.id.includes('mangrove')) && project.secondaryActivities && project.secondaryActivities.length > 0 && (
-        <section className="py-24 bg-stone-50 border-b border-stone-100">
-          <div className="max-w-7xl mx-auto px-6 md:px-10">
-            <h2 className="text-sm font-bold uppercase tracking-[3px] text-slate-500 mb-12">
-              Ancillary Initiatives
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {project.secondaryActivities.map((activity, idx) => (
-                <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-stone-200 flex gap-4">
-                  <CheckCircle2 className="w-6 h-6 text-emerald-600 shrink-0" />
-                  <p className="font-semibold text-slate-800 leading-tight">{activity}</p>
-                </div>
+      {project.secondaryActivities && project.secondaryActivities.length > 0 && (
+        <section className="bg-[#012A24] py-12 md:py-16">
+          <div className="mx-auto max-w-7xl px-6 md:px-10">
+            <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-200">Supporting Workstreams</p>
+                <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
+                  Ancillary initiatives that strengthen delivery quality
+                </h2>
+              </div>
+              <p className="max-w-2xl text-white/65">
+                These complementary interventions increase implementation resilience, improve local adoption, and support the long-term quality of climate outcomes.
+              </p>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {project.secondaryActivities.map((activity, index) => (
+                <motion.div
+                  key={activity}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: index * 0.06 }}
+                  className="group rounded-[28px] border border-white/10 bg-white/8 p-6 backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:bg-white/12"
+                >
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-emerald-300 transition group-hover:bg-emerald-500 group-hover:text-white">
+                    <CheckCircle2 className="h-6 w-6" />
+                  </div>
+                  <p className="text-base font-medium leading-relaxed text-white">{activity}</p>
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
       )}
 
-      {/* 5. OBJECTIVES & IMPACTS */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-16 text-slate-900 tracking-tight text-center">
-            Objectives & Environmental Impacts
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {project.impacts.map((impact, idx) => {
+      <section className="bg-stone-50 py-12 md:py-16">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          <div className="mb-10 text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Objectives & Impacts</p>
+            <h2 className="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">
+              Environmental and community value drivers
+            </h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {project.impacts.map((impact, index) => {
               const Icon = IMPACT_ICONS[impact.title] || Shield;
+
               return (
-                <div key={idx} className="group p-8 rounded-3xl bg-slate-50 hover:bg-emerald-900 hover:text-white transition-all duration-500 border border-slate-100">
-                  <div className="w-14 h-14 rounded-2xl bg-white group-hover:bg-emerald-800 flex items-center justify-center mb-6 shadow-sm group-hover:shadow-none transition-colors">
-                    <Icon className="w-7 h-7 text-emerald-600 group-hover:text-emerald-100" />
+                <motion.div
+                  key={impact.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: index * 0.06 }}
+                  className="group rounded-[30px] border border-stone-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:bg-[#012A24] hover:shadow-[0_22px_48px_rgba(1,42,36,0.18)]"
+                >
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 transition group-hover:bg-white/10 group-hover:text-emerald-300">
+                    <Icon className="h-7 w-7" />
                   </div>
-                  <h3 className="text-xl font-bold mb-4">{impact.title}</h3>
-                  <p className="text-slate-500 group-hover:text-emerald-100/70 text-sm leading-relaxed">
+                  <h3 className="text-xl font-bold text-slate-900 transition group-hover:text-white">{impact.title}</h3>
+                  <p className="mt-4 text-sm leading-relaxed text-slate-600 transition group-hover:text-white/72">
                     {impact.description}
                   </p>
-                </div>
+                </motion.div>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* 6. SDG TILES */}
-      <section className="py-24 bg-slate-50 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <div className="flex flex-col md:flex-row items-center justify-between mb-16 gap-8">
-            <h2 className="text-3xl font-bold tracking-tight">Sustainable Development Goals</h2>
-            <p className="text-slate-500 max-w-md text-center md:text-left">
-              This project contributes directly to several UN SDGs, ensuring holistic ecological and social progress.
+      <section className="bg-white py-12 md:py-16">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Sustainable Development Goals</p>
+              <h2 className="mt-3 text-3xl font-bold text-slate-900 md:text-4xl">
+                Impact aligned with global development outcomes
+              </h2>
+            </div>
+            <p className="max-w-2xl text-slate-500">
+              Each portfolio project is framed not just as a carbon asset, but as a broader development intervention connected to verified ecological and social progress.
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-4">
-            {project.sdgs.map((sdg) => (
-              <div
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {project.sdgs.map((sdg, index) => (
+              <motion.div
                 key={sdg}
-                className={`w-32 h-32 ${SDG_COLORS[sdg]} rounded-2xl shadow-lg flex flex-col items-center justify-center p-4 text-white hover:scale-105 transition-transform cursor-default group`}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="group overflow-hidden rounded-[28px] border border-stone-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(15,23,42,0.12)]"
               >
-                <span className="text-3xl font-black mb-2 opacity-50 group-hover:opacity-100 transition-opacity">{sdg}</span>
-                <span className="text-[10px] font-bold text-center uppercase leading-tight">
-                  SDG {sdg}
-                </span>
-              </div>
+                <div className={`${SDG_COLORS[sdg]} p-5 text-white`}>
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/72">SDG</p>
+                  <p className="mt-3 text-4xl font-black">{sdg}</p>
+                </div>
+                <div className="p-5">
+                  <p className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-900">Goal {sdg}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-500">
+                    A direct contribution to measurable progress under the wider sustainable development agenda.
+                  </p>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 7. CTA */}
-      <section className="py-32 px-6 md:px-10 text-center">
-        <div className="max-w-4xl mx-auto bg-emerald-900 rounded-[3rem] p-12 md:p-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-800/50 to-transparent"></div>
-          <div className="relative z-10">
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">
-              Ready to Invest?
-            </h2>
-            <p className="text-xl text-emerald-100/70 mb-12 max-w-2xl mx-auto">
-              Access high-integrity carbon credits and contribute to verified climate solutions. Request a technical project deck today.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+      <section className="px-6 py-16 md:px-10 md:py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative mx-auto max-w-6xl overflow-hidden rounded-[40px] bg-[#012A24] p-8 shadow-[0_30px_80px_rgba(1,42,36,0.28)] md:p-14"
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(52,211,153,0.18),transparent_30%),radial-gradient(circle_at_85%_20%,rgba(250,204,21,0.12),transparent_25%)]" />
+          <div className="relative z-10 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-200">Next Step</p>
+              <h2 className="mt-4 text-4xl font-bold leading-tight text-white md:text-5xl">
+                Ready to explore the technical and commercial depth of this project?
+              </h2>
+              <p className="mt-5 text-lg leading-relaxed text-white/72">
+                Request the technical project deck, discuss credit strategy, or speak with our team about pipeline fit, diligence requirements, and market positioning.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-4 sm:flex-row">
               <Link
                 to="/contact"
-                className="px-10 py-5 bg-white text-emerald-900 rounded-xl font-bold text-lg hover:bg-emerald-50 transition-all shadow-xl hover:-translate-y-1"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-8 py-4 text-base font-bold text-[#012A24] transition hover:-translate-y-1 hover:bg-emerald-50"
               >
                 Request Technical Deck
+                <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 to="/contact"
-                className="px-10 py-5 border-2 border-white/30 text-white rounded-xl font-bold text-lg hover:bg-white/10 transition-all"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/8 px-8 py-4 text-base font-bold text-white transition hover:-translate-y-1 hover:bg-white/12"
               >
                 Schedule Consultation
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

@@ -9,6 +9,7 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
   const [activeMobileSubDropdown, setActiveMobileSubDropdown] = useState<string | null>(null);
+  const [isNavHovered, setIsNavHovered] = useState(false);
 
   const location = useLocation();
 
@@ -62,13 +63,18 @@ export default function Navbar() {
   return (
     <>
       <nav 
-        onMouseLeave={() => setActiveDropdown(null)}
-        className="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[95%] lg:w-[90%] max-w-7xl z-50"
+        onMouseEnter={() => setIsNavHovered(true)}
+        onMouseLeave={() => {
+          setActiveDropdown(null);
+          setIsNavHovered(false);
+        }}
+        className="fixed top-4 md:top-6 lg:top-[3%] left-1/2 -translate-x-1/2 w-[95%] lg:w-[90%] max-w-7xl z-50"
       >
       {/* EXPANDING BACKGROUND PILL */}
       <div 
-        className={`absolute top-0 left-0 w-full bg-white/95 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-stone-200/60 transition-all duration-400 ease-out -z-10
+        className={`absolute top-0 left-0 w-full transition-all duration-400 ease-out -z-10 shadow-lg
           ${activeDropdown ? 'rounded-[24px]' : 'rounded-[40px]'}
+          ${isNavHovered ? 'bg-[#012A24]' : 'bg-white'}
         `}
         style={{ height: activeDropdown ? getDropdownHeight() : '100%' }}
       />
@@ -79,7 +85,7 @@ export default function Navbar() {
         <Link to="/" className="flex items-center h-[64px] md:h-[72px] shrink-0">
           <img
             src={logo}
-            className="h-[32px] md:h-[38px] w-auto object-contain"
+            className={`h-[32px] md:h-[38px] w-auto object-contain transition-all duration-300 ${isNavHovered ? 'brightness-0 invert' : ''}`}
             loading="lazy" decoding="async" 
           />
         </Link>
@@ -97,14 +103,20 @@ export default function Navbar() {
               {/* Main Link Wrapper */}
               <div className="h-[64px] md:h-[72px] flex items-center">
                 {link.dropdown ? (
-                  <div className={`flex items-center gap-1.5 text-[13px] font-semibold tracking-wider uppercase cursor-pointer transition-colors ${activeDropdown === link.name ? 'text-emerald-600' : 'text-slate-700 hover:text-emerald-600'}`}>
+                  <div className={`flex items-center gap-1.5 text-[13px] font-semibold tracking-wider uppercase cursor-pointer transition-colors ${
+                    isNavHovered 
+                      ? (activeDropdown === link.name ? 'text-emerald-400' : 'text-white hover:text-emerald-400')
+                      : (activeDropdown === link.name ? 'text-emerald-600' : 'text-slate-700 hover:text-emerald-600')
+                  }`}>
                     {link.name}
                     <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
                   </div>
                 ) : (
                   <Link
                     to={link.path}
-                    className="text-[13px] font-semibold tracking-wider uppercase text-slate-700 hover:text-emerald-600 transition-colors"
+                    className={`text-[13px] font-semibold tracking-wider uppercase transition-colors ${
+                      isNavHovered ? 'text-white hover:text-emerald-400' : 'text-slate-700 hover:text-emerald-600'
+                    }`}
                   >
                     {link.name}
                   </Link>
@@ -123,15 +135,19 @@ export default function Navbar() {
                       <div className="flex gap-12">
                         {link.dropdown.map((item) => (
                           <div key={item.name} className="flex flex-col gap-3.5">
-                            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">{item.name}</span>
+                            <span className={`text-[11px] font-bold uppercase tracking-wider mb-1 ${isNavHovered ? 'text-white/40' : 'text-slate-400'}`}>{item.name}</span>
                             {item.subDropdown ? (
                               item.subDropdown.map((sub) => (
-                                <Link key={sub.name} to={sub.path} className="text-[14px] font-medium text-slate-600 hover:text-emerald-600 transition-colors">
+                                <Link key={sub.name} to={sub.path} className={`text-[14px] font-medium transition-colors ${
+                                  isNavHovered ? 'text-white/80 hover:text-emerald-400' : 'text-slate-600 hover:text-emerald-600'
+                                }`}>
                                   {sub.name}
                                 </Link>
                               ))
                             ) : (
-                              <Link to={item.path as string} className="text-[14px] font-medium text-slate-600 hover:text-emerald-600 transition-colors">
+                              <Link to={item.path as string} className={`text-[14px] font-medium transition-colors ${
+                                isNavHovered ? 'text-white/80 hover:text-emerald-400' : 'text-slate-600 hover:text-emerald-600'
+                              }`}>
                                 {item.name} Overview
                               </Link>
                             )}
@@ -144,7 +160,9 @@ export default function Navbar() {
                           <Link
                             key={item.name}
                             to={item.path as string}
-                            className="text-[14px] font-medium text-slate-600 hover:text-emerald-600 transition-colors"
+                            className={`text-[14px] font-medium transition-colors ${
+                              isNavHovered ? 'text-white/80 hover:text-emerald-400' : 'text-slate-600 hover:text-emerald-600'
+                            }`}
                           >
                             {item.name}
                           </Link>
@@ -324,6 +342,5 @@ export default function Navbar() {
     </>
   );
 }
-
 
 

@@ -20,7 +20,11 @@
   --color-border: #e2e8f0;
 }
 
-/* 🔥 BASE */
+/* 🔥 CUSTOM SECTION BACKGROUNDS */
+.bg-partners-gradient {
+  background: linear-gradient(to bottom, var(--color-primary-dark), var(--color-primary));
+}
+
 @layer base {
   body {
     font-family: var(--font-body);

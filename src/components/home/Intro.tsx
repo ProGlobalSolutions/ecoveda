@@ -8,119 +8,106 @@ export default function Intro() {
       icon: Leaf,
       title: 'Nature-Based Solutions',
       description: 'Afforestation, restoration and sustainable land-use programs driving measurable carbon impact.',
-      bg: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e', // forest / nature
+      bg: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e',
     },
     {
       icon: ShieldCheck,
       title: 'High Integrity Projects',
       description: 'Transparent methodologies aligned with global carbon standards and verification systems.',
-      bg: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85', // documents / compliance
+      bg: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85',
     },
     {
       icon: Globe,
       title: 'Global Climate Impact',
       description: 'Scaling projects that empower communities and accelerate transition to a low-carbon economy.',
-      bg: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e', // global / earth / landscape
+      bg: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e',
     },
   ];
 
   return (
-    <section className="py-24 bg-stone-50">
-      <div className="max-w-7xl mx-auto px-6">
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-          {/* LEFT CONTENT */}
+    <section className="bg-stone-50 py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)] xl:grid-cols-[minmax(0,1.05fr)_minmax(420px,0.95fr)] lg:gap-14 xl:gap-16">
           <motion.div
             initial={{ x: -40, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="max-w-2xl"
           >
-
-            <span className="text-emerald-600 font-semibold uppercase text-sm tracking-wider mb-4 block">
+            <span className="mb-4 block text-sm font-semibold uppercase tracking-wider text-emerald-600">
               About Ecoveda Climate
             </span>
 
-            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800 leading-tight mb-6">
+            <h2 className="mb-6 text-4xl font-extrabold leading-tight text-slate-800 md:text-5xl">
               Building Scalable Climate Solutions for a Low-Carbon Future
             </h2>
 
-            <p className="text-slate-600 text-lg leading-relaxed mb-8">
+            <p className="mb-8 text-lg leading-relaxed text-slate-600">
               Ecoveda Climate is a global climate solutions provider focused on developing
               high-integrity carbon projects and sustainability initiatives. We operate at
               the intersection of environmental science, financial structuring and regulatory
               strategy to deliver measurable climate impact.
             </p>
 
-            <p className="text-slate-600 text-lg leading-relaxed mb-10">
+            <p className="text-lg leading-relaxed text-slate-600">
               Our mission is to accelerate ecological preservation and climate resilience by
-              leveraging carbon finance and collective action — with an ambition to impact
+              leveraging carbon finance and collective action - with an ambition to impact
               over <span className="font-semibold text-slate-800">100 million people</span> and generate
               <span className="font-semibold text-slate-800"> 1 billion+ carbon credits</span> by 2030.
             </p>
-
-            {/* FEATURES */}
-            <div className="grid sm:grid-cols-3 gap-6">
-              {features.map((f, i) => (
-                <div
-                  key={i}
-                  className="group relative rounded-xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition"
-                >
-
-                  {/* BG IMAGE */}
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                    style={{ backgroundImage: `url(${f.bg})` }}
-                  />
-
-                  {/* OVERLAY */}
-                  <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition" />
-
-                  {/* CONTENT */}
-                  <div className="relative z-10 p-5 text-white">
-
-                    <div className="w-10 h-10 flex items-center justify-center bg-white/20 backdrop-blur text-white rounded-md mb-3 group-hover:bg-emerald-500 transition">
-                      <f.icon className="w-5 h-5" />
-                    </div>
-
-                    <h4 className="font-semibold mb-1">
-                      {f.title}
-                    </h4>
-
-                    <p className="text-sm text-white/90 leading-relaxed">
-                      {f.description}
-                    </p>
-
-                  </div>
-
-                </div>
-              ))}
-            </div>
-
           </motion.div>
 
-          {/* RIGHT IMAGE */}
-         <motion.div
-  className="hidden lg:block"
-  initial={{ x: 40, opacity: 0 }}
-  whileInView={{ x: 0, opacity: 1 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.8 }}
->
-
-            <div className="rounded-2xl overflow-hidden shadow-xl">
+          <motion.div
+            className="hidden lg:block"
+            initial={{ x: 40, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="aspect-[4/3] overflow-hidden rounded-[28px] shadow-[0_24px_70px_rgba(15,23,42,0.14)]">
               <img
                 src={largefarm}
                 alt="Climate Solutions"
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover object-center"
               />
             </div>
-
           </motion.div>
-
         </div>
 
+        <motion.div
+          initial={{ y: 32, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="mt-10 grid gap-5 md:grid-cols-2 lg:mt-12 xl:grid-cols-3"
+        >
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="group relative min-h-[260px] overflow-hidden rounded-2xl border border-stone-200/80 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                style={{ backgroundImage: `url(${feature.bg})` }}
+              />
+
+              <div className="absolute inset-0 bg-slate-950/55 transition group-hover:bg-slate-950/45" />
+
+              <div className="relative z-10 flex h-full flex-col justify-end p-6 text-white">
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg bg-white/20 text-white backdrop-blur transition group-hover:bg-emerald-500">
+                  <feature.icon className="h-5 w-5" />
+                </div>
+
+                <h4 className="mb-2 text-xl font-semibold">{feature.title}</h4>
+
+                <p className="max-w-xs text-sm leading-relaxed text-white/90">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

@@ -85,7 +85,7 @@ function MarqueeRow({ logos, direction }: { logos: typeof ROW1; direction: 'left
   const doubled = [...logos, ...logos, ...logos, ...logos];
   
   // On mobile, we can force left direction via CSS if we want, 
-  // but for now let's just use the prop.
+  // but for now let's just use the p
   const trackClass = direction === 'left' ? 'marquee-track-left' : 'marquee-track-right';
 
   return (
@@ -101,17 +101,17 @@ function MarqueeRow({ logos, direction }: { logos: typeof ROW1; direction: 'left
 
 export default function Partners() {
   return (
-    <section className="py-10 bg-white overflow-hidden">
+    <section className="py-16 overflow-hidden" style={{ backgroundColor: '#012A24', backgroundImage: 'none' }}>
       <div className="max-w-7xl mx-auto px-6 mb-6">
         {/* HEADER */}
         <div className="text-center max-w-3xl mx-auto">
-          <span className="text-emerald-600 font-semibold uppercase text-sm tracking-wider block mb-3">
+          <span className="text-emerald-400 font-semibold uppercase text-sm tracking-wider block mb-3">
             Our Clients and Partners
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
             Trusted by Innovators Across the Climate Economy
           </h2>
-          <p className="text-slate-600 text-base leading-relaxed">
+          <p className="text-white/70 text-base leading-relaxed">
             From governments and multilateral agencies to pioneering climate technology start-ups,
             Ecoveda Climate partners with organisations that share our commitment to high-integrity
             carbon markets and measurable climate impact.

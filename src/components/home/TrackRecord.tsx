@@ -120,7 +120,7 @@ export default function TrackRecord() {
         </div>
 
         {/* GRID */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div layout className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence>
             {filteredProjects.map((project) => (
               <motion.div
@@ -131,7 +131,7 @@ export default function TrackRecord() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
                 /* CHANGED: Replaced emerald glow with bright gold glow */
-                className={`aspect-square rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden group hover:shadow-[0_0_40px_rgba(250,204,21,0.6)] hover:-translate-y-1 hover:border-yellow-400/80 border border-white/10 transition-all duration-500 cursor-pointer`}
+                className={`group relative flex aspect-[1.2] flex-col justify-between overflow-hidden rounded-2xl border border-white/10 p-3.5 cursor-pointer transition-all duration-500 hover:-translate-y-1 hover:border-yellow-400/80 hover:shadow-[0_0_40px_rgba(250,204,21,0.6)] lg:aspect-[1.26]`}
               >
                 {/* BACKGROUND IMAGE */}
                 <div 
@@ -143,17 +143,17 @@ export default function TrackRecord() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/60 to-slate-900/30 transition-opacity duration-500 group-hover:opacity-90" />
                 
                 <div className="relative z-10">
-                  <span className="inline-block px-3 py-1 rounded-md bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-white mb-6 shadow-sm group-hover:border-yellow-400 group-hover:text-yellow-300 transition-colors">
+                  <span className="mb-2.5 inline-block rounded-md border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm backdrop-blur-md transition-colors group-hover:border-yellow-400 group-hover:text-yellow-300">
                     {project.registry}
                   </span>
-                  <h3 className="text-2xl font-bold text-white leading-snug group-hover:text-yellow-300 transition-colors">
+                  <h3 className="text-[1.05rem] font-bold leading-snug text-white transition-colors group-hover:text-yellow-300 lg:text-[1rem]">
                     {project.name}
                   </h3>
                 </div>
 
-                <div className="relative z-10 flex items-center gap-2 border-t border-white/20 pt-4 mt-6">
-                  <div className={`w-2.5 h-2.5 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.8)] ${project.statusColor === 'emerald' ? 'bg-emerald-400' : 'bg-teal-400'}`} />
-                  <span className="text-sm font-bold uppercase tracking-widest text-white/90">
+                <div className="relative z-10 mt-2.5 flex items-center gap-2 border-t border-white/20 pt-2">
+                  <div className={`h-2 w-2 rounded-full shadow-[0_0_8px_rgba(255,255,255,0.8)] ${project.statusColor === 'emerald' ? 'bg-emerald-400' : 'bg-teal-400'}`} />
+                  <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/90">
                     {project.status}
                   </span>
                 </div>

@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { ShieldCheck, Award, Eye, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import about1 from '../assets/about1.webp'
+import aboutVideo from '../assets/about.mp4'
 import ecovedacli from '../assets/ecovedacli.webp' // ✅ ADDED
 
 import impactImg from '../assets/impact.webp';
@@ -111,16 +111,19 @@ const EXPERTISE_CARDS = [
 
 export default function About() {
   return (
-    <div className="pt-16">
+    <div className="flex flex-col">
 
       {/* HERO */}
-      <section className="relative h-[65vh] flex items-center justify-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${about1})`,
-          }}
-        />
+      <section className="relative h-[93vh] sm:h-screen min-h-[650px] sm:min-h-[700px] flex items-center justify-center">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={aboutVideo} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-black/50" />
 
         <div className="relative z-10 text-center text-white px-6 max-w-3xl">
@@ -221,7 +224,10 @@ export default function About() {
       </section>
 
       {/* EXPERTISE */}
-      <section className="py-10 bg-emerald-50">
+      <section className="py-20 bg-gradient-to-br from-[#012A24] via-[#012A24] to-[#D4AF37]/40 relative overflow-hidden">
+        {/* Decorative Glow */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4AF37]/30 blur-[120px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
+
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -229,27 +235,38 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="max-w-7xl mx-auto px-6 text-center mb-6"
         >
-          <h2 className="text-4xl font-bold text-slate-800">
+          <h2 className="text-4xl md:text-5xl font-bold text-white">
             Our Expertise
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-7xl mx-auto px-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-6">
           {EXPERTISE_CARDS.map((card, i) => (
-            <div key={i} className="relative p-5 rounded-xl border border-transparent overflow-hidden group min-h-[350px] bg-black transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
+            <div key={i} className="relative rounded-2xl overflow-hidden group h-[300px] bg-[#022C22] transition-all duration-500 hover:shadow-[0_0_40px_rgba(212,175,55,0.8)] hover:-translate-y-1 cursor-pointer border border-white/10">
+              {/* Background Image */}
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                 style={{ backgroundImage: `url(${card.bgImage})` }}
               />
-              <div className="absolute inset-0 bg-black/70 transition-colors duration-500 group-hover:bg-black/60" />
               
-              <div className="relative z-10 flex flex-col h-full text-left">
-                <h3 className="font-bold text-xl mb-6 text-white">{card.title}</h3>
-                <ul className="space-y-4 mt-2">
+              {/* Overlay - darkens on hover */}
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/70 transition-all duration-500" />
+              
+              {/* Normal State: White Title Box */}
+              <div className="absolute inset-0 flex items-center justify-center transition-all duration-500 group-hover:opacity-0 group-hover:scale-90">
+                <div className="bg-white px-8 py-3 rounded-xl shadow-lg">
+                  <h3 className="text-xl font-bold text-slate-900">{card.title}</h3>
+                </div>
+              </div>
+
+              {/* Hover State: Description List */}
+              <div className="absolute inset-0 p-8 flex flex-col justify-center opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                <h3 className="text-xl font-bold text-white mb-4 border-b border-white/20 pb-2">{card.title}</h3>
+                <ul className="space-y-2">
                   {card.items.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-sm text-white/90">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 transition-transform duration-500 group-hover:scale-110" />
-                      <span className="leading-snug">{item}</span>
+                    <li key={idx} className="flex items-start gap-2 text-sm text-white/90">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <span className="leading-tight">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -260,13 +277,13 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-8 bg-emerald-600 text-white text-center">
-        <h2 className="text-3xl font-bold mb-6">
+      <section className="py-12 bg-white text-center border-t border-stone-100">
+        <h2 className="text-3xl font-bold mb-6 text-slate-900">
           Ready to Partner With Us?
         </h2>
         <Link
           to="/contact"
-          className="px-6 py-3 bg-white text-emerald-600 rounded-md font-semibold"
+          className="px-8 py-3 bg-emerald-600 text-white rounded-md font-semibold hover:bg-emerald-700 transition-colors"
         >
           Contact Us
         </Link>
