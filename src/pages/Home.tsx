@@ -4,7 +4,10 @@ import Verticals from '../components/home/Verticals';
 import TrackRecord from '../components/home/TrackRecord';
 import GlobalPresence from '../components/home/GlobalPresence';
 import Partners from '../components/home/Partners';
+import OurValues from '../components/home/OurValues';
 import HomeCTA from '../components/home/HomeCTA';
+import Expertise from '../components/home/Expertise';
+import LatinAmericaSection from '../components/home/LatinAmericaSection';
 
 export default function Home() {
   return (
@@ -16,6 +19,11 @@ export default function Home() {
       {/* 2. INTRO (About Ecoveda) */}
       <Intro />
 
+      {/* 3. OUR VALUES */}
+      <OurValues />
+
+<Expertise />
+
       {/* 3. EXPERTISE */}
       <Verticals />
 
@@ -24,6 +32,9 @@ export default function Home() {
 
       {/* 5. GLOBAL PRESENCE */}
       <GlobalPresence />
+
+        {/* NEW LATAM SECTION */}
+      <LatinAmericaSection />
 
       {/* 6. CLIENTS & PARTNERS */}
       <Partners />

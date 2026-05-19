@@ -131,9 +131,12 @@ export default function Footer() {
               </div>
               <div className="pt-1 md:pt-1.5">
                 <h5 className="text-sm md:text-base font-semibold text-white mb-0.5">Email Us</h5>
-                <a href="mailto:info@ecovedaclimate.com" className="text-xs md:text-sm text-white/70 hover:text-accent transition-colors duration-300 break-all md:break-normal">
-                  info@ecovedaclimate.com
-                </a>
+               <a 
+  href="mailto:info@ecovedaclimate.com" 
+  className="text-[11px] sm:text-xs md:text-sm text-white/70 hover:text-accent transition-colors duration-300 whitespace-nowrap"
+>
+  info@ecovedaclimate.com
+</a>
               </div>
             </div>
 
