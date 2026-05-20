@@ -137,7 +137,7 @@ export default function LatinAmericaSection() {
 
           <p className="text-lg leading-relaxed text-white/70">
             {renderAnimatedText(
-              'Ecoveda Climate delivers carbon credit development, commercialisation, and consulting services to clients across Latin America through its regional presence in Mexico City.'
+              'Ecoveda Climate delivers carbon credit development, commercialisation, and consulting services to clients across Latin America through its regional presence in Mexico City. The region’s vast population, natural resources, and industrial base present extraordinary potential for greenhouse gas mitigation — complemented by its export linkages to North America and Europe that amplify supply chain abatement opportunities.'
             )}
           </p>
         </motion.div>

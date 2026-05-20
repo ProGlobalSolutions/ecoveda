@@ -222,7 +222,7 @@ export default function GlobalPresence() {
 
           <p className="text-lg leading-relaxed text-emerald-900/80">
             {renderAnimatedText(
-              'From our headquarters in New Delhi, Ecoveda Climate operates a growing international network, with a regional office in Guwahati and representatives in Zambia and Mexico City, enabling us to deliver on-the-ground climate impact across Asia, Africa, the Middle East and Latin America.'
+              'From our headquarters in New Delhi, Ecoveda Climate operates a growing international network, with a regional office in Guwahati (North-East India) and representatives in Zambia and Mexico City, enabling us to deliver on-the-ground climate impact across Asia, Africa, the Middle East and Latin America.'
             )}
           </p>
         </motion.div>

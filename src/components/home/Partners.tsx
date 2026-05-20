@@ -202,10 +202,7 @@ export default function Partners() {
           </h2>
 
           <p className="text-base leading-relaxed text-emerald-900/80 md:text-lg">
-            From governments and multilateral agencies to pioneering climate
-            technology start-ups, Ecoveda Climate partners with organisations
-            committed to high-integrity carbon markets and measurable climate
-            impact.
+            From governments and multilateral agencies to pioneering climate technology start-ups, Ecoveda Climate partners with organisations that share our commitment to high-integrity carbon markets and measurable climate impact.
           </p>
         </motion.div>
 

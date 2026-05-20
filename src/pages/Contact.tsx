@@ -119,7 +119,7 @@ export default function Contact() {
     </h2>
 
     <p className="text-emerald-100/90 text-lg md:text-xl leading-relaxed max-w-4xl mx-auto">
-       Whether you are exploring nature-based solutions, requiring advanced DMRV technology, or seeking strategic carbon advisory, our expert team is ready to assist. Please fill out the detailed enquiry form below to help us direct your request to the appropriate department.
+      Whether you are a government agency exploring a bilateral carbon agreement, a corporation assessing your decarbonisation pathway, a project developer seeking a co-development partner or a community representative with a question or concern, we want to hear from you. Our team responds to all enquiries within 48 hours on business days.
     </p>
 
   </div>
@@ -140,9 +140,16 @@ export default function Contact() {
     <div className="mb-14 text-center">
 
 
-      <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-4 leading-tight">
+      {/* <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mt-4 leading-tight">
         Enquiry Form
-      </h2>
+      </h2> */}
+      <h2 className="mt-4 text-3xl font-bold leading-tight text-slate-900 md:text-4xl">
+  Enquiry Form
+</h2>
+
+      <h2 className="mt-4 text-4xl font-bold leading-tight text-emerald-600 md:text-5xl">
+  Send Us a Message
+</h2>
 
       <p className="max-w-3xl mx-auto text-slate-600 text-[16px] leading-8 mt-5">
        Complete the form below and a member of our team will be in touch. Fields marked with * are required.
