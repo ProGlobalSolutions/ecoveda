@@ -25,7 +25,7 @@ export default function Home() {
 <Expertise />
 
       {/* 3. EXPERTISE */}
-      <Verticals />
+      
 
       {/* 4. TRACK RECORD */}
       <TrackRecord />

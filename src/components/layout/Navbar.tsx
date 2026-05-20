@@ -82,13 +82,16 @@ export default function Navbar() {
       <div className="w-full px-6 md:px-8 flex justify-between items-start">
 
         {/* LOGO */}
-        <Link to="/" className="flex items-center h-[64px] md:h-[72px] shrink-0">
-          <img
-            src={logo}
-            className={`h-[32px] md:h-[38px] w-auto object-contain transition-all duration-300 ${isNavHovered ? 'brightness-0 invert' : ''}`}
-            loading="lazy" decoding="async" 
-          />
-        </Link>
+          
+<Link to="/" className="flex items-center h-[64px] md:h-[72px] shrink-0">
+  <img
+    src={logo}
+    alt="Logo"
+    className="h-[32px] md:h-[38px] w-auto object-contain transition-all duration-300"
+    loading="lazy"
+    decoding="async"
+  />
+</Link>
 
         {/* DESKTOP NAV */}
         <div className="hidden lg:flex items-start gap-5 xl:gap-10">

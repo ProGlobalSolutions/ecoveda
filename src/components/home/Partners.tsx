@@ -30,114 +30,160 @@ import logo26 from '../../assets/26.webp';
 import logo27 from '../../assets/27.webp';
 
 const ALL_LOGOS = [
-  { name: "Aarksee", logo: logo1 },
-  { name: "SK Forest", logo: logo2 },
-  { name: "CarboVerte", logo: logo3 },
-  { name: "Meta Materials Circular Markets", logo: logo4 },
-  { name: "Sevenstar", logo: logo5 },
-  { name: "Cenergist", logo: logo6 },
-  { name: "Resources Future", logo: logo7 },
-  { name: "SKG Sangha", logo: logo8 },
-  { name: "Thriveni", logo: logo9 },
-  { name: "ATOA", logo: logo10 },
-  { name: "ATR Carbon Solution", logo: logo11 },
-  { name: "Attero", logo: logo12 },
-  { name: "Sembcorp", logo: logo13 },
-  { name: "Prana Climatech", logo: logo14 },
-  { name: "CO2 Cap Projects Africa", logo: logo15 },
-  { name: "Vision Green Tech", logo: logo16 },
-  { name: "YadGreen", logo: logo17 },
-  { name: "Planet NetZero", logo: logo18 },
-  { name: "Al-Badhour Al-Hayya", logo: logo19 },
-  { name: "RM Agrico", logo: logo20 },
-  { name: "Mahadesh Farms", logo: logo21 },
-  { name: "Goenvi Technologies", logo: logo22 },
-  { name: "Pineview Technology", logo: logo23 },
-  { name: "Lloyds Metals", logo: logo24 },
-  { name: "Ruuris Innovations", logo: logo25 },
-  { name: "Govt. of Maharashtra", logo: logo26 },
-  { name: "AADB", logo: logo27 },
+  { name: 'Aarksee', logo: logo1 },
+  { name: 'SK Forest', logo: logo2 },
+  { name: 'CarboVerte', logo: logo3 },
+  { name: 'Meta Materials Circular Markets', logo: logo4 },
+  { name: 'Sevenstar', logo: logo5 },
+  { name: 'Cenergist', logo: logo6 },
+  { name: 'Resources Future', logo: logo7 },
+  { name: 'SKG Sangha', logo: logo8 },
+  { name: 'Thriveni', logo: logo9 },
+  { name: 'ATOA', logo: logo10 },
+  { name: 'ATR Carbon Solution', logo: logo11 },
+  { name: 'Attero', logo: logo12 },
+  { name: 'Sembcorp', logo: logo13 },
+  { name: 'Prana Climatech', logo: logo14 },
+  { name: 'CO2 Cap Projects Africa', logo: logo15 },
+  { name: 'Vision Green Tech', logo: logo16 },
+  { name: 'YadGreen', logo: logo17 },
+  { name: 'Planet NetZero', logo: logo18 },
+  { name: 'Al-Badhour Al-Hayya', logo: logo19 },
+  { name: 'RM Agrico', logo: logo20 },
+  { name: 'Mahadesh Farms', logo: logo21 },
+  { name: 'Goenvi Technologies', logo: logo22 },
+  { name: 'Pineview Technology', logo: logo23 },
+  { name: 'Lloyds Metals', logo: logo24 },
+  { name: 'Ruuris Innovations', logo: logo25 },
+  { name: 'Govt. of Maharashtra', logo: logo26 },
+  { name: 'AADB', logo: logo27 },
 ];
 
 type LogoPartner = (typeof ALL_LOGOS)[0];
 
-const containerVariants = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.08,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20, scale: 0.95 },
-  show: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  },
-};
-
+/* ─────────────────────────────────────────────
+   LOGO CARD
+───────────────────────────────────────────── */
 function LogoTile({ partner }: { partner: LogoPartner }) {
   return (
     <motion.div
-      variants={itemVariants}
       whileHover={{
-        scale: 1.06,
+        scale: 1.05,
         y: -6,
-        transition: { duration: 0.2 },
       }}
+      transition={{ duration: 0.25 }}
       className="
         group
-        aspect-square
-        min-h-[170px]
-        border border-emerald-100
+        relative
+        mx-3
+        flex
+        h-[190px]
+        w-[240px]
+        shrink-0
+        items-center
+        justify-center
+        rounded-2xl
+        border
+        border-emerald-100
         bg-white/80
+        p-8
         backdrop-blur-sm
-        flex items-center justify-center
-        p-7 md:p-10
-        rounded-xl
-        transition-all duration-300 ease-out
-        hover:bg-emerald-50
+        transition-all
+        duration-300
         hover:border-emerald-300
-        hover:shadow-xl
+        hover:bg-emerald-50
+        hover:shadow-2xl
       "
     >
+      {/* Glow */}
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-emerald-100/0 via-emerald-100/30 to-green-100/0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+      {/* Logo */}
       <img
         src={partner.logo}
         alt={partner.name}
         title={partner.name}
         loading="lazy"
         className="
+          relative
+          z-10
           h-auto
-          max-h-[60px]      /* 🔥 increased from 52px → 70px */
-          md:max-h-[80px]   /* 🔥 increased from 64px → 85px */
+          max-h-[75px]
           w-auto
-          max-w-[150px]     /* 🔥 increased from 140px → 170px */
-          md:max-w-[180px]  /* 🔥 increased from 160px → 200px */
+          max-w-[180px]
           object-contain
           opacity-90
-          transition-all duration-300
+          transition-all
+          duration-300
+          group-hover:scale-105
           group-hover:opacity-100
         "
       />
     </motion.div>
   );
 }
+
+/* ─────────────────────────────────────────────
+   MARQUEE ROW
+───────────────────────────────────────────── */
+function MarqueeRow({
+  logos,
+  reverse = false,
+}: {
+  logos: LogoPartner[];
+  reverse?: boolean;
+}) {
+  return (
+    <div className="relative flex overflow-hidden py-4">
+      <motion.div
+        initial={{
+          x: reverse ? '-50%' : '0%',
+        }}
+        animate={{
+          x: reverse ? '0%' : '-50%',
+        }}
+        transition={{
+          duration: 35,
+          repeat: Infinity,
+          ease: 'linear',
+        }}
+        className="flex"
+      >
+        {[...logos, ...logos].map((partner, index) => (
+          <LogoTile
+            key={`${partner.name}-${index}`}
+            partner={partner}
+          />
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   SPLIT LOGOS INTO ROWS
+───────────────────────────────────────────── */
+const row1 = ALL_LOGOS.slice(0, 9);
+const row2 = ALL_LOGOS.slice(9, 18);
+const row3 = ALL_LOGOS.slice(18, 27);
+
+/* ─────────────────────────────────────────────
+   MAIN COMPONENT
+───────────────────────────────────────────── */
 export default function Partners() {
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden bg-gradient-to-br from-white via-emerald-50 to-green-100">
+    <section className="relative overflow-hidden bg-gradient-to-br from-white via-emerald-50 to-green-100 py-16 md:py-24">
 
-      {/* Background Glow */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-emerald-200/40 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-green-200/40 rounded-full blur-3xl" />
+      {/* BACKGROUND GLOW */}
+      <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-emerald-200/40 blur-3xl" />
+      <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-green-200/40 blur-3xl" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      {/* GRID PATTERN */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="h-full w-full bg-[radial-gradient(#065f46_1px,transparent_1px)] [background-size:32px_32px]" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
 
         {/* HEADER */}
         <motion.div
@@ -145,42 +191,37 @@ export default function Partners() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl mb-14 md:mb-16 text-left"
+          className="mb-16 max-w-3xl"
         >
-          <span className="text-emerald-700 font-semibold uppercase text-xs md:text-sm tracking-[0.24em] block mb-4">
+          <span className="mb-4 block text-xs font-semibold uppercase tracking-[0.24em] text-emerald-700 md:text-sm">
             Our Clients and Partners
           </span>
 
-          <h2 className="text-3xl md:text-5xl font-bold text-emerald-950 leading-tight mb-5">
+          <h2 className="mb-5 text-3xl font-bold leading-tight text-emerald-950 md:text-5xl">
             Trusted by Innovators Across the Climate Economy
           </h2>
 
-          <p className="text-emerald-900/80 text-base md:text-lg leading-relaxed">
+          <p className="text-base leading-relaxed text-emerald-900/80 md:text-lg">
             From governments and multilateral agencies to pioneering climate
             technology start-ups, Ecoveda Climate partners with organisations
-            committed to high-integrity carbon markets and measurable climate impact.
+            committed to high-integrity carbon markets and measurable climate
+            impact.
           </p>
         </motion.div>
 
-        {/* GRID */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="
-            grid
-            grid-cols-2
-            md:grid-cols-3
-            lg:grid-cols-4
-            gap-4
-          "
-        >
-          {ALL_LOGOS.map((partner) => (
-            <LogoTile key={partner.name} partner={partner} />
-          ))}
-        </motion.div>
+        {/* MARQUEE LOGOS */}
+        <div className="space-y-6">
 
+          {/* ROW 1 */}
+          <MarqueeRow logos={row1} />
+
+          {/* ROW 2 REVERSE */}
+          <MarqueeRow logos={row2} reverse />
+
+          {/* ROW 3 */}
+          <MarqueeRow logos={row3} />
+
+        </div>
       </div>
     </section>
   );

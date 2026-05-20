@@ -1,194 +1,127 @@
 import { motion } from 'motion/react';
-import { Leaf, ShieldCheck, Globe, ArrowRight } from 'lucide-react';
-import largefarm from '../../assets/largefarms.webp';
+import { ArrowRight } from 'lucide-react';
+import baby from '../../assets/baby.jpg';
 
 export default function Intro() {
-
   /* LETTER ANIMATION */
   const letterAnimation = {
     hidden: {
       opacity: 0,
-      y: 25,
+      y: 12,
     },
-    visible: (i) => ({
+    visible: (i: number) => ({
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.004,
-        duration: 0.18,
+        delay: i * 0.006,
+        duration: 0.12,
         ease: 'easeOut',
       },
     }),
   };
 
-  /* WORD-BY-WORD LETTER RENDER */
-  const renderLetters = (text, className = '') => {
+  /* LETTER RENDER */
+  const renderLetters = (text: string) => {
     return (
-      <span className={`inline leading-relaxed ${className}`}>
-        {text.split(' ').map((word, wordIndex) => (
-          <span
-            key={wordIndex}
-            className="inline-block whitespace-nowrap"
+      <span>
+        {text.split('').map((char, index) => (
+          <motion.span
+            key={index}
+            custom={index}
+            variants={letterAnimation}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="inline-block whitespace-pre"
           >
-            {word.split('').map((char, charIndex) => {
-              const index =
-                text
-                  .split(' ')
-                  .slice(0, wordIndex)
-                  .join('').length +
-                charIndex +
-                wordIndex;
-
-              return (
-                <motion.span
-                  key={`${wordIndex}-${charIndex}`}
-                  custom={index}
-                  variants={letterAnimation}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  className="inline-block"
-                >
-                  {char}
-                </motion.span>
-              );
-            })}
-
-            {/* SPACE */}
-            <span className="inline-block w-[0.35em]" />
-          </span>
+            {char}
+          </motion.span>
         ))}
       </span>
     );
   };
 
-  const features = [
-    {
-      icon: Leaf,
-      title: 'Nature-Based Solutions',
-      description:
-        'Afforestation, restoration and sustainable land-use programs driving measurable carbon impact.',
-      bg: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop',
-    },
-    {
-      icon: ShieldCheck,
-      title: 'High Integrity Projects',
-      description:
-        'Transparent methodologies aligned with global carbon standards and verification systems.',
-      bg: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200&auto=format&fit=crop',
-    },
-    {
-      icon: Globe,
-      title: 'Global Climate Impact',
-      description:
-        'Scaling projects that empower communities and accelerate transition to a low-carbon economy.',
-      bg: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop',
-    },
-  ];
-
   return (
-    <section className="relative overflow-hidden bg-[#071311]">
+    <section className="overflow-hidden bg-stone-50 py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
 
-      {/* HERO BANNER */}
-      <div className="relative min-h-[90vh] w-full">
-
-        {/* BACKGROUND IMAGE */}
-        <img
-          src={largefarm}
-          alt="Climate Solutions"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-
-        {/* DARK OVERLAY */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
-
-        {/* CONTENT */}
-        <div className="relative z-10 mx-auto flex min-h-[90vh] max-w-7xl items-center px-6 py-24">
-
+          {/* LEFT CONTENT */}
           <motion.div
-            initial={{ opacity: 0, y: 35 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            initial={{ x: -60, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.9,
+              ease: 'easeOut',
+            }}
+            className="max-w-2xl"
           >
 
             {/* LABEL */}
-            <div className="mb-5 text-sm font-semibold uppercase tracking-[0.25em] text-emerald-400">
+            <span className="mb-5 block text-sm font-semibold uppercase tracking-[0.22em] text-emerald-600">
               {renderLetters('About Ecoveda Climate')}
-            </div>
+            </span>
 
             {/* TITLE */}
-          <h1 className="mb-8 text-5xl font-extrabold leading-tight text-white md:text-6xl lg:text-7xl">
+            <h2 className="mb-7 text-4xl font-extrabold leading-[1.05] tracking-[-0.03em] text-slate-900 md:text-5xl xl:text-6xl">
+              <div>
+                {renderLetters('New Age Climate')}
+              </div>
 
-  <div className="block">
-    {renderLetters('New Age Climate')}
-  </div>
-
-  <div className="-mt-8 block text-emerald-400">
-    {renderLetters('Solution Provider')}
-  </div>
-
-</h1>
+              <div className="mt-2 text-emerald-600">
+                {renderLetters('Solution Provider')}
+              </div>
+            </h2>
 
             {/* DESCRIPTION */}
-            <p className="mb-6 text-lg leading-relaxed text-white/80 md:text-xl">
-              {renderLetters(
-                'Ecoveda Climate is a mission-driven global development organisation delivering sustainable solutions across the climate and carbon market landscape. Incorporated in November 2023, we operate as action-oriented carbon credit developers committed to empowering vulnerable and underserved communities worldwide.'
-              )}
-            </p>
+            <motion.p
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.8,
+                delay: 0.25,
+              }}
+              className="
+                mb-10
+                max-w-[640px]
+                text-[17px]
+                leading-[2]
+                tracking-[0.01em]
+                text-slate-600
+                md:text-[18px]
+                text-left
+              "
+            >
+              Ecoveda Climate is a mission-driven global development
+              organisation delivering sustainable solutions across the climate
+              and carbon market landscape. Incorporated in November 2023, we
+              operate as action-oriented carbon credit developers committed to
+              empowering vulnerable and underserved communities worldwide.
+            </motion.p>
 
-            <p className="max-w-2xl text-lg leading-relaxed text-white/65">
-              {renderLetters(
-                'Our work sits at the convergence of ecological science, financial structuring and regulatory strategy. We build scalable, community-centred programmes that drive a measurable transition to a low-carbon economy, delivering environmentally sound, socially equitable and economically viable development outcomes.'
-              )}
-            </p>
-
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/65">
-
-              {renderLetters(
-                'Our mission is to accelerate the global shift toward ecological preservation and climate resilience through carbon finance and collective action, with an ambition to reach over'
-              )}
-
-              <span className="font-semibold text-white">
-                {' '}
-                {renderLetters('100 million people')}
-              </span>
-
-              {renderLetters('and generate')}
-
-              <span className="font-semibold text-white">
-                {' '}
-                {renderLetters('1 billion+ carbon credits')}
-              </span>
-
-              {renderLetters('by 2030.')}
-
-            </p>
-
-            {/* CTA BUTTONS */}
+            {/* BUTTONS */}
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
                 duration: 0.8,
-                delay: 0.6,
+                delay: 0.4,
               }}
-              className="mt-10 flex flex-wrap gap-4"
+              className="flex flex-wrap gap-4"
             >
 
               {/* PRIMARY BUTTON */}
               <motion.a
                 href="#contact"
                 whileHover={{
-                  scale: 1.03,
+                  scale: 1.04,
                   y: -2,
                 }}
                 whileTap={{
-                  scale: 0.98,
+                  scale: 0.97,
                 }}
                 className="
                   group
@@ -202,13 +135,15 @@ export default function Intro() {
                   text-sm
                   font-semibold
                   text-white
+                  shadow-lg
+                  shadow-emerald-500/20
                   transition-all
                   duration-300
                   hover:bg-emerald-400
-                  hover:shadow-[0_0_30px_rgba(16,185,129,0.35)]
+                  hover:shadow-[0_0_35px_rgba(16,185,129,0.35)]
                 "
               >
-                {renderLetters('Get in Touch')}
+                Get in Touch
 
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </motion.a>
@@ -217,11 +152,11 @@ export default function Intro() {
               <motion.a
                 href="#projects"
                 whileHover={{
-                  scale: 1.03,
+                  scale: 1.04,
                   y: -2,
                 }}
                 whileTap={{
-                  scale: 0.98,
+                  scale: 0.97,
                 }}
                 className="
                   inline-flex
@@ -229,139 +164,79 @@ export default function Intro() {
                   gap-2
                   rounded-full
                   border
-                  border-white/20
-                  bg-white/5
+                  border-slate-300
+                  bg-white
                   px-7
                   py-3.5
                   text-sm
                   font-semibold
-                  text-white
+                  text-slate-700
                   transition-all
                   duration-300
-                  hover:border-emerald-400
-                  hover:bg-white/10
+                  hover:border-emerald-500
+                  hover:text-emerald-600
+                  hover:shadow-lg
                 "
               >
-                {renderLetters('Explore Our Work')}
+                Explore Our Work
               </motion.a>
 
             </motion.div>
           </motion.div>
-        </div>
-      </div>
 
-      {/* FEATURE CARDS */}
-      <div className="relative z-20 -mt-8 pb-24 md:-mt-12">
-        <div className="mx-auto max-w-7xl px-6">
-
+          {/* RIGHT IMAGE */}
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={{
-              hidden: {},
-              visible: {
-                transition: {
-                  staggerChildren: 0.15,
-                },
-              },
+            initial={{ x: 60, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.9,
+              ease: 'easeOut',
             }}
-            className="grid gap-5 md:grid-cols-2 xl:grid-cols-3"
+            className="relative flex justify-center lg:justify-end"
           >
 
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                variants={{
-                  hidden: {
-                    opacity: 0,
-                    y: 40,
-                  },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.6,
-                      ease: 'easeOut',
-                    },
-                  },
-                }}
+            {/* GLOW */}
+            <div className="absolute -inset-4 rounded-[32px] bg-emerald-500/10 blur-3xl" />
+
+            {/* IMAGE CARD */}
+            <div
+              className="
+                relative
+                w-full
+                max-w-[620px]
+                overflow-hidden
+                rounded-[28px]
+                bg-white
+                shadow-[0_25px_80px_rgba(15,23,42,0.18)]
+              "
+            >
+
+              {/* IMAGE */}
+              <img
+                src={baby}
+                alt="Baby"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 className="
-                  group
-                  relative
-                  min-h-[280px]
-                  overflow-hidden
-                  rounded-3xl
-                  border
-                  border-white/10
-                  bg-[#0b1c18]
-                  transition-all
-                  duration-300
-                  hover:-translate-y-1
-                  hover:border-emerald-400/30
-                  hover:shadow-xl
+                  h-[420px]
+                  w-full
+                  object-cover
+                  object-center
+                  transition-transform
+                  duration-[1800ms]
+                  ease-out
+                  hover:scale-105
+                  md:h-[500px]
+                  lg:h-[560px]
                 "
-              >
+              />
 
-                {/* IMAGE */}
-                <img
-                  src={feature.bg}
-                  alt={feature.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="
-                    absolute
-                    inset-0
-                    h-full
-                    w-full
-                    object-cover
-                    transition-transform
-                    duration-500
-                    group-hover:scale-105
-                  "
-                />
+              {/* OVERLAY */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
-                {/* OVERLAY */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/30" />
-
-                {/* CONTENT */}
-                <div className="relative z-10 flex h-full flex-col justify-end p-7 text-white">
-
-                  {/* ICON */}
-                  <div
-                    className="
-                      mb-5
-                      flex
-                      h-14
-                      w-14
-                      items-center
-                      justify-center
-                      rounded-2xl
-                      bg-emerald-500/20
-                      text-emerald-300
-                      transition-all
-                      duration-300
-                      group-hover:bg-emerald-500
-                      group-hover:text-white
-                    "
-                  >
-                    <feature.icon className="h-6 w-6" />
-                  </div>
-
-                  {/* TITLE */}
-                  <h4 className="mb-3 text-2xl font-bold leading-snug">
-                    {renderLetters(feature.title)}
-                  </h4>
-
-                  {/* DESCRIPTION */}
-                  <p className="leading-relaxed text-white/80">
-                    {renderLetters(feature.description)}
-                  </p>
-
-                </div>
-              </motion.div>
-            ))}
-
+            </div>
           </motion.div>
         </div>
       </div>

@@ -39,7 +39,7 @@ const renderAnimatedText = (text, className = '') => {
       {text.split(' ').map((word, wordIndex) => (
         <span
           key={wordIndex}
-          className="inline-block whitespace-nowrap align-baseline mr-[0.35em]"
+          className="mr-[0.35em] inline-block whitespace-nowrap align-baseline"
         >
           {word.split('').map((char, charIndex) => {
             const index = wordIndex * 20 + charIndex;
@@ -103,7 +103,6 @@ export default function LatinAmericaSection() {
 
   return (
     <section className="relative overflow-hidden bg-[#071311] py-20">
-
       {/* BACKGROUND GLOW */}
       <div className="absolute left-0 top-0 h-[350px] w-[350px] rounded-full bg-emerald-500/10 blur-3xl" />
       <div className="absolute bottom-0 right-0 h-[300px] w-[300px] rounded-full bg-amber-500/10 blur-3xl" />
@@ -118,7 +117,6 @@ export default function LatinAmericaSection() {
       />
 
       <div className="relative mx-auto max-w-7xl px-6">
-
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 35 }}
@@ -139,17 +137,15 @@ export default function LatinAmericaSection() {
 
           <p className="text-lg leading-relaxed text-white/70">
             {renderAnimatedText(
-              'Ecoveda Climate delivers carbon credit development, commercialisation, and consulting services to clients across Latin America through its regional presence in Mexico City. The region’s vast population, natural resources, and industrial base present extraordinary potential for greenhouse gas mitigation — complemented by its export linkages to North America and Europe that amplify supply chain abatement opportunities.'
+              'Ecoveda Climate delivers carbon credit development, commercialisation, and consulting services to clients across Latin America through its regional presence in Mexico City.'
             )}
           </p>
         </motion.div>
 
         {/* MAIN GRID */}
-        <div className="grid gap-10 lg:grid-cols-[1fr_340px]">
-
-          {/* ACCORDIONS */}
+        <div className="grid gap-10 lg:grid-cols-1">
+          {/* SERVICES */}
           <div className="space-y-5">
-
             <motion.div
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -190,7 +186,6 @@ export default function LatinAmericaSection() {
                     className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
                   >
                     <div className="flex items-center gap-4">
-
                       {/* ICON */}
                       <motion.div
                         whileHover={{ scale: 1.08 }}
@@ -252,75 +247,90 @@ export default function LatinAmericaSection() {
                       </motion.div>
                     )}
                   </AnimatePresence>
-
                 </motion.div>
               );
             })}
           </div>
 
-          {/* CONTACT CARD */}
+          {/* CONTACT SECTION */}
           <motion.div
-            initial={{ opacity: 0, x: 35 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="relative"
+            className="mt-10"
           >
-            <div className="lg:sticky lg:top-24">
+            <div className="overflow-hidden rounded-3xl border border-amber-400/20 bg-gradient-to-br from-[#0d1d1b] to-[#112724] p-8 shadow-[0_0_40px_rgba(0,0,0,0.35)]">
 
-              <div className="overflow-hidden rounded-3xl border border-amber-400/20 bg-gradient-to-br from-[#0d1d1b] to-[#112724] p-7 shadow-[0_0_40px_rgba(0,0,0,0.35)]">
+              {/* TOP AREA */}
+              <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
 
-                <span className="mb-3 inline-block rounded-full border border-amber-400/20 bg-amber-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-amber-300">
-                  {renderAnimatedText('Latin America Contact')}
-                </span>
+                {/* LEFT */}
+                <div>
+                  <span className="mb-4 inline-block rounded-full border border-amber-400/20 bg-amber-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-amber-300">
+                    {renderAnimatedText('Latin America Contact')}
+                  </span>
 
-                <h3 className="mb-2 text-2xl font-bold text-white">
-                  {renderAnimatedText('Javier Lascurain')}
-                </h3>
+                  <h3 className="mb-2 text-3xl font-bold text-white">
+                    {renderAnimatedText('Javier Lascurain')}
+                  </h3>
 
-                <p className="mb-6 font-medium text-emerald-300">
-                  {renderAnimatedText(
-                    'LatAm Representative and Senior Consultant'
-                  )}
-                </p>
+                  <p className="text-lg font-medium text-emerald-300">
+                    {renderAnimatedText(
+                      'LatAm Representative and Senior Consultant'
+                    )}
+                  </p>
+                </div>
 
-                <div className="space-y-5">
+                {/* RIGHT */}
+                
 
-                  {/* EMAIL */}
-                  <motion.div
-                    whileHover={{ x: 4 }}
-                    className="flex items-start gap-4"
-                  >
-                    <div className="mt-1 text-amber-300">
-                      <Mail size={18} />
+              </div>
+
+              {/* HORIZONTAL CONTACT CARDS */}
+              <div className="grid gap-6 md:grid-cols-3">
+
+                {/* EMAIL */}
+                <motion.div
+                  whileHover={{ y: -5 }}
+                  className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-all duration-300 hover:border-emerald-400/30 hover:bg-white/[0.06]"
+                >
+                  <div className="flex items-start gap-4">
+
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-amber-400/10 text-amber-300 transition-all duration-300 group-hover:bg-emerald-500 group-hover:text-white">
+                      <Mail size={22} />
                     </div>
 
-                    <div>
-                      <p className="mb-1 text-sm text-white/40">
-                        {renderAnimatedText('Email')}
+                    <div className="min-w-0">
+                      <p className="mb-2 text-sm uppercase tracking-wide text-white/40">
+                        Email
                       </p>
 
                       <a
                         href="mailto:Javier.lascurain@ecovedaclimate.com"
-                        className="transition-colors duration-300 hover:text-emerald-300 text-white break-all"
+                        className="break-all text-sm leading-relaxed text-white transition-colors duration-300 hover:text-emerald-300"
                       >
                         Javier.lascurain@ecovedaclimate.com
                       </a>
                     </div>
-                  </motion.div>
 
-                  {/* PHONE */}
-                  <motion.div
-                    whileHover={{ x: 4 }}
-                    className="flex items-start gap-4"
-                  >
-                    <div className="mt-1 text-amber-300">
-                      <Phone size={18} />
+                  </div>
+                </motion.div>
+
+                {/* PHONE */}
+                <motion.div
+                  whileHover={{ y: -5 }}
+                  className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-all duration-300 hover:border-emerald-400/30 hover:bg-white/[0.06]"
+                >
+                  <div className="flex items-start gap-4">
+
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-amber-400/10 text-amber-300 transition-all duration-300 group-hover:bg-emerald-500 group-hover:text-white">
+                      <Phone size={22} />
                     </div>
 
                     <div>
-                      <p className="mb-1 text-sm text-white/40">
-                        {renderAnimatedText('Telephone')}
+                      <p className="mb-2 text-sm uppercase tracking-wide text-white/40">
+                        Telephone
                       </p>
 
                       <a
@@ -330,48 +340,39 @@ export default function LatinAmericaSection() {
                         +52 (55) 2729-9360
                       </a>
                     </div>
-                  </motion.div>
 
-                  {/* LOCATION */}
-                  <motion.div
-                    whileHover={{ x: 4 }}
-                    className="flex items-start gap-4"
-                  >
-                    <div className="mt-1 text-amber-300">
-                      <MapPin size={18} />
+                  </div>
+                </motion.div>
+
+                {/* LOCATION */}
+                <motion.div
+                  whileHover={{ y: -5 }}
+                  className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-all duration-300 hover:border-emerald-400/30 hover:bg-white/[0.06]"
+                >
+                  <div className="flex items-start gap-4">
+
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-amber-400/10 text-amber-300 transition-all duration-300 group-hover:bg-emerald-500 group-hover:text-white">
+                      <MapPin size={22} />
                     </div>
 
                     <div>
-                      <p className="mb-1 text-sm text-white/40">
-                        {renderAnimatedText(
-                          'Regional Headquarters'
-                        )}
+                      <p className="mb-2 text-sm uppercase tracking-wide text-white/40">
+                        Headquarters
                       </p>
 
                       <p className="text-white">
-                        {renderAnimatedText('Mexico City, Mexico')}
+                        Mexico City, Mexico
                       </p>
                     </div>
-                  </motion.div>
 
-                </div>
-
-                {/* DIVIDER */}
-                <div className="mt-8 h-px w-full bg-gradient-to-r from-transparent via-amber-400/40 to-transparent" />
-
-                {/* FOOTER TEXT */}
-                <p className="mt-6 text-sm leading-relaxed text-white/55">
-                  {renderAnimatedText(
-                    'Supporting climate action, carbon finance, and industrial decarbonisation initiatives across Latin America.'
-                  )}
-                </p>
+                  </div>
+                </motion.div>
 
               </div>
             </div>
           </motion.div>
-
         </div>
       </div>
     </section>
   );
-}
+} 
